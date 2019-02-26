@@ -14,28 +14,28 @@
 							<ul class="pagination">
 
 								<c:if test="${indexPage > 1}">
-									<li class="page-item"><a href="/qlda/tieuthuc/1"
+									<li class="page-item"><a href="/tieuthuc/1"
 										class="page-link">First</a></li>
 								</c:if>
 
 
 								<c:if test="${indexPage > 1}">
 									<li class="page-item"><a
-										href="/qlda/tieuthuc/${indexPage-1}" class="page-link">${indexPage-1}</a></li>
+										href="/tieuthuc/${indexPage-1}" class="page-link">${indexPage-1}</a></li>
 								</c:if>
 
 
-								<li class="page-item"><a href="/qlda/tieuthuc/${indexPage}"
+								<li class="page-item"><a href="/tieuthuc/${indexPage}"
 									class="page-link">${indexPage}</a></li>
 
 
 								<c:if test="${indexPage < allPage}">
 									<li class="page-item"><a
-										href="/qlda/tieuthuc/${indexPage+1}" class="page-link">${indexPage+1}</a></li>
+										href="/tieuthuc/${indexPage+1}" class="page-link">${indexPage+1}</a></li>
 								</c:if>
 
 								<c:if test="${indexPage < allPage}">
-									<li class="page-item"><a href="/qlda/tieuthuc/${allPage}"
+									<li class="page-item"><a href="/tieuthuc/${allPage}"
 										class="page-link">Last</a></li>
 								</c:if>
 
@@ -63,9 +63,9 @@
 										<td>${emp.maTieuThuc}</td>
 										<td>${emp.tenTieuThuc}</td>
 										<td><a
-											href="/qlda/tieuthuc/edittieuthuc/${emp.id}"
+											href="/tieuthuc/edittieuthuc/${emp.id}"
 											class="btn btn-primary">edit</a> <a
-											href="/qlda/tieuthuc/deletetieuthuc/${emp.id}"
+											href="/tieuthuc/deletetieuthuc/${emp.id}"
 											class="btn btn-danger">delete</a></td>
 									</tr>
 								</c:forEach>

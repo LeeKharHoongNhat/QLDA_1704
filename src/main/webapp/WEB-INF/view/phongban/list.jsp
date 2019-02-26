@@ -14,28 +14,28 @@
 							<ul class="pagination">
 
 								<c:if test="${indexPage > 1}">
-									<li class="page-item"><a href="/qlda/phongban/1"
+									<li class="page-item"><a href="/phongban/1"
 										class="page-link">First</a></li>
 								</c:if>
 
 
 								<c:if test="${indexPage > 1}">
 									<li class="page-item"><a
-										href="/qlda/phongban/${indexPage-1}" class="page-link">${indexPage-1}</a></li>
+										href="/phongban/${indexPage-1}" class="page-link">${indexPage-1}</a></li>
 								</c:if>
 
 
-								<li class="page-item"><a href="/qlda/phongban/${indexPage}"
+								<li class="page-item"><a href="/phongban/${indexPage}"
 									class="page-link">${indexPage}</a></li>
 
 
 								<c:if test="${indexPage < allPage}">
 									<li class="page-item"><a
-										href="/qlda/phongban/${indexPage+1}" class="page-link">${indexPage+1}</a></li>
+										href="/phongban/${indexPage+1}" class="page-link">${indexPage+1}</a></li>
 								</c:if>
 
 								<c:if test="${indexPage < allPage}">
-									<li class="page-item"><a href="/qlda/phongban/${allPage}"
+									<li class="page-item"><a href="/phongban/${allPage}"
 										class="page-link">Last</a></li>
 								</c:if>
 
@@ -63,9 +63,9 @@
 										<td>${emp.maPhongBan}</td>
 										<td>${emp.tenPhongBan}</td>
 										<td><a
-											href="/qlda/phongban/editphongban/${emp.maPhongBan}"
+											href="/phongban/editphongban/${emp.maPhongBan}"
 											class="btn btn-primary">edit</a> <a
-											href="/qlda/phongban/deletephongban/${emp.maPhongBan}"
+											href="/phongban/deletephongban/${emp.maPhongBan}"
 											class="btn btn-danger">delete</a></td>
 									</tr>
 								</c:forEach>

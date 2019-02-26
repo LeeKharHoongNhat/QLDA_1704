@@ -19,7 +19,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ffse1704.model.PhongBan;
 import com.ffse1704.service.PhongBanService;
 
-
+/**
+ * @author KhaNhat
+ *
+ */
 @Controller
 @RequestMapping("/phongban")
 public class PhongBanController {

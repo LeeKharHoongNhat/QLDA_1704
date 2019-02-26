@@ -38,7 +38,7 @@ public class TieuThucController {
 	@RequestMapping("/{page}")
 	public String list(@PathVariable int page, Model model) throws SQLException {
 		int allItem = tieuThucService.getRecordsTotalMaChaNull();
-		int reCordInPage = 2;
+		int reCordInPage = 5;
 		double pageTotal = allItem / reCordInPage + ((allItem % reCordInPage) == 0 ? 0 : 1);
 		int total = (int) pageTotal;
 		int start = (page * (int) reCordInPage) - (int) reCordInPage;
@@ -112,5 +112,15 @@ public class TieuThucController {
 	public String deleteTieuThuc(@ModelAttribute("command") TieuThuc tieuThuc) {
 		tieuThucService.delete(tieuThuc.getId());;
 		return "redirect:/tieuthuc/1";
+	}
+	
+	@RequestMapping(value = "/")
+	public String listTieuThucCha(Model model) {
+		List<TieuThuc> listTieuThucCha = tieuThucService.getListTieuThucByMaChaNull();
+		for (int i = 0; i < listTieuThucCha.size(); i++) {
+			System.out.println(listTieuThucCha.get(i).getTenTieuThuc());
+		}
+		model.addAttribute("listTieuThucCha", listTieuThucCha);
+		return "templates/header";
 	}
 }

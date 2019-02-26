@@ -231,16 +231,16 @@ td:nth-child(even) {
 
 					<!-- start home  -->
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/home"/>"> <span class="menu-title">Home</span>
+						href="<c:url value="/"/>"> <span class="menu-title">Home</span>
 							<i class="mdi mdi-home menu-icon"></i>
 					</a></li>
 					<!-- end home -->
-					
+
 
 					<!-- start phong ban  -->
 					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href=" #ui-basic"> <span
-							class="menu-title">Phòng ban</span> <i class="menu-arrow" ></i> <i
+							class="menu-title">Phòng ban</span> <i class="menu-arrow"></i> <i
 							class="mdi mdi-crosshairs-gps menu-icon"></i>
 					</a>
 						<div class="collapse" id="ui-basic">
@@ -252,13 +252,19 @@ td:nth-child(even) {
 							</ul>
 						</div></li>
 					<!-- end phong ban  -->
-					
-					
+
+
 					<!-- start tieu thuc  -->
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/tieuthuc/1"/>"> <span class="menu-title">Tiêu thức</span>
-							<i class="mdi mdi-format-list-bulleted menu-icon"></i>
-					</a></li>
+						href="<c:url value="/tieuthuc/1"/>"> <span class="menu-title">Tiêu
+								thức</span> <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+					</a>
+						<ul>
+							<c:forEach var="emp" items="${listTieuThucCha}">
+								<li>${emp.tenTieuThuc}</li>
+							</c:forEach>
+
+						</ul></li>
 					<!-- end tieu thuc  -->
 				</ul>
 			</nav>

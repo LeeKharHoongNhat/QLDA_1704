@@ -113,4 +113,14 @@ public class TieuThucServiceImpl implements TieuThucService {
 		return this.tieuThucDao.getRecordsByIdTieuThuc(id);
 	}
 
+	@Override
+	public List<TieuThuc> getListTieuThucByMaCha(String maCha) {
+		return this.tieuThucDao.getListTieuThucByMaCha(maCha);
+	}
+
+	@Override
+	public List<TieuThuc> getListTieuThucByMaChaNull() {
+		return this.tieuThucDao.getListTieuThucByMaChaNull();
+	}
+
 }

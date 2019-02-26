@@ -124,4 +124,20 @@ public class TieuThucDaoImpl implements TieuThucDao {
 		return rowCount;
 	}
 
+	@Override
+	public List<TieuThuc> getListTieuThucByMaCha(String maCha) {
+		Session session = sessionFactory.getCurrentSession();
+		List<TieuThuc> listTieuThucCon = session.createQuery("from TieuThuc  where maCha = '" + maCha + "'", TieuThuc.class)
+				.list();
+		return listTieuThucCon;
+	}
+
+	@Override
+	public List<TieuThuc> getListTieuThucByMaChaNull() {
+		Session session = sessionFactory.getCurrentSession();
+		List<TieuThuc> listTieuThucMaChaNull = session.createQuery("from TieuThuc tt where tt.maCha = '"+"'", TieuThuc.class)
+				.list();
+		return listTieuThucMaChaNull;
+	}
+
 }

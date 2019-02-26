@@ -20,6 +20,10 @@ public interface TieuThucService {
 	public void delete(int id);
 
 	public TieuThuc getTieuThucByIdTieuThuc(String id);
+	
+	public List<TieuThuc> getListTieuThucByMaCha(String maCha);
+	
+	public List<TieuThuc> getListTieuThucByMaChaNull();
 
 	public List<TieuThuc> listTieuThuc(int iDisplayStart, int iDisplayLength);
 
