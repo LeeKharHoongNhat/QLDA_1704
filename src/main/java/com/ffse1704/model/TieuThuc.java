@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -30,6 +31,7 @@ public class TieuThuc implements Serializable {
 	
 	@Column(name = "ma_cha", nullable = false, length = 11)
 	private String maCha;
+	
 	
 	public TieuThuc() {
 	}

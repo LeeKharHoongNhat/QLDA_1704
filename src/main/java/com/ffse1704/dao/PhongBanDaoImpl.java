@@ -7,23 +7,18 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 
 import com.ffse1704.model.PhongBan;
 
 
-@Service
+@Repository
 public class PhongBanDaoImpl implements PhongBanDao {
 	
 	
-	private SessionFactory sessionFactory;
+	private final SessionFactory sessionFactory;
 
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-	
 	@Autowired
-	public void setSessionFactory(SessionFactory sessionFactory) {
+	public PhongBanDaoImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 

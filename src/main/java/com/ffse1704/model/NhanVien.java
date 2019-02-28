@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -65,16 +66,20 @@ public class NhanVien implements Serializable {
 	@Column(name = "ma_chuc_danh")
 	private String maChucDanh;
 
-	@ManyToOne
-	@JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false)
-	private TieuThuc tieuThucChucDanh;
 
 	@Column(name = "ma_loai_hop_dong")
 	private String maLoaiHopDong;
 
+	
+	@Column(name = "ma_trang_thai")
+	private String maTrangThai;
+
 	@ManyToOne
-	@JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false)
-	private TieuThuc tieuThucLoaiHopDong;
+	@JoinColumns({@JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false),
+		@JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false),
+		@JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false)})
+	private TieuThuc tieuThucTrangThai;
+
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -87,13 +92,6 @@ public class NhanVien implements Serializable {
 	@Column(name = "ngay_ket_thuc_hop_dong")
 	@NotNull(message = "Vui Lòng Nhập ngày")
 	private Date ngayKetThucHopDong;
-
-	@Column(name = "ma_trang_thai")
-	private String maTrangThai;
-
-	@ManyToOne
-	@JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false)
-	private TieuThuc tieuThucTrangThai;
 
 	@Column(name = "pass_word")
 	@NotEmpty(message = "Vui Lòng Nhập mật khẩu")
@@ -187,14 +185,6 @@ public class NhanVien implements Serializable {
 		this.maChucDanh = maChucDanh;
 	}
 
-	public TieuThuc getTieuThucChucDanh() {
-		return tieuThucChucDanh;
-	}
-
-	public void setTieuThucChucDanh(TieuThuc tieuThucChucDanh) {
-		this.tieuThucChucDanh = tieuThucChucDanh;
-	}
-
 	public String getMaLoaiHopDong() {
 		return maLoaiHopDong;
 	}
@@ -203,13 +193,6 @@ public class NhanVien implements Serializable {
 		this.maLoaiHopDong = maLoaiHopDong;
 	}
 
-	public TieuThuc getTieuThucLoaiHopDong() {
-		return tieuThucLoaiHopDong;
-	}
-
-	public void setTieuThucLoaiHopDong(TieuThuc tieuThucLoaiHopDong) {
-		this.tieuThucLoaiHopDong = tieuThucLoaiHopDong;
-	}
 
 	public Date getNgayBatDauHopDong() {
 		return ngayBatDauHopDong;
