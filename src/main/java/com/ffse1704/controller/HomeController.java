@@ -18,14 +18,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String viewHome() {
-		List<NhanVien> listNhanVien = nhanVienDao.listNhanVien();
-		LOGGER.debug("----------------home-------------");
-		LOGGER.debug(listNhanVien.toString());
 		return "home";
 	}
-	
-	
-	@Autowired
-	private NhanVienDao nhanVienDao;
 	
 }
