@@ -20,6 +20,6 @@ public class TestController {
 	public String test( Model model){
 		List<NhanVien> list = nhanVienDao.listNhanVien();
 		model.addAttribute("list",list);
-		return null;
+		return "test";
 	}
 }

@@ -24,14 +24,6 @@ public class TieuThucServiceImpl implements TieuThucService {
 	@Autowired
 	private TieuThucDao tieuThucDao;
 
-	public TieuThucDao getTieuThucDao() {
-		return tieuThucDao;
-	}
-
-	public void setTieuThucDao(TieuThucDao tieuThucDao) {
-		this.tieuThucDao = tieuThucDao;
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 

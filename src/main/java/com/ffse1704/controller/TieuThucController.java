@@ -38,7 +38,7 @@ public class TieuThucController {
 	@RequestMapping("/{page}")
 	public String list(@PathVariable int page, Model model) throws SQLException {
 		int allItem = tieuThucService.getRecordsTotalMaChaNull();
-		int reCordInPage = 5;
+		int reCordInPage = 2;
 		double pageTotal = allItem / reCordInPage + ((allItem % reCordInPage) == 0 ? 0 : 1);
 		int total = (int) pageTotal;
 		int start = (page * (int) reCordInPage) - (int) reCordInPage;

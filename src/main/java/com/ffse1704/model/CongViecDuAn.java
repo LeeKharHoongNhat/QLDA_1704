@@ -19,11 +19,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class CongViecDuAn implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@Column(name = "id")
+	private int id;
+	
+	
 	@Column(name = "ma_du_an", unique = true, nullable = false)
 	@NotEmpty(message = "không được để trống!")
 	private String maDuAn;
 	
-	@Id
+	
 	@Column(name = "ma_cong_viec", unique = true, nullable = false)
 	@NotEmpty(message = "không được để trống!")
 	private String maCongViec;
@@ -64,6 +69,14 @@ public class CongViecDuAn implements Serializable{
 	
 	@Column(name = "ma_trang_thai", nullable = false)
 	private String maTrangThai;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getMaDuAn() {
 		return maDuAn;
