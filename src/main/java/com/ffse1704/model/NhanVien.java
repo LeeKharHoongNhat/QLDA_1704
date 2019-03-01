@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -74,11 +73,11 @@ public class NhanVien implements Serializable {
 	@Column(name = "ma_trang_thai")
 	private String maTrangThai;
 
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumns({@JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false),
 		@JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false),
 		@JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false)})
-	private TieuThuc tieuThucTrangThai;
+	private TieuThuc tieuThucTrangThai;*/
 
 
 	@Temporal(TemporalType.DATE)
@@ -216,14 +215,6 @@ public class NhanVien implements Serializable {
 
 	public void setMaTrangThai(String maTrangThai) {
 		this.maTrangThai = maTrangThai;
-	}
-
-	public TieuThuc getTieuThucTrangThai() {
-		return tieuThucTrangThai;
-	}
-
-	public void setTieuThucTrangThai(TieuThuc tieuThucTrangThai) {
-		this.tieuThucTrangThai = tieuThucTrangThai;
 	}
 
 	public String getPassWord() {

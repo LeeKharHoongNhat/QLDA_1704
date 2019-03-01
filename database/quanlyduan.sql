@@ -2,10 +2,10 @@
 -- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Client: 127.0.0.1
--- Généré le: Jeu 28 Février 2019 à 13:52
--- Version du serveur: 5.6.11
--- Version de PHP: 5.5.3
+-- Host: 127.0.0.1
+-- Generation Time: Mar 01, 2019 at 03:44 AM
+-- Server version: 5.6.11
+-- PHP Version: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données: `quanlyduan`
+-- Database: `quanlyduan`
 --
 CREATE DATABASE IF NOT EXISTS `quanlyduan` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `quanlyduan`;
@@ -25,7 +25,34 @@ USE `quanlyduan`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `danh_muc_du_an`
+-- Table structure for table `cong_viec_du_an`
+--
+
+CREATE TABLE IF NOT EXISTS `cong_viec_du_an` (
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_cong_viec` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noi_dung` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_cha` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ngay_bat_dau_du_kien` date NOT NULL,
+  `ngay_ket_thuc_du_kien` date NOT NULL,
+  `ngay_bat_dau_thuc_te` date NOT NULL,
+  `ngay_ket_thuc_thuc_te` date NOT NULL,
+  `ma_trang_thai` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `cong_viec_du_an`
+--
+
+INSERT INTO `cong_viec_du_an` (`ma_du_an`, `ma_cong_viec`, `noi_dung`, `ma_cha`, `ma_nhan_vien`, `ngay_bat_dau_du_kien`, `ngay_ket_thuc_du_kien`, `ngay_bat_dau_thuc_te`, `ngay_ket_thuc_thuc_te`, `ma_trang_thai`) VALUES
+('DA001', 'CV1', 'Xây dựng database', '0', 'NV001', '2019-03-01', '2019-03-10', '2019-03-01', '2019-03-10', 'TTCV1'),
+('DA001', 'CV1A', 'Lên database khách hàng', 'CV1', 'NV001', '2019-03-01', '2019-03-01', '2019-03-01', '2019-03-01', 'TTCV1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `danh_muc_du_an`
 --
 
 CREATE TABLE IF NOT EXISTS `danh_muc_du_an` (
@@ -36,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `danh_muc_du_an` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `danh_muc_tieu_thuc`
+-- Table structure for table `danh_muc_tieu_thuc`
 --
 
 CREATE TABLE IF NOT EXISTS `danh_muc_tieu_thuc` (
@@ -48,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `danh_muc_tieu_thuc` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
--- Contenu de la table `danh_muc_tieu_thuc`
+-- Dumping data for table `danh_muc_tieu_thuc`
 --
 
 INSERT INTO `danh_muc_tieu_thuc` (`id`, `ma_tieu_thuc`, `ten_tieu_thuc`, `ma_cha`) VALUES
@@ -71,7 +98,7 @@ INSERT INTO `danh_muc_tieu_thuc` (`id`, `ma_tieu_thuc`, `ten_tieu_thuc`, `ma_cha
 -- --------------------------------------------------------
 
 --
--- Structure de la table `khach_hang`
+-- Table structure for table `khach_hang`
 --
 
 CREATE TABLE IF NOT EXISTS `khach_hang` (
@@ -86,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `khach_hang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `khach_hang`
+-- Dumping data for table `khach_hang`
 --
 
 INSERT INTO `khach_hang` (`ma_khach_hang`, `ten_khach_hang`, `dia_chi`, `sdt_khach_hang`, `email`, `ma_so_thue`, `so_tai_khoan`, `ghi_chu`) VALUES
@@ -96,7 +123,7 @@ INSERT INTO `khach_hang` (`ma_khach_hang`, `ten_khach_hang`, `dia_chi`, `sdt_kha
 -- --------------------------------------------------------
 
 --
--- Structure de la table `nhan_vien`
+-- Table structure for table `nhan_vien`
 --
 
 CREATE TABLE IF NOT EXISTS `nhan_vien` (
@@ -119,7 +146,7 @@ CREATE TABLE IF NOT EXISTS `nhan_vien` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `nhan_vien`
+-- Dumping data for table `nhan_vien`
 --
 
 INSERT INTO `nhan_vien` (`ma_nhan_vien`, `ho_ten`, `gioi_tinh`, `so_chung_minh_thu`, `dia_chi`, `so_dien_thoai`, `email`, `hinh_anh`, `ma_phong_ban`, `ma_chuc_danh`, `ma_loai_hop_dong`, `ngay_bat_dau_hop_dong`, `ngay_ket_thuc_hop_dong`, `ma_trang_thai`, `pass_word`) VALUES
@@ -128,7 +155,7 @@ INSERT INTO `nhan_vien` (`ma_nhan_vien`, `ho_ten`, `gioi_tinh`, `so_chung_minh_t
 -- --------------------------------------------------------
 
 --
--- Structure de la table `phong_ban`
+-- Table structure for table `phong_ban`
 --
 
 CREATE TABLE IF NOT EXISTS `phong_ban` (
@@ -138,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `phong_ban` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Contenu de la table `phong_ban`
+-- Dumping data for table `phong_ban`
 --
 
 INSERT INTO `phong_ban` (`ma_phong_ban`, `ten_phong_ban`) VALUES
@@ -148,6 +175,55 @@ INSERT INTO `phong_ban` (`ma_phong_ban`, `ten_phong_ban`) VALUES
 ('PGD', 'Phòng Giám Đốc'),
 ('PKT', 'Phòng Kế Toán'),
 ('PNS', 'Phòng Nhân Sự');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `thong_tin_du_an`
+--
+
+CREATE TABLE IF NOT EXISTS `thong_tin_du_an` (
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ten_du_an` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_khach_hang` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_phong_ban` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_nhan_vien_pm` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ngay_bat_dau` date NOT NULL,
+  `ngay_ket_thuc` date NOT NULL,
+  `ngay_ban_giao` date NOT NULL,
+  `gia_tri_hop_dong` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `da_thanh_toan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_trang_thai` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `thong_tin_du_an`
+--
+
+INSERT INTO `thong_tin_du_an` (`ma_du_an`, `ten_du_an`, `ma_khach_hang`, `ma_phong_ban`, `ma_nhan_vien_pm`, `ngay_bat_dau`, `ngay_ket_thuc`, `ngay_ban_giao`, `gia_tri_hop_dong`, `da_thanh_toan`, `ma_trang_thai`) VALUES
+('DA001', 'Quản lý hệ thống công ty phần mềm VCL', 'KH001', 'PDA1', 'NV001', '2019-03-01', '2019-03-31', '2019-04-10', '1 000 000 USD', '250 000 USD', 'TTDA1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tien_do_du_an`
+--
+
+CREATE TABLE IF NOT EXISTS `tien_do_du_an` (
+  `ma_cong_viec` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noi_dung` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `danh_gia_nhan_vien` int(3) NOT NULL,
+  `danh_gia_pm` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tien_do_du_an`
+--
+
+INSERT INTO `tien_do_du_an` (`ma_cong_viec`, `ma_nhan_vien`, `noi_dung`, `danh_gia_nhan_vien`, `danh_gia_pm`) VALUES
+('CV1', 'NV001', 'Xây dựng toàn bộ database dự án. tiến độ đúng hạn', 10, 5),
+('CV1A', 'NV001', 'xây dựng database khách hàng hoàn thành', 100, 100);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
