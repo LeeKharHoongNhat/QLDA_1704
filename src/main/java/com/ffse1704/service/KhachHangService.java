@@ -17,7 +17,7 @@ public interface KhachHangService {
 
 	public void update(KhachHang kh);
 
-	public void delete(String maKhachHang);
+	void delete(KhachHang maKhachHang);
 
 	public KhachHang getKhachHangbyIdKhachHang(String maKhachHang);
 
@@ -27,6 +27,6 @@ public interface KhachHangService {
 
 	public int getRecordsByIdPKhachHang(String maKhachHang);
 
-
+	
 
 }

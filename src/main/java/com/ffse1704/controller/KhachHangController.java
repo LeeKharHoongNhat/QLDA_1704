@@ -106,8 +106,7 @@ public class KhachHangController {
 
 	@RequestMapping(value = "/submitdeletekhachhang", method = RequestMethod.POST)
 	public String deleteKhachHang(@ModelAttribute("command") KhachHang khachHang) {
-		khachHangService.delete(khachHang.getMaKhachHang());
-		;
+		khachHangService.delete(khachHang);
 		return "redirect:/khachhang/1";
 	}
 
