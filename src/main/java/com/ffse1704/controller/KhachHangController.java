@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ffse1704.dao.KhachHangDao;
 import com.ffse1704.model.KhachHang;
@@ -67,7 +68,7 @@ public class KhachHangController {
 			if (searchKhachHang == 0) {
 				khachHangService.addNew(khachHang);
 			} else {
-				String mess = "MÃ£ khÃ¡ch hÃ ng tá»“i táº¡i";
+				String mess = "Mã khách hàng đã tồn tại";
 				model.addAttribute("mess", mess);
 				return "khachhang/add";
 			}
@@ -76,7 +77,9 @@ public class KhachHangController {
 	}
 
 	/*
-	 * edit KhachHang# get KhachHang by id# update KhachHang by id
+	 * edit KhachHang# 
+	 * get KhachHang by id# 
+	 * update KhachHang by id
 	 */
 	@RequestMapping(value = "/editkhachhang/{idKhachHang}")
 	public String viewEditKhachHang(@PathVariable String idKhachHang, Model model) {
@@ -98,7 +101,9 @@ public class KhachHangController {
 	}
 
 	/*
-	 * delete KhachHang# get KhachHang by id# delete KhachHang by id
+	 * delete KhachHang# 
+	 * get KhachHang by id# 
+	 * delete KhachHang by id
 	 */
 	@RequestMapping(value = "/deletekhachhang/{idKhachHang}")
 	public String viewDeleteKhachHang(@PathVariable String idKhachHang, Model model) {
@@ -108,9 +113,16 @@ public class KhachHangController {
 	}
 
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String deleteKhachHang(@RequestParam("maKhachHang") String maKH) {
+	public String deleteKhachHang(@RequestParam("maKhachHang") String maKH, RedirectAttributes redirect) {
 		KhachHang khachHang = khachHangService.getById(maKH);
-		khachHangService.delete(khachHang);
+		boolean result = khachHangService.delete(khachHang);
+		String msg = null;
+		if (result) {
+			msg = "Đã xóa " + khachHang.getTenKhachHang() + " thành công!";
+		} else {
+			msg = "Đã xóa " + khachHang.getTenKhachHang() + " thất bại!";
+		}
+		redirect.addFlashAttribute("msg", msg);
 		return "redirect:/khachhang/1";
 	}
 

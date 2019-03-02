@@ -56,8 +56,15 @@ public class KhachHangServiceImpl implements KhachHangService {
 	 */
 	@Override
 	@Transactional
-	public void delete(KhachHang maKhachHang) {
-		this.khachHangDao.delete(maKhachHang);;
+	public boolean delete(KhachHang maKhachHang) {
+		boolean flag = false;
+		try {
+			this.khachHangDao.delete(maKhachHang);
+			flag = true;
+		} catch (Exception e) {
+			flag = false;
+		}
+		return flag;
 
 	}
 

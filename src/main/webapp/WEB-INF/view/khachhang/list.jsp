@@ -50,8 +50,9 @@
 						<div role="group" aria-label="Button group with nested dropdown"
 							class="btn-group float-md-right " id="add-new"
 							style="margin-bottom: 10px; float: left !important">
-							<h4 style="margin-top: 20px;" class="text-success">delete
-								success!</h4>
+							<h4  style="margin-top: 20px;" class="text-success">
+							${msg != null ? msg : ''}
+							delete success!</h4>
 						</div>
 
 					</div>
@@ -77,7 +78,7 @@
 									<td><a href="/khachhang/editkhachhang/${emp.maKhachHang}"
 										class="btn btn-primary">edit</a> <a
 										onclick="deleteKhachHang('${emp.maKhachHang}')"
-										class="btn btn-danger">delete</a></td>
+										class="btn btn-danger" style="color: white;!improtant">delete</a></td>
 								</tr>
 							</c:forEach>
 							<!-- The Modal -->
