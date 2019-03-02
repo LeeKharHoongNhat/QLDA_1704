@@ -30,16 +30,8 @@ import com.ffse1704.service.KhachHangService;
 @RequestMapping("/khachhang")
 public class KhachHangController {
 
-	private KhachHangService khachHangService;
-
-	public KhachHangService getKhachHangService() {
-		return khachHangService;
-	}
-
 	@Autowired
-	public void setKhachHangService(KhachHangService khachHangService) {
-		this.khachHangService = khachHangService;
-	}
+	private KhachHangService khachHangService;
 
 	/* list KhachHang */
 	@RequestMapping("/{page}")
@@ -81,9 +73,7 @@ public class KhachHangController {
 	}
 
 	/*
-	 * edit KhachHang# 
-	 * get KhachHang by id# 
-	 * update KhachHang by id
+	 * edit KhachHang# get KhachHang by id# update KhachHang by id
 	 */
 	@RequestMapping(value = "/editkhachhang/{idKhachHang}")
 	public String viewEditKhachHang(@PathVariable String idKhachHang, Model model) {
@@ -105,9 +95,7 @@ public class KhachHangController {
 	}
 
 	/*
-	 * delete KhachHang# 
-	 * get KhachHang by id# 
-	 * delete KhachHang by id
+	 * delete KhachHang# get KhachHang by id# delete KhachHang by id
 	 */
 	@RequestMapping(value = "/deletekhachhang/{idKhachHang}")
 	public String viewDeleteKhachHang(@PathVariable String idKhachHang, Model model) {
