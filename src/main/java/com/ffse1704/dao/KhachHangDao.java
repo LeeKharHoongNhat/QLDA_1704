@@ -11,13 +11,9 @@ import com.ffse1704.model.KhachHang;
  * @author QuangDai
  *
  */
-public interface KhachHangDao {
+public interface KhachHangDao extends RepositoryDao<KhachHang, String> {
 	
 	public void addNew(KhachHang kh);
-
-	public void update(KhachHang kh);
-
-	public void delete(String maKhachHang);
 
 	public KhachHang getKhachHangbyIdKhachHang(String maKhachHang);
 
@@ -26,5 +22,8 @@ public interface KhachHangDao {
 	public int getRecordsTotal();
 
 	public int getRecordsByIdPKhachHang(String maKhachHang);
+	
+	
+	
 
 }

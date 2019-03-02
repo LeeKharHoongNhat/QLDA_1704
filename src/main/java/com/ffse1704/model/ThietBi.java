@@ -20,7 +20,7 @@ public class ThietBi implements Serializable {
 
 	@Id
 	@Column(name = "id")
-	private int id;
+	private Integer id;
 
 	@Column(name = "ma_cong_viec")
 	private String maCongViec;
@@ -56,11 +56,11 @@ public class ThietBi implements Serializable {
 	@Column(name = "IsActive")
 	private int isActive;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

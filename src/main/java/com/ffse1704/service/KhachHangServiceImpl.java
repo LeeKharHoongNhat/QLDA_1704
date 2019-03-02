@@ -56,8 +56,8 @@ public class KhachHangServiceImpl implements KhachHangService {
 	 */
 	@Override
 	@Transactional
-	public void delete(String maKhachHang) {
-		this.khachHangDao.delete(maKhachHang);
+	public void delete(KhachHang maKhachHang) {
+		this.khachHangDao.delete(maKhachHang);;
 
 	}
 

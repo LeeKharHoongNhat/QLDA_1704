@@ -26,6 +26,7 @@ public class KhachHang implements Serializable{
 	@NotEmpty(message = "không được để trống!")
 	private String maKhachHang;
 	
+	
 	@NotEmpty(message = "Vui lòng nhập họ tên của khách hàng")
 	@Column(name = "ten_khach_hang", nullable = false, length = 50)
 	private String tenKhachHang;

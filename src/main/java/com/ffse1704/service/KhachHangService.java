@@ -27,4 +27,6 @@ public interface KhachHangService {
 
 	public int getRecordsByIdPKhachHang(String maKhachHang);
 
+
+
 }
