@@ -266,5 +266,13 @@ td:nth-child(even) {
 
 						</ul></li>
 					<!-- end tieu thuc  -->
+
+
+					<!-- start khach hang  -->
+					<li class="nav-item"><a class="nav-link"
+						href="<c:url value="/khachhang/1"/>"> <span class="menu-title">Khách
+								Hàng</span> <i class="mdi mdi-contacts menu-icon"></i>
+					</a></li>
+					<!-- end khach hang  -->
 				</ul>
 			</nav>
