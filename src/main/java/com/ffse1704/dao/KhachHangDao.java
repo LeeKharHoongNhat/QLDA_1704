@@ -12,15 +12,11 @@ import com.ffse1704.model.KhachHang;
  *
  */
 public interface KhachHangDao extends RepositoryDao<KhachHang, String> {
-	
 
 	public List<KhachHang> listKhachHang(int iDisplayStart, int iDisplayLength);
 
 	public int getRecordsTotal();
 
 	public int getRecordsByIdPKhachHang(String maKhachHang);
-	
-	
-	
 
 }

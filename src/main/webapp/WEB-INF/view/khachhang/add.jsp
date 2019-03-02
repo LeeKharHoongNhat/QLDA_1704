@@ -13,7 +13,7 @@
 					<div class="content-header-right ">
 						<div role="group" aria-label="Button group with nested dropdown"
 							class="btn-group float-md-right " id="add-new">
-							<a href="<c:url value = "1"/>" class="btn btn-info"><span
+							<a href="<c:url value = "/khachhang/1"/>" class="btn btn-info"><span
 								class="fa fa-plus"></span>Back</a>
 						</div>
 					</div>
@@ -58,7 +58,6 @@
 						<div class="form-group">
 							<label for="exampleInput8">Ghi chú</label>
 							<textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-							<form:input path="ghiChu" class="form-control" />
 						</div>
 						<button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
 						<button class="btn btn-light" type="reset">Cancel</button>

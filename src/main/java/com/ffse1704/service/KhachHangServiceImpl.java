@@ -66,7 +66,7 @@ public class KhachHangServiceImpl implements KhachHangService {
 	 */
 	@Override
 	@Transactional
-	public KhachHang getKhachHangbyIdKhachHang(String maKhachHang) {
+	public KhachHang getById(String maKhachHang) {
 		return this.khachHangDao.findById(maKhachHang);
 	}
 

@@ -19,14 +19,12 @@ public interface KhachHangService {
 
 	void delete(KhachHang maKhachHang);
 
-	public KhachHang getKhachHangbyIdKhachHang(String maKhachHang);
+	public KhachHang getById(String maKhachHang);
 
 	public List<KhachHang> listKhachHang(int iDisplayStart, int iDisplayLength);
 
 	public int getRecordsTotal();
 
 	public int getRecordsByIdPKhachHang(String maKhachHang);
-
-	
 
 }

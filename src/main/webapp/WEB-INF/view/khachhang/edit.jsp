@@ -11,14 +11,14 @@
 					<h4 class="card-title">Sửa thông tin khách hàng</h4>
 					<div class="content-header-right ">
 						<div role="group" aria-label="Button group with nested dropdown"
-							class="btn-group float-md-right ">
+							class="btn-group float-md-right "">
 							<a href="<c:url value = "/khachhang/1"/>" class="btn btn-info"><span
 								class="fa fa-plus"></span>Back</a>
 						</div>
 
 					</div>
 					<form:form class="forms-sample" method="post"
-						action="qlda/khachhang/editsavekhachhang">
+						action="/khachhang/editsavekhachhang">
 						<div class="form-group">
 							<label for="exampleInputName1">Mã khách hàng</label>
 							<form:input path="maKhachHang" class="form-control" />
@@ -58,7 +58,6 @@
 						<div class="form-group">
 							<label for="exampleInput8">Ghi chú</label>
 							<textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-							<form:input path="ghiChu" class="form-control" />
 						</div>
 						<button type="submit" class="btn btn-gradient-primary mr-2">Edit</button>
 						<button class="btn btn-light" type="reset">Cancel</button>

@@ -23,32 +23,32 @@ public class KhachHang implements Serializable{
 	
 	@Id
 	@Column(name = "ma_khach_hang", unique = true, nullable = false, length = 11)
-	@NotEmpty(message = "không được để trống!")
+	@NotEmpty(message = "khÃ´ng Ä‘Æ°á»£c Ä‘á»ƒ trá»‘ng!")
 	private String maKhachHang;
 	
 	
-	@NotEmpty(message = "Vui lòng nhập họ tên của khách hàng")
+	@NotEmpty(message = "Vui lÃ²ng nháº­p há»� tÃªn cá»§a khÃ¡ch hÃ ng")
 	@Column(name = "ten_khach_hang", nullable = false, length = 50)
 	private String tenKhachHang;
 	
 	@Column(name = "dia_chi")
-	@NotEmpty(message = "Vui lòng nhập địa chỉ khách hàng")
+	@NotEmpty(message = "Vui lÃ²ng nháº­p Ä‘á»‹a chá»‰ khÃ¡ch hÃ ng")
 	private String diaChi;
 	
 	@Column(name = "so_dien_thoai")
-	@Pattern(regexp = "(^$|[0-9]{10})", message = "Số diện thoại không đúng")
+	@Pattern(regexp = "(^$|[0-9]{10})", message = "Sá»‘ diá»‡n thoáº¡i khÃ´ng Ä‘Ãºng")
 	private String soDienThoai;
 
 	@Column(name = "email")
-	@Pattern(regexp = ".+@.+\\..+", message = "Định dạng email không đúng")
+	@Pattern(regexp = ".+@.+\\..+", message = "Ä�á»‹nh dáº¡ng email khÃ´ng Ä‘Ãºng")
 	private String email;
 	
 	@Column(name = "ma_so_thue")
-	@NotEmpty(message = "Vui lòng nhập mã số thuế khách hàng")
+	@NotEmpty(message = "Vui lÃ²ng nháº­p mÃ£ sá»‘ thuáº¿ khÃ¡ch hÃ ng")
 	private String maSoThue;
 	
 	@Column(name = "so_tai_khoan")
-	@NotEmpty(message = "Vui lòng nhập số tài khoản khách hàng")
+	@NotEmpty(message = "Vui lÃ²ng nháº­p sá»‘ tÃ i khoáº£n khÃ¡ch hÃ ng")
 	private String soTaiKhoan;
 	
 	@Column(name = "ghi_chu")
@@ -117,5 +117,16 @@ public class KhachHang implements Serializable{
 	public void setGhiChu(String ghiChu) {
 		this.ghiChu = ghiChu;
 	}
+	
+	/*public KhachHang update(KhachHang khachHang) {
+		this.setTenKhachHang(khachHang.getTenKhachHang());
+		this.setDiaChi(khachHang.getDiaChi());
+		this.setSoDienThoai(khachHang.getSoDienThoai());
+		this.setEmail(khachHang.getEmail());
+		this.setMaSoThue(khachHang.getMaSoThue());
+		this.setSoTaiKhoan(khachHang.getSoTaiKhoan());
+		this.setGhiChu(khachHang.getGhiChu());
+		return this;
+	}*/
 
 }

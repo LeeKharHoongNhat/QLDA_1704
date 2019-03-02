@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ffse1704.dao.KhachHangDao;
 import com.ffse1704.model.KhachHang;
 import com.ffse1704.service.KhachHangService;
 
@@ -64,7 +67,7 @@ public class KhachHangController {
 			if (searchKhachHang == 0) {
 				khachHangService.addNew(khachHang);
 			} else {
-				String mess = "Mã khách hàng tồi tại";
+				String mess = "MÃ£ khÃ¡ch hÃ ng tá»“i táº¡i";
 				model.addAttribute("mess", mess);
 				return "khachhang/add";
 			}
@@ -77,7 +80,7 @@ public class KhachHangController {
 	 */
 	@RequestMapping(value = "/editkhachhang/{idKhachHang}")
 	public String viewEditKhachHang(@PathVariable String idKhachHang, Model model) {
-		KhachHang khachHang = khachHangService.getKhachHangbyIdKhachHang(idKhachHang);
+		KhachHang khachHang = khachHangService.getById(idKhachHang);
 		model.addAttribute("command", khachHang);
 		return "khachhang/edit";
 	}
@@ -88,7 +91,7 @@ public class KhachHangController {
 		if (result.hasErrors()) {
 			return "khachhang/edit";
 		} else {
-			khachHangService.addNew(khachHang);
+			khachHangService.update(khachHang);
 		}
 
 		return "redirect:/khachhang/1";
@@ -99,13 +102,14 @@ public class KhachHangController {
 	 */
 	@RequestMapping(value = "/deletekhachhang/{idKhachHang}")
 	public String viewDeleteKhachHang(@PathVariable String idKhachHang, Model model) {
-		KhachHang khachHang = khachHangService.getKhachHangbyIdKhachHang(idKhachHang);
+		KhachHang khachHang = khachHangService.getById(idKhachHang);
 		model.addAttribute("command", khachHang);
 		return "khachhang/delete";
 	}
 
-	@RequestMapping(value = "/submitdeletekhachhang", method = RequestMethod.POST)
-	public String deleteKhachHang(@ModelAttribute("command") KhachHang khachHang) {
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String deleteKhachHang(@RequestParam("maKhachHang") String maKH) {
+		KhachHang khachHang = khachHangService.getById(maKH);
 		khachHangService.delete(khachHang);
 		return "redirect:/khachhang/1";
 	}

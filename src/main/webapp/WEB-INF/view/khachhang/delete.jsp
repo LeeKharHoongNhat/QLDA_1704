@@ -51,10 +51,9 @@
 						<div class="form-group">
 							<label for="exampleInput8">Ghi chú</label>
 							<textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-							<form:input path="ghiChu" class="form-control" />
 						</div>
 						<button type="submit" class="btn btn-gradient-primary mr-2">Delete</button>
-						<a href="<c:url value="/phongban/1" />"><button type="button"
+						<a href="<c:url value="/khachhang/1" />"><button type="button"
 								class="btn btn-light">Cancel</button></a>
 					</form:form>
 				</div>
