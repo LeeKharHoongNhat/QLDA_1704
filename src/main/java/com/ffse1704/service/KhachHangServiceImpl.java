@@ -37,7 +37,7 @@ public class KhachHangServiceImpl implements KhachHangService {
 	@Override
 	@Transactional
 	public void addNew(KhachHang kh) {
-		this.khachHangDao.addNew(kh);
+		this.khachHangDao.save(kh);
 
 	}
 
@@ -67,7 +67,7 @@ public class KhachHangServiceImpl implements KhachHangService {
 	@Override
 	@Transactional
 	public KhachHang getKhachHangbyIdKhachHang(String maKhachHang) {
-		return this.khachHangDao.getKhachHangbyIdKhachHang(maKhachHang);
+		return this.khachHangDao.findById(maKhachHang);
 	}
 
 	/* (non-Javadoc)

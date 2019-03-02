@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.query.Query;
@@ -86,6 +85,7 @@ public class ResponsitoryDaoImpl<T, I extends Serializable> {
 	public List<T> findByCriterion(Criterion criterion) {
 		log.debug("Finding " + persistentClass.getSimpleName() + " instance by criterion");
 		try {
+			@SuppressWarnings("deprecation")
 			List results = sessionFactory.getCurrentSession().createCriteria(persistentClass.getName()).add(criterion)
 					.list();
 			log.debug("Find by criterion successful, result size: " + results.size());

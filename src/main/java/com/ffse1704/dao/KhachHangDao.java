@@ -13,9 +13,6 @@ import com.ffse1704.model.KhachHang;
  */
 public interface KhachHangDao extends RepositoryDao<KhachHang, String> {
 	
-	public void addNew(KhachHang kh);
-
-	public KhachHang getKhachHangbyIdKhachHang(String maKhachHang);
 
 	public List<KhachHang> listKhachHang(int iDisplayStart, int iDisplayLength);
 

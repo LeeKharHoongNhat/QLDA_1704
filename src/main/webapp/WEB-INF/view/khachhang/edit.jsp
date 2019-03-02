@@ -11,7 +11,7 @@
 					<h4 class="card-title">Sửa thông tin khách hàng</h4>
 					<div class="content-header-right ">
 						<div role="group" aria-label="Button group with nested dropdown"
-							class="btn-group float-md-right "">
+							class="btn-group float-md-right ">
 							<a href="<c:url value = "/khachhang/1"/>" class="btn btn-info"><span
 								class="fa fa-plus"></span>Back</a>
 						</div>

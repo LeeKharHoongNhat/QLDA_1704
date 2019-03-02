@@ -3,7 +3,6 @@ package com.ffse1704.dao;
 import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.SQLQuery;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.query.Query;
 
