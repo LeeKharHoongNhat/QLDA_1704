@@ -44,7 +44,7 @@
 										<td><a href="/thietbi/viewOneThietBi/edit/${emp.id}"
 											class="btn btn-primary">edit</a> <a
 											href="/thietbi/viewOneThietBi/remove/${emp.id}"
-											class="btn btn-danger">delete</a></td>
+											class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa Thông Tin Thiết Bị này?')">delete</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
