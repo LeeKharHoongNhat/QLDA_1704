@@ -10,10 +10,10 @@ public interface ThietBiService {
 
 	public void addThietBi(ThietBi tb);
 
-	public ThietBi getThietBiById(int id);
+	public ThietBi getThietBiById(Integer id);
 
 	public void updateThietBi(ThietBi tb);
 
-	public void removeThietBi(int id);
+	public void removeThietBi(Integer id);
 
 }

@@ -29,24 +29,24 @@ public class ThietBiServiceImpl implements ThietBiService {
 	@Override
 	@Transactional
 	public void addThietBi(ThietBi tb) {
-		this.thietBiDao.addThietBi(tb);
+		this.thietBiDao.save(tb);
 		
 	}
 	@Override
 	@Transactional
-	public ThietBi getThietBiById(int id) {
+	public ThietBi getThietBiById(Integer id) {
 		// TODO Auto-generated method stub
 		return this.thietBiDao.getThietBiById(id);
 	}
 	@Override
 	@Transactional
 	public void updateThietBi(ThietBi tb) {
-		this.thietBiDao.updateThietBi(tb);
+		this.thietBiDao.update(tb);
 		
 	}
 	@Override
 	@Transactional
-	public void removeThietBi(int id) {
+	public void removeThietBi(Integer id) {
 		this.thietBiDao.removeThietBi(id);
 		
 	}
