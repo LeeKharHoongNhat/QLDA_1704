@@ -1,13 +1,16 @@
 package com.ffse1704.model;
 
 import java.io.Serializable;
+
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -25,6 +28,11 @@ public class ThongTinDuAn implements Serializable {
 	@Column(name = "ma_du_an", unique = true, nullable = false)
 	@NotEmpty(message = "không được để trống!")
 	private String maDuAn;
+	
+	@OneToMany(mappedBy = "thongTinDuAn", fetch = FetchType.EAGER)
+	private List<DanhMucDuAn> listDanhMucDuAn;
+	
+	
 
 	@NotEmpty(message = "Vui Lòng Nhập tên dự án")
 	@Column(name = "ten_du_an", nullable = false)
@@ -36,9 +44,6 @@ public class ThongTinDuAn implements Serializable {
 	@Column(name = "ma_phong_ban", nullable = false)
 	private String maPhongBan;
 	
-	@ManyToOne
-	@JoinColumn(name = "ma_phong_ban", referencedColumnName = "ma_phong_ban", insertable = false, nullable = true, updatable = false)
-	private PhongBan phongBan;
 
 	@Column(name = "ma_nhan_vien_pm", nullable = false)
 	private String maNhanVienPM;
@@ -158,11 +163,12 @@ public class ThongTinDuAn implements Serializable {
 		this.maTrangThai = maTrangThai;
 	}
 
-	public PhongBan getPhongBan() {
-		return phongBan;
+
+	public List<DanhMucDuAn> getListDanhMucDuAn() {
+		return listDanhMucDuAn;
 	}
 
-	public void setPhongBan(PhongBan phongBan) {
-		this.phongBan = phongBan;
+	public void setListDanhMucDuAn(List<DanhMucDuAn> listDanhMucDuAn) {
+		this.listDanhMucDuAn = listDanhMucDuAn;
 	}
 }

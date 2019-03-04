@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ffse1704.dao.DanhMucDuAnDao;
 import com.ffse1704.dao.NhanVienDao;
+import com.ffse1704.model.DanhMucDuAn;
 import com.ffse1704.model.NhanVien;
 
 @Controller
@@ -22,4 +24,17 @@ public class TestController {
 		model.addAttribute("list",list);
 		return "test";
 	}
+
+/* @Autowired
+	private DanhMucDuAnDao danhMucDuAnHDao;
+	
+	@RequestMapping("/test")
+	public String test( Model model){
+		List<DanhMucDuAn> list = danhMucDuAnHDao.getAll();
+		list.get(0).getThongTinDuAn().getTenDuAn();
+	
+		model.addAttribute("list",list);
+		return "test";
+	} 
+		*/
 }

@@ -1,9 +1,11 @@
 package com.ffse1704.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,10 +23,24 @@ public class TieuThuc implements Serializable {
 	@Column(name = "id", unique = true, length = 11)
 	private int id;
 	
+
+	
+	
 	@Column(name = "ma_tieu_thuc", nullable = false, length = 11)
 	@NotEmpty(message="không được để trống!")
 	private String maTieuThuc;
 	
+	@OneToMany(mappedBy = "tieuThuc", fetch = FetchType.EAGER)
+	private List<DanhMucDuAn> listDanhMucDuAn;
+	
+	public List<DanhMucDuAn> getListDanhMucDuAn() {
+		return listDanhMucDuAn;
+	}
+
+	public void setListDanhMucDuAn(List<DanhMucDuAn> listDanhMucDuAn) {
+		this.listDanhMucDuAn = listDanhMucDuAn;
+	}
+
 	@Column(name = "ten_tieu_thuc", nullable = false, length = 50)
 	@NotEmpty(message="không được để trống!")
 	private String tenTieuThuc;
