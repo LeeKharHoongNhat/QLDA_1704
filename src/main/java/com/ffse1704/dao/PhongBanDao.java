@@ -5,14 +5,7 @@ import java.util.List;
 import com.ffse1704.model.PhongBan;
 
 
-public interface PhongBanDao {
-	public void addNew(PhongBan pb);
-
-	public void update(PhongBan pb);
-
-	public void delete(String maPhongBan);
-
-	public PhongBan getPhongBanbyIdPhongBan(String maPhongBan);
+public interface PhongBanDao extends RepositoryDao<PhongBan, String>{
 
 	public List<PhongBan> listPhongBan(int iDisplayStart, int iDisplayLength);
 

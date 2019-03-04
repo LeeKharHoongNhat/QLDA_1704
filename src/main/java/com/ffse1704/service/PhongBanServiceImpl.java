@@ -27,29 +27,49 @@ public class PhongBanServiceImpl implements PhongBanService {
 
 	@Override
 	@Transactional
-	public void addNew(PhongBan pb) {
-		this.phongBanDao.addNew(pb);
+	public boolean addNew(PhongBan pb) {
+		boolean flag = false;
+		try {
+			this.phongBanDao.save(pb);
+			flag = true;
+		} catch (Exception e) {
+			flag = false;
+		}
+		return flag;
+	}
+
+	@Override
+	@Transactional
+	public boolean update(PhongBan pb) {
+		boolean flag = false;
+		try {
+			this.phongBanDao.update(pb);
+			flag = true;
+		} catch (Exception e) {
+			flag = false;
+		}
+		return flag;
 
 	}
 
 	@Override
 	@Transactional
-	public void update(PhongBan pb) {
-		this.phongBanDao.update(pb);
-
-	}
-
-	@Override
-	@Transactional
-	public void delete(String maPhongBan) {
-		this.phongBanDao.delete(maPhongBan);
+	public boolean delete(PhongBan maPhongBan) {
+		boolean flag = false;
+		try {
+			this.phongBanDao.delete(maPhongBan);
+			flag = true;
+		} catch (Exception e) {
+			flag = false;
+		}
+		return flag;
 
 	}
 
 	@Override
 	@Transactional
 	public PhongBan getPhongBanbyIdPhongBan(String maPhongBan) {
-		return this.phongBanDao.getPhongBanbyIdPhongBan(maPhongBan);
+		return this.phongBanDao.findById(maPhongBan);
 	}
 
 	@Override

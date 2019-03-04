@@ -5,10 +5,6 @@ package com.ffse1704.dao;
 
 import java.util.List;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ffse1704.model.KhachHang;
@@ -25,7 +21,6 @@ public class KhachHangDaoImpl extends ResponsitoryDaoImpl<KhachHang, String> imp
 	 * 
 	 * @see com.ffse1704.dao.KhachHangDao#listKhachHang(int, int)
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<KhachHang> listKhachHang(int iDisplayStart, int iDisplayLength) {
 	

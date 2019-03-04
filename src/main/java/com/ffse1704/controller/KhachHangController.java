@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.ffse1704.dao.KhachHangDao;
 import com.ffse1704.model.KhachHang;
 import com.ffse1704.service.KhachHangService;
 

@@ -23,32 +23,32 @@ public class KhachHang implements Serializable{
 	
 	@Id
 	@Column(name = "ma_khach_hang", unique = true, nullable = false, length = 11)
-	@NotEmpty(message = "khÃ´ng Ä‘Æ°á»£c Ä‘á»ƒ trá»‘ng!")
+	@NotEmpty(message = "Không được để trống!")
 	private String maKhachHang;
 	
 	
-	@NotEmpty(message = "Vui lÃ²ng nháº­p há»� tÃªn cá»§a khÃ¡ch hÃ ng")
+	@NotEmpty(message = "Vui lòng nhập tên khách hàng")
 	@Column(name = "ten_khach_hang", nullable = false, length = 50)
 	private String tenKhachHang;
 	
 	@Column(name = "dia_chi")
-	@NotEmpty(message = "Vui lÃ²ng nháº­p Ä‘á»‹a chá»‰ khÃ¡ch hÃ ng")
+	@NotEmpty(message = "Vui lòng nhập địa chỉ khách hàng")
 	private String diaChi;
 	
 	@Column(name = "so_dien_thoai")
-	@Pattern(regexp = "(^$|[0-9]{10})", message = "Sá»‘ diá»‡n thoáº¡i khÃ´ng Ä‘Ãºng")
+	@Pattern(regexp = "(^$|[0-9]{10})", message = "sai số điện thoại")
 	private String soDienThoai;
 
 	@Column(name = "email")
-	@Pattern(regexp = ".+@.+\\..+", message = "Ä�á»‹nh dáº¡ng email khÃ´ng Ä‘Ãºng")
+	@Pattern(regexp = ".+@.+\\..+", message = "sai định dạng email")
 	private String email;
 	
 	@Column(name = "ma_so_thue")
-	@NotEmpty(message = "Vui lÃ²ng nháº­p mÃ£ sá»‘ thuáº¿ khÃ¡ch hÃ ng")
+	@NotEmpty(message = "vui lòng nhập mã số thuế khách hàng")
 	private String maSoThue;
 	
 	@Column(name = "so_tai_khoan")
-	@NotEmpty(message = "Vui lÃ²ng nháº­p sá»‘ tÃ i khoáº£n khÃ¡ch hÃ ng")
+	@NotEmpty(message = "Vui lòng nhập số tài khoản khách hàng")
 	private String soTaiKhoan;
 	
 	@Column(name = "ghi_chu")

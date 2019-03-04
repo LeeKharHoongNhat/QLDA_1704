@@ -7,11 +7,11 @@ import com.ffse1704.model.PhongBan;
 
 public interface PhongBanService {
 
-	public void addNew(PhongBan pb);
+	boolean addNew(PhongBan pb);
 
-	public void update(PhongBan pb);
+	boolean update(PhongBan pb);
 
-	public void delete(String maPhongBan);
+	boolean delete(PhongBan maPhongBan);
 
 	public PhongBan getPhongBanbyIdPhongBan(String maPhongBan);
 

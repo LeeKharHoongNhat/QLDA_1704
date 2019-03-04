@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ffse1704.model.PhongBan;
 import com.ffse1704.service.PhongBanService;
@@ -26,17 +28,10 @@ import com.ffse1704.service.PhongBanService;
 @Controller
 @RequestMapping("/phongban")
 public class PhongBanController {
-
+	
+	@Autowired
 	private PhongBanService phongBanService;
 
-	public PhongBanService getPhongBanService() {
-		return phongBanService;
-	}
-
-	@Autowired
-	public void setPhongBanService(PhongBanService phongBanService) {
-		this.phongBanService = phongBanService;
-	}
 
 	@RequestMapping("/{page}")
 	public String list(@PathVariable int page, Model model) throws SQLException {
@@ -105,8 +100,16 @@ public class PhongBanController {
 	}
 	
 	@RequestMapping(value = "/submitdeletephongban", method = RequestMethod.POST)
-	public String deletePhongBan(@ModelAttribute("command") PhongBan phongBan) {
-		phongBanService.delete(phongBan.getMaPhongBan());;
+	public String deletePhongBan(@RequestParam("maPhongBan") String maPB, RedirectAttributes redirect) {
+		PhongBan phongBan = phongBanService.getPhongBanbyIdPhongBan(maPB);
+		boolean result = phongBanService.delete(phongBan);
+		String msg = null;
+		if (result) {
+			msg = "Đã xóa " + phongBan.getTenPhongBan() + " thành công!";
+		} else {
+			msg = "Đã xóa " + phongBan.getTenPhongBan() + " thất bại!";
+		}
+		redirect.addFlashAttribute("msg", msg);
 		return "redirect:/phongban/1";
 	}
 }
