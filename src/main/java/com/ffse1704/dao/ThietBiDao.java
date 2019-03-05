@@ -10,6 +10,5 @@ public interface ThietBiDao extends RepositoryDao<ThietBi, Integer> {
 
 	public ThietBi getThietBiById(Integer id);
 
-	public void removeThietBi(Integer id);
 
 }

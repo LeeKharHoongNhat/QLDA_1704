@@ -14,6 +14,6 @@ public interface ThietBiService {
 
 	public void updateThietBi(ThietBi tb);
 
-	public void removeThietBi(Integer id);
+	public void removeThietBi(ThietBi tb);
 
 }

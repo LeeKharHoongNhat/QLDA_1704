@@ -43,6 +43,7 @@ public class ResponsitoryDaoImpl<T, I extends Serializable> {
 			log.debug("Save successful");
 			return id;
 		} catch (RuntimeException re) {
+			re.printStackTrace();
 			throw new RuntimeException();
 		}
 	}
@@ -53,6 +54,7 @@ public class ResponsitoryDaoImpl<T, I extends Serializable> {
 			sessionFactory.getCurrentSession().update(instance);
 			log.debug("Update successful");
 		} catch (RuntimeException re) {
+			re.printStackTrace();
 			throw new RuntimeException();
 		}
 	}
@@ -102,6 +104,7 @@ public class ResponsitoryDaoImpl<T, I extends Serializable> {
 			log.debug("Create query successful");
 			return sqlQuery;
 		} catch (RuntimeException re) {
+			re.printStackTrace();
 			throw new RuntimeException();
 		}
 	}

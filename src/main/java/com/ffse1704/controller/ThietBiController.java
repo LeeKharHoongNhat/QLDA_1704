@@ -69,9 +69,9 @@ public class ThietBiController {
 	}
 
 	@RequestMapping("/remove/{id}")
-	public String removeThietBi(@PathVariable("id") int id, ThietBi tb) {
-		tb = thietBiService.getThietBiById(id);
-		thietBiService.removeThietBi(id);
+	public String removeThietBi(@PathVariable("id") int id) {
+		ThietBi tb = thietBiService.getThietBiById(id);
+		thietBiService.removeThietBi(tb);
 		return "redirect:/thietbi/viewOneThietBi/" + tb.getMaCongViec();
 	}
 

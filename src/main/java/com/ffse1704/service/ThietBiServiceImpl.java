@@ -46,8 +46,9 @@ public class ThietBiServiceImpl implements ThietBiService {
 	}
 	@Override
 	@Transactional
-	public void removeThietBi(Integer id) {
-		this.thietBiDao.removeThietBi(id);
+	public void removeThietBi(ThietBi tb) {
+		tb.setIsActive(0);
+		this.thietBiDao.update(tb);
 		
 	}
 }

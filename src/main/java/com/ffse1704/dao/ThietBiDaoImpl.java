@@ -26,13 +26,6 @@ public class ThietBiDaoImpl extends ResponsitoryDaoImpl<ThietBi, Integer> implem
 		return  findById(id); 
 	}
 
-	@Override
-	public void removeThietBi(Integer id) {
-		Query query = createQuery("update ThietBi set isActive = :active where id = :id");
-		query.setParameter("active", 0);
-		query.setParameter("id", id);
-		@SuppressWarnings("unused")
-		int result = query.executeUpdate();
-	}
+
 
 }
