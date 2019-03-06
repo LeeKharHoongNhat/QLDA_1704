@@ -12,15 +12,8 @@ import com.ffse1704.model.TieuThuc;
  * @author QuangDai
  *
  */
-public interface TieuThucDao {
+public interface TieuThucDao extends RepositoryDao<TieuThuc, String>{
 	
-	public void addNew(TieuThuc tt);
-
-	public void update(TieuThuc tt);
-
-	public void delete(int id);
-
-	public TieuThuc getTieuThucByIdTieuThuc(String id);
 	
 	public List<TieuThuc> getListTieuThucByMaCha(String maCha);
 	
@@ -30,5 +23,5 @@ public interface TieuThucDao {
 
 	public int getRecordsTotalMaChaNull();
 
-	public int getRecordsByIdTieuThuc(String id);
+	/*public int getRecordsByIdTieuThuc(String id);*/
 }

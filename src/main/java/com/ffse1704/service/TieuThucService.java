@@ -17,9 +17,9 @@ public interface TieuThucService {
 
 	public void update(TieuThuc tt);
 
-	public void delete(int id);
+	public void delete(String maTieuThuc);
 
-	public TieuThuc getTieuThucByIdTieuThuc(String id);
+	public TieuThuc getTieuThucByIdTieuThuc(String maTieuThuc);
 	
 	public List<TieuThuc> getListTieuThucByMaCha(String maCha);
 	
@@ -29,5 +29,5 @@ public interface TieuThucService {
 
 	public int getRecordsTotalMaChaNull();
 
-	public int getRecordsByIdTieuThuc(String id);
+	/*public int getRecordsByIdTieuThuc(String maTieuThuc);*/
 }

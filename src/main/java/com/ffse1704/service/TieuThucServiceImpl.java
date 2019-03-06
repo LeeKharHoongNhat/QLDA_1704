@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.ffse1704.dao.TieuThucDao;
 import com.ffse1704.model.TieuThuc;
 
-
 /**
  * @author QuangDai
  *
@@ -27,20 +26,20 @@ public class TieuThucServiceImpl implements TieuThucService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * ffse1704.dao.tieuthuc.TieuThucDao#addNew(ffse1704.entity.tieuthuc.TieuThuc)
+	 * @see ffse1704.dao.tieuthuc.TieuThucDao#addNew(ffse1704.entity.tieuthuc.
+	 * TieuThuc)
 	 */
 	@Override
 	@Transactional
 	public void addNew(TieuThuc tt) {
-		this.tieuThucDao.addNew(tt);
+		this.tieuThucDao.save(tt);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * ffse1704.dao.tieuthuc.TieuThucDao#update(ffse1704.entity.tieuthuc.TieuThuc)
+	 * @see ffse1704.dao.tieuthuc.TieuThucDao#update(ffse1704.entity.tieuthuc.
+	 * TieuThuc)
 	 */
 	@Override
 	@Transactional
@@ -55,20 +54,21 @@ public class TieuThucServiceImpl implements TieuThucService {
 	 */
 	@Override
 	@Transactional
-	public void delete(int id) {
-		this.tieuThucDao.delete(id);
+	public void delete(String maTieuThuc) {
+		TieuThuc tt = this.tieuThucDao.findById(maTieuThuc);
+		this.tieuThucDao.delete(tt);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * ffse1704.dao.tieuthuc.TieuThucDao#getTieuThucByIdTieuThuc(java.lang.String)
+	 * @see ffse1704.dao.tieuthuc.TieuThucDao#getTieuThucByIdTieuThuc(java.lang.
+	 * String)
 	 */
 	@Override
 	@Transactional
-	public TieuThuc getTieuThucByIdTieuThuc(String id) {
-		return this.tieuThucDao.getTieuThucByIdTieuThuc(id);
+	public TieuThuc getTieuThucByIdTieuThuc(String maTieuThuc) {
+		return this.tieuThucDao.findById(maTieuThuc);
 	}
 
 	/*
@@ -96,15 +96,15 @@ public class TieuThucServiceImpl implements TieuThucService {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see
-	 * ffse1704.dao.tieuthuc.TieuThucDao#getRecordsByIdTieuThuc(java.lang.String)
+	 * @see ffse1704.dao.tieuthuc.TieuThucDao#getRecordsByIdTieuThuc(java.lang.
+	 * String)
 	 */
-	@Override
-	@Transactional
-	public int getRecordsByIdTieuThuc(String id) {
-		return this.tieuThucDao.getRecordsByIdTieuThuc(id);
-	}
-
+	/*
+	 * @Override
+	 * 
+	 * @Transactional public int getRecordsByIdTieuThuc(String id) { return
+	 * this.tieuThucDao.getRecordsByIdTieuThuc(id); }
+	 */
 	@Override
 	public List<TieuThuc> getListTieuThucByMaCha(String maCha) {
 		return this.tieuThucDao.getListTieuThucByMaCha(maCha);

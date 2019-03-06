@@ -6,8 +6,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,15 +15,8 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "danh_muc_tieu_thuc")
 public class TieuThuc implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", unique = true, length = 11)
-	private int id;
-	
-
-	
-	
 	@Column(name = "ma_tieu_thuc", nullable = false, length = 11)
 	@NotEmpty(message="không được để trống!")
 	private String maTieuThuc;
@@ -52,13 +43,7 @@ public class TieuThuc implements Serializable {
 	public TieuThuc() {
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public String getMaTieuThuc() {
 		return maTieuThuc;
@@ -83,4 +68,5 @@ public class TieuThuc implements Serializable {
 	public void setMaCha(String maCha) {
 		this.maCha = maCha;
 	}
+
 }

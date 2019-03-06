@@ -3,14 +3,17 @@ package com.ffse1704.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -58,26 +61,29 @@ public class NhanVien implements Serializable {
 	@Column(name = "ma_phong_ban")
 	private String maPhongBan;
 
-	@ManyToOne
-	@JoinColumn(name = "ma_phong_ban", referencedColumnName = "ma_phong_ban", insertable = false, nullable = true, updatable = false)
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ma_phong_ban", referencedColumnName = "ma_phong_ban", insertable = false, updatable = false, nullable = false)
 	private PhongBan phongBan;
-
+	
 	@Column(name = "ma_chuc_danh")
 	private String maChucDanh;
-
+	/*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc", insertable = false, updatable = false, nullable = false)
+	private TieuThuc maCD;*/
 
 	@Column(name = "ma_loai_hop_dong")
 	private String maLoaiHopDong;
+	/*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc", insertable = false, updatable = false, nullable = false)
+	private TieuThuc maLHD;*/
 
 	
 	@Column(name = "ma_trang_thai")
 	private String maTrangThai;
-
-	/*@ManyToOne
-	@JoinColumns({@JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false),
-		@JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false),
-		@JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc", insertable = false, nullable = true, updatable = false)})
-	private TieuThuc tieuThucTrangThai;*/
+	/*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc", insertable = false, updatable = false, nullable = false)
+	private TieuThuc maTT;*/
+	
 
 
 	@Temporal(TemporalType.DATE)
@@ -96,6 +102,23 @@ public class NhanVien implements Serializable {
 	@NotEmpty(message = "Vui Lòng Nhập mật khẩu")
 	private String passWord;
 
+	
+	
+	
+	@Transient
+	private TieuThuc ttChucDanh;
+	
+	@Transient
+	private TieuThuc ttLoaiHD;
+	
+	@Transient
+	private TieuThuc ttTrangThai;
+	
+	
+	
+	
+	
+	
 	public String getMaNhanVien() {
 		return maNhanVien;
 	}
@@ -224,4 +247,30 @@ public class NhanVien implements Serializable {
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
 	}
+
+	public TieuThuc getTtChucDanh() {
+		return ttChucDanh;
+	}
+
+	public void setTtChucDanh(TieuThuc ttChucDanh) {
+		this.ttChucDanh = ttChucDanh;
+	}
+
+	public TieuThuc getTtLoaiHD() {
+		return ttLoaiHD;
+	}
+
+	public void setTtLoaiHD(TieuThuc ttLoaiHD) {
+		this.ttLoaiHD = ttLoaiHD;
+	}
+
+	public TieuThuc getTtTrangThai() {
+		return ttTrangThai;
+	}
+
+	public void setTtTrangThai(TieuThuc ttTrangThai) {
+		this.ttTrangThai = ttTrangThai;
+	}
+
+	
 }

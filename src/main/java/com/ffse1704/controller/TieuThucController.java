@@ -61,13 +61,13 @@ public class TieuThucController {
 		if (result.hasErrors()) {
 			return "tieuthuc/add";
 		} else {
-			int searchTieuThuc = tieuThucService.getRecordsByIdTieuThuc(tieuThuc.getMaTieuThuc());
-			if (searchTieuThuc == 0) {
-				tieuThucService.addNew(tieuThuc);
-			} else {
+			TieuThuc searchTieuThuc = tieuThucService.getTieuThucByIdTieuThuc(tieuThuc.getMaTieuThuc());
+			if (searchTieuThuc != null) {
 				String mess = "Mã tiêu thức đã tồn tại";
 				model.addAttribute("mess", mess);
 				return "tieuthuc/add";
+			} else {
+				tieuThucService.addNew(tieuThuc);
 			}
 		}
 		return "redirect:/tieuthuc/1";
@@ -110,7 +110,7 @@ public class TieuThucController {
 
 	@RequestMapping(value = "/submitdeletetieuthuc", method = RequestMethod.POST)
 	public String deleteTieuThuc(@ModelAttribute("command") TieuThuc tieuThuc) {
-		tieuThucService.delete(tieuThuc.getId());;
+		tieuThucService.delete(tieuThuc.getMaTieuThuc());;
 		return "redirect:/tieuthuc/1";
 	}
 	
