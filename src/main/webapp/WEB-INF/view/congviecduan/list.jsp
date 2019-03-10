@@ -50,7 +50,10 @@
 										<td><a href="/congviecduan/edit/${emp.maCongViec}"
 											class="btn btn-primary">edit</a> <a
 											href="/congviecduan/remove/${emp.maCongViec}"
-											class="btn btn-danger">delete</a></td>
+											class="btn btn-danger">delete</a>
+											<a
+											href="/thietbi/viewOneThietBi/${emp.maCongViec}"
+											class="btn btn-danger">Thiết Bị</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

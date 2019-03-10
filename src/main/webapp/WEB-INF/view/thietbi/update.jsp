@@ -17,7 +17,7 @@
 					</div>
 
 					<form:form class="forms-sample" method="post"
-						action="/thietbi/viewOneThietBi/updateThietBi">
+						action="/thietbi/update">
 						<form:hidden path="id" />
 						<div class="form-group">
 							<label for="exampleInputName1">Mã Công Việc</label>

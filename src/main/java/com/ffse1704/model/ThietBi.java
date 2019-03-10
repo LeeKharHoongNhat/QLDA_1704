@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.persistence.TemporalType;
@@ -49,12 +50,12 @@ public class ThietBi implements Serializable {
 	private String ghiChu;
 
 	@Column(name = "don_gia")
-	@NotEmpty(message = "không được để trống!")
-	private String donGia;
+	@NotNull(message ="không được để trống!")
+	private Double donGia;
 
 	@Column(name = "chi_phi")
-	@NotEmpty(message = "không được để trống!")
-	private String chiPhi;
+	@NotNull(message ="không được để trống!")
+	private Double chiPhi;
 
 	@Column(name = "IsActive")
 	private int isActive = 1;
@@ -107,19 +108,19 @@ public class ThietBi implements Serializable {
 		this.ghiChu = ghiChu;
 	}
 
-	public String getDonGia() {
+	public Double getDonGia() {
 		return donGia;
 	}
 
-	public void setDonGia(String donGia) {
+	public void setDonGia(Double donGia) {
 		this.donGia = donGia;
 	}
 
-	public String getChiPhi() {
+	public Double getChiPhi() {
 		return chiPhi;
 	}
 
-	public void setChiPhi(String chiPhi) {
+	public void setChiPhi(Double chiPhi) {
 		this.chiPhi = chiPhi;
 	}
 

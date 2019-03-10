@@ -16,7 +16,7 @@
 
 					</div>
 					<form:form class="forms-sample" method="post"
-						action="/thietbi/viewOneThietBi/saveThietBi">
+						action="/thietbi/save">
 						<div class="form-group">
 							<label for="exampleInputName1">Mã Công Việc</label>
 							<form:input path="maCongViec" type="text" class="form-control round"
@@ -55,8 +55,8 @@
 							<form:input path="chiPhi" class="form-control" />
 							<form:errors path="chiPhi" cssStyle="color: red" />
 						</div>
-						<button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-						<button class="btn btn-light" type="reset">Cancel</button>
+						<button type="submit" class="btn btn-gradient-primary mr-2">Thêm</button>
+						<a href="<c:url value="/thietbi/${command.maCongViec}"> </c:url> " class="btn btn-light" >Hủy</a>
 					</form:form>
 				</div>
 			</div>
