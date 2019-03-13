@@ -7,7 +7,7 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.query.Query;
 
 public interface RepositoryDao<T, I extends Serializable> {
-	
+
 	I save(T instance);
 
 	void update(T instance);
@@ -19,4 +19,6 @@ public interface RepositoryDao<T, I extends Serializable> {
 	List<T> findByCriterion(Criterion criterion);
 
 	Query<T> createQuery(String queryString);
+
+	public List<T> findAll();
 }

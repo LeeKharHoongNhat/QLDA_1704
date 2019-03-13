@@ -80,6 +80,7 @@ public class ResponsitoryDaoImpl<T, I extends Serializable> {
 			}
 			return instance;
 		} catch (RuntimeException re) {
+			re.printStackTrace();
 			throw new RuntimeException();
 		}
 	}
@@ -108,5 +109,15 @@ public class ResponsitoryDaoImpl<T, I extends Serializable> {
 			throw new RuntimeException();
 		}
 	}
-
+	public List<T> findAll() {
+		log.debug("Creating " + persistentClass.getSimpleName() + " query");
+		try {
+			Query<T> sqlQuery = sessionFactory.getCurrentSession().createQuery("FROM "+persistentClass.getName() );
+			log.debug("Create query successful");
+			return sqlQuery.list();
+		} catch (RuntimeException re) {
+			re.printStackTrace();
+			throw new RuntimeException();
+		}
+	}
 }

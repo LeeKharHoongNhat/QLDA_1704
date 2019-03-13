@@ -52,7 +52,7 @@
 											href="/congviecduan/remove/${emp.maCongViec}"
 											class="btn btn-danger">delete</a>
 											<a
-											href="/thietbi/viewOneThietBi/${emp.maCongViec}"
+											href="/thietbi/${emp.maCongViec}"
 											class="btn btn-danger">Thiết Bị</a></td>
 									</tr>
 								</c:forEach>

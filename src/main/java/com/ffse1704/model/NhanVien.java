@@ -2,6 +2,7 @@ package com.ffse1704.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +11,9 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -49,7 +53,7 @@ public class NhanVien implements Serializable {
 	@Column(name = "email")
 	@Pattern(regexp = ".+@.+\\..+", message = "Định dạng email không đúng")
 	private String email;
-	
+
 	@Column(name = "dia_chi")
 	@NotEmpty(message = "Vui Lòng Nhập địa chỉ nhân viên")
 	private String diaChi;
@@ -64,27 +68,36 @@ public class NhanVien implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "ma_phong_ban", referencedColumnName = "ma_phong_ban", insertable = false, updatable = false, nullable = false)
 	private PhongBan phongBan;
-	
+
 	@Column(name = "ma_chuc_danh")
 	private String maChucDanh;
-	/*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc", insertable = false, updatable = false, nullable = false)
-	private TieuThuc maCD;*/
+	/*
+	 * @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc",
+	 * insertable = false, updatable = false, nullable = false) private TieuThuc
+	 * maCD;
+	 */
 
 	@Column(name = "ma_loai_hop_dong")
 	private String maLoaiHopDong;
-	/*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc", insertable = false, updatable = false, nullable = false)
-	private TieuThuc maLHD;*/
+	/*
+	 * @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc",
+	 * insertable = false, updatable = false, nullable = false) private TieuThuc
+	 * maLHD;
+	 */
 
-	
 	@Column(name = "ma_trang_thai")
 	private String maTrangThai;
-	/*@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc", insertable = false, updatable = false, nullable = false)
-	private TieuThuc maTT;*/
-	
-
+	/*
+	 * @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc",
+	 * insertable = false, updatable = false, nullable = false) private TieuThuc
+	 * maTT;
+	 */
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -102,21 +115,17 @@ public class NhanVien implements Serializable {
 	@NotEmpty(message = "Vui Lòng Nhập mật khẩu")
 	private String passWord;
 
-	
-	
-	
 	@Transient
 	private TieuThuc ttChucDanh;
-	
+
 	@Transient
 	private TieuThuc ttLoaiHD;
-	
+
 	@Transient
 	private TieuThuc ttTrangThai;
-	
-	
-	
-	
+
+	@OneToMany(mappedBy = "nhanVien", fetch = FetchType.LAZY)
+    private List<NhatKyCongViec> nhatKiCongViecs;
 	
 	
 	public String getMaNhanVien() {
@@ -215,7 +224,6 @@ public class NhanVien implements Serializable {
 		this.maLoaiHopDong = maLoaiHopDong;
 	}
 
-
 	public Date getNgayBatDauHopDong() {
 		return ngayBatDauHopDong;
 	}
@@ -272,5 +280,12 @@ public class NhanVien implements Serializable {
 		this.ttTrangThai = ttTrangThai;
 	}
 
-	
+	public List<NhatKyCongViec> getNhatKiCongViecs() {
+		return nhatKiCongViecs;
+	}
+
+	public void setNhatKiCongViecs(List<NhatKyCongViec> nhatKiCongViecs) {
+		this.nhatKiCongViecs = nhatKiCongViecs;
+	}
+
 }

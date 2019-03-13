@@ -274,5 +274,12 @@ td:nth-child(even) {
 								Hàng</span> <i class="mdi mdi-contacts menu-icon"></i>
 					</a></li>
 					<!-- end khach hang  -->
+					<!-- start nhat ky cong viec  -->
+					<li class="nav-item"><a class="nav-link"
+						href="<c:url value="/nhatkycongviec"/>"> <span
+							class="menu-title">Nhật Ký Công Việc</span> <i
+							class="mdi mdi-contacts menu-icon"></i>
+					</a></li>
+					<!-- end nhat ky cong viec  -->
 				</ul>
 			</nav>

@@ -10,10 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import javax.validation.constraints.Digits;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.persistence.TemporalType;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
