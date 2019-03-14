@@ -63,9 +63,9 @@
 										<td>${emp.maTieuThuc}</td>
 										<td>${emp.tenTieuThuc}</td>
 										<td><a
-											href="/tieuthuc/edittieuthuc/${emp.id}"
+											href="/tieuthuc/edittieuthuc/${emp.maTieuThuc}"
 											class="btn btn-primary">edit</a> <a
-											href="/tieuthuc/deletetieuthuc/${emp.id}"
+											href="/tieuthuc/deletetieuthuc/${emp.maTieuThuc}"
 											class="btn btn-danger">delete</a></td>
 									</tr>
 								</c:forEach>

@@ -19,7 +19,6 @@
 					</div>
 					<form:form class="forms-sample" method="post"
 						action="tieuthuc/editsavetieuthuc">
-						<form:hidden path="id"/>
 						<div class="form-group">
 							<label for="exampleInputName1">Mã tiêu thức</label>
 							<form:input path="maTieuThuc" class="form-control" />

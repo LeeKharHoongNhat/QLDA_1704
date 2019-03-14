@@ -253,6 +253,12 @@ td:nth-child(even) {
 						</div></li>
 					<!-- end phong ban  -->
 
+					<!-- start nhan vien  -->
+					<li class="nav-item"><a class="nav-link"
+						href="<c:url value="/nhanvien/1"/>"> <span class="menu-title">Nhân
+								Viên</span> <i class="mdi mdi-contacts menu-icon"></i>
+					</a></li>
+					<!-- end nhan vien  -->
 
 					<!-- start tieu thuc  -->
 					<li class="nav-item"><a class="nav-link"
