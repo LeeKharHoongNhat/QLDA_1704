@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2019 at 01:50 PM
+-- Generation Time: Mar 14, 2019 at 01:58 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -79,33 +79,32 @@ INSERT INTO `danh_muc_du_an` (`id`, `ma_du_an`, `ma_tieu_thuc`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `danh_muc_tieu_thuc` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `ma_tieu_thuc` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `ten_tieu_thuc` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ma_cha` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
+  PRIMARY KEY (`ma_tieu_thuc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `danh_muc_tieu_thuc`
 --
 
-INSERT INTO `danh_muc_tieu_thuc` (`id`, `ma_tieu_thuc`, `ten_tieu_thuc`, `ma_cha`) VALUES
-(1, 'CD', 'Chức Danh', ''),
-(2, 'CD1', 'Giám Đốc', 'CD'),
-(3, 'CD2', 'Phó Giám Đốc', 'CD'),
-(4, 'CD3', 'Trưởng Phòng', 'CD'),
-(5, 'CD4', 'Phó Phòng', 'CD'),
-(6, 'CD5', 'Nhân Viên', 'CD'),
-(7, 'LHD', 'Hợp đồng lao động', ''),
-(8, 'LHD1', 'Hợp đồng lao động không xác định thời hạn', 'LHD'),
-(9, 'LHD2', 'Hợp đồng lao động có thời hạn', 'LHD'),
-(10, 'LHD3', 'Hợp đồng lao động thời vụ', 'LHD'),
-(11, 'TTNV', 'Trạng thái nhân viên', ''),
-(12, 'TTNV1', 'Đang làm việc', 'TTNV'),
-(13, 'TTNV2', 'Đi công tác', 'TTNV'),
-(14, 'TTNV3', 'Nghỉ phép', 'TTNV'),
-(15, 'TTNV4', 'Nghỉ', 'TTNV');
+INSERT INTO `danh_muc_tieu_thuc` (`ma_tieu_thuc`, `ten_tieu_thuc`, `ma_cha`) VALUES
+('CD', 'Chức Danh', ''),
+('CD1', 'Giám Đốc', 'CD'),
+('CD2', 'Phó Giám Đốc', 'CD'),
+('CD3', 'Trưởng Phòng', 'CD'),
+('CD4', 'Phó Phòng', 'CD'),
+('CD5', 'Nhân Viên', 'CD'),
+('LHD', 'Hợp đồng lao động', ''),
+('LHD1', 'Hợp đồng lao động không xác định thời hạn', 'LHD'),
+('LHD2', 'Hợp đồng lao động có thời hạn', 'LHD'),
+('LHD3', 'Hợp đồng lao động thời vụ', 'LHD'),
+('TTNV', 'Trạng thái nhân viên', ''),
+('TTNV1', 'Đang làm việc', 'TTNV'),
+('TTNV2', 'Đi công tác', 'TTNV'),
+('TTNV3', 'Nghỉ phép', 'TTNV'),
+('TTNV4', 'Nghỉ', 'TTNV');
 
 -- --------------------------------------------------------
 
@@ -163,7 +162,29 @@ CREATE TABLE IF NOT EXISTS `nhan_vien` (
 --
 
 INSERT INTO `nhan_vien` (`ma_nhan_vien`, `ho_ten`, `gioi_tinh`, `so_chung_minh_thu`, `dia_chi`, `so_dien_thoai`, `email`, `hinh_anh`, `ma_phong_ban`, `ma_chuc_danh`, `ma_loai_hop_dong`, `ngay_bat_dau_hop_dong`, `ngay_ket_thuc_hop_dong`, `ma_trang_thai`, `pass_word`) VALUES
-('NV001', 'Trần Chấn', 'Nam', 2147483647, '06/13 Nguyễn Trải', '0975661206', 'aawsde2345@gmail.com', '', 'PKT', 'CD05', 'LHD02', '2019-03-01', '2019-07-31', 'TTNV03', '123456');
+('NV001', 'Trần Chấn', 'Nam', 2147483647, '06/13 Nguyễn Trải', '0975661206', 'aawsde2345@gmail.com', 'adsfh.jpg', 'PKT', 'CD5', 'LHD2', '2019-03-01', '2019-07-31', 'TTNV3', '123456'),
+('NV002', 'Phan Phạm Quang Đại', 'Nam', 145879645, '113 Ngô Quyền, Đà Nẵng', '0975489562', 'ppqd1123@gmail.com', 'abcd.jpg', 'PDA1', 'CD5', 'LHD1', '2019-03-01', '2019-03-31', 'TTNV1', '123456');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nhan_vien_du_an`
+--
+
+CREATE TABLE IF NOT EXISTS `nhan_vien_du_an` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `nhan_vien_du_an`
+--
+
+INSERT INTO `nhan_vien_du_an` (`id`, `ma_du_an`, `ma_nhan_vien`) VALUES
+(1, 'DA001', 'NV001'),
+(2, 'DA001', 'NV002');
 
 -- --------------------------------------------------------
 
