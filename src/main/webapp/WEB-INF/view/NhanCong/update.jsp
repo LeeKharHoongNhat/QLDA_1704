@@ -17,7 +17,7 @@
 					</div>
 
 					<form:form class="forms-sample" method="post"
-						action="">
+						action="/nhancong/update">
 						<div class="form-group">
 							<label for="exampleInputName1">Mã Công Việc</label>
 							<form:input path="maCongViec" class="form-control" />

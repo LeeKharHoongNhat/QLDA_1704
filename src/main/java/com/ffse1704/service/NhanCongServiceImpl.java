@@ -22,9 +22,9 @@ public class NhanCongServiceImpl implements NhanCongService {
 	}
 	@Override
 	@Transactional
-	public List<NhanCong> view(int iDisplayStart, int iDisplayLength) {
+	public List<NhanCong> view(int iDisplayStart, int iDisplayLength, String order) {
 		// TODO Auto-generated method stub
-		return nhanCongDao.view(iDisplayStart, iDisplayLength);
+		return nhanCongDao.view(iDisplayStart, iDisplayLength, order);
 		
 	}
 	@Override
@@ -35,20 +35,30 @@ public class NhanCongServiceImpl implements NhanCongService {
 	}
 	@Override
 	@Transactional
-	public void addNew(NhanCong nc) {
+	public boolean addNew(NhanCong nc) {
 		// TODO Auto-generated method stub
-		nhanCongDao.addNew(nc);
-	}
-	@Override
-	@Transactional
-	public void update(NhanCong nc) {
-		// TODO Auto-generated method stub
-		nhanCongDao.update(nc);
+		String id = nhanCongDao.save(nc);
+		if (id !=  null) {
+			return true;
+		}
+		return false;
 		
 	}
 	@Override
 	@Transactional
-	public void delete(String nc) {
+	public boolean update(NhanCong nc) {
+		boolean result = false;
+		try {
+			nhanCongDao.update(nc);
+			result = true;
+		} catch (Exception e) {
+			result = false;
+		}
+		return result;
+	}
+	@Override
+	@Transactional
+	public void delete(NhanCong nc) {
 		// TODO Auto-generated method stub
 		nhanCongDao.delete(nc);
 		
@@ -57,7 +67,12 @@ public class NhanCongServiceImpl implements NhanCongService {
 	@Transactional
 	public NhanCong getId(String maCongViec) {
 		// TODO Auto-generated method stub
-		return nhanCongDao.getId(maCongViec);
+		return nhanCongDao.findById(maCongViec);
+	}
+	@Override
+	@Transactional
+	public NhanCong checkExists(String mcv) {
+		return nhanCongDao.findById(mcv);
 	}
 
 }

@@ -13,12 +13,11 @@
 					<div class="content-header-right ">
 						<div role="group" aria-label="Button group with nested dropdown"
 							class="btn-group float-md-right " id="add-new">
-							<a href="<c:url value = "1"/>" class="btn btn-info"><span
-								class="fa fa-plus"></span>Back</a>
+					s
 						</div>
 
 					</div>
-					<form:form class="forms-sample" method="post" action="creat"
+					<form:form class="forms-sample" method="post" action="create"
 						modelAttribute="nhancong">
 						<div class="form-group">
 							<label for="exampleInputName1">Mã Công Việc</label>
@@ -54,8 +53,8 @@
 							<form:errors path="chiPhi" cssStyle="color: red" />
 						</div>
 
-						<button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-						<button class="btn btn-light" type="reset">Cancel</button>
+						<button type="submit" class="btn btn-gradient-primary mr-2">THÊM</button>
+						<button class="btn btn-light" type="reset">HỦY</button>
 					</form:form>
 				</div>
 			</div>
