@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <jsp:include page="/WEB-INF/view/templates/header.jsp" />
 <style>
 table {
@@ -76,7 +77,7 @@ table {
 
 .table-earning tbody td {
 	color: gray;
-	padding: 0px 10px;
+	padding: 20px 100px;
 	white-space: nowrap;
 	text-align: center;
 }
@@ -93,22 +94,13 @@ table {
 					<div class="card-body">
 						<h4 class="card-title">Nhật Ký Công Việc</h4>
 						<nav aria-label="Page navigation example"></nav>
-						<div class="content-header-right ">
-							<div role="group" aria-label="Button group with nested dropdown"
-								class="btn-group float-md-right " id="add-new">
-								<a href="<c:url value = "add/${maCV }"/>"
-									class="btn btn-info button-add"><span class="fa fa-plus"></span>
-									Add New</a>
-							</div>
-
-						</div>
+						<div class="content-header-right "></div>
 						<div class="table-responsive table--no-card m-b-30">
 							<table
 								class="table-bordered table table-borderless table-striped table-earning">
 								<thead>
 									<tr>
-										<th>Mã Dự Án</th>
-										<th>Mã Nhân Viên</th>
+										<th>Tên Nhân Viên</th>
 										<th>Nội Dung</th>
 										<th>Thời Gian Đăng Tải</th>
 									</tr>
@@ -116,14 +108,25 @@ table {
 								<tbody>
 									<c:forEach var="emp" items="${view}">
 										<tr>
-											<td>${emp.thongTinDuAn.tenDuAn}</td>
-											<td>${emp.maNhanVien}</td>
+											<td>${emp.nhanVien.hoTenNhanVien}</td>
 											<td>${emp.noiDung}</td>
 											<td>${emp.thoiGianDangTai}</td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
+							<form:form class="forms-sample" method="post"
+								action="/nhatkicongviec/save">
+								<div class="form-group">
+									<label >Nội Dung</label>
+									<input type="hidden" name="maNv" value="${maNv}" >
+									<input type="hidden" name="maDuAn" >
+									<textarea class="form-control" name="noiDung" rows="4"></textarea>
+								</div>
+								<button type="submit" class="btn btn-gradient-primary mr-2">Thêm</button>
+								<a href="<c:url value="/nhatkycongviec"> </c:url> "
+									class="btn btn-light">Hủy</a>
+							</form:form>
 						</div>
 					</div>
 				</div>
@@ -131,4 +134,5 @@ table {
 		</div>
 	</div>
 </div>
+
 <jsp:include page="/WEB-INF/view/templates/footer.jsp" />
