@@ -1,7 +1,6 @@
 package com.ffse1704.model;
 
 import java.io.Serializable;
-
 import java.util.Date;
 import java.util.List;
 
@@ -9,12 +8,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -70,12 +68,21 @@ public class ThongTinDuAn implements Serializable {
 	@Column(name = "da_thanh_toan", nullable = false)
 	private String daThanhToan;
 
-	@Column(name = "ma_trang_thai", nullable = false)
+	@Column(name = "trang_thai", nullable = false)
 	private String maTrangThai;
 
 	@OneToMany(mappedBy = "thongTinDuAn", fetch = FetchType.LAZY)
     private List<NhatKyCongViec> nhatKiCongViecs;
 
+	@Transient
+	private PhongBan phongBan;
+	@Transient
+	private KhachHang khachHang;
+	@Transient
+	private NhanVien nhanVienPm;
+	@Transient
+	private TieuThuc trangThai;
+	
 	public String getMaDuAn() {
 		return maDuAn;
 	}
@@ -178,6 +185,38 @@ public class ThongTinDuAn implements Serializable {
 
 	public void setNhatKiCongViecs(List<NhatKyCongViec> nhatKiCongViecs) {
 		this.nhatKiCongViecs = nhatKiCongViecs;
+	}
+
+	public PhongBan getPhongBan() {
+		return phongBan;
+	}
+
+	public void setPhongBan(PhongBan phongBan) {
+		this.phongBan = phongBan;
+	}
+
+	public KhachHang getKhachHang() {
+		return khachHang;
+	}
+
+	public void setKhachHang(KhachHang khachHang) {
+		this.khachHang = khachHang;
+	}
+
+	public NhanVien getNhanVienPm() {
+		return nhanVienPm;
+	}
+
+	public void setNhanVienPm(NhanVien nhanVienPm) {
+		this.nhanVienPm = nhanVienPm;
+	}
+
+	public TieuThuc getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(TieuThuc trangThai) {
+		this.trangThai = trangThai;
 	}
 
 

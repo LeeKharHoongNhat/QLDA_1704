@@ -15,9 +15,9 @@ public interface PhongBanService {
 
 	public PhongBan getPhongBanbyIdPhongBan(String maPhongBan);
 
-	public List<PhongBan> listPhongBan(int iDisplayStart, int iDisplayLength);
+	public List<PhongBan> listPhongBan(String maTrangThai, int iDisplayStart, int iDisplayLength);
 
-	public int getRecordsTotal();
+	public int getRecordsTotal(String maTrangThai);
 
 	public int getRecordsByIdPhongBan(String maPhongBan);
 

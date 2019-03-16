@@ -71,33 +71,12 @@ public class NhanVien implements Serializable {
 
 	@Column(name = "ma_chuc_danh")
 	private String maChucDanh;
-	/*
-	 * @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	 * 
-	 * @JoinColumn(name = "ma_chuc_danh", referencedColumnName = "ma_tieu_thuc",
-	 * insertable = false, updatable = false, nullable = false) private TieuThuc
-	 * maCD;
-	 */
 
 	@Column(name = "ma_loai_hop_dong")
 	private String maLoaiHopDong;
-	/*
-	 * @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	 * 
-	 * @JoinColumn(name = "ma_loai_hop_dong", referencedColumnName = "ma_tieu_thuc",
-	 * insertable = false, updatable = false, nullable = false) private TieuThuc
-	 * maLHD;
-	 */
 
 	@Column(name = "ma_trang_thai")
 	private String maTrangThai;
-	/*
-	 * @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	 * 
-	 * @JoinColumn(name = "ma_trang_thai", referencedColumnName = "ma_tieu_thuc",
-	 * insertable = false, updatable = false, nullable = false) private TieuThuc
-	 * maTT;
-	 */
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

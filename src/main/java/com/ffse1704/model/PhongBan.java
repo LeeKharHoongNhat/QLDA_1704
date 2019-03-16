@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -29,7 +30,19 @@ public class PhongBan implements Serializable {
 	@NotEmpty(message="không được để trống!")
 	public String tenPhongBan;
 
+	@Column(name = "trang_thai", nullable = false, length = 255)
+	public String trangThai;
 
+	@Transient
+	private TieuThuc ttTrangThai;
+
+	public TieuThuc getTtTrangThai() {
+		return ttTrangThai;
+	}
+
+	public void setTtTrangThai(TieuThuc ttTrangThai) {
+		this.ttTrangThai = ttTrangThai;
+	}
 
 	public PhongBan() {
 	}
@@ -48,6 +61,14 @@ public class PhongBan implements Serializable {
 
 	public void setTenPhongBan(String tenPhongBan) {
 		this.tenPhongBan = tenPhongBan;
+	}
+
+	public String getTrangThai() {
+		return trangThai;
+	}
+
+	public void setTrangThai(String trangThai) {
+		this.trangThai = trangThai;
 	}
 
 	public List<NhanVien> getListNhanVien() {

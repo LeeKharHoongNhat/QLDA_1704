@@ -12,7 +12,7 @@
 					<div class="content-header-right ">
 						<div role="group" aria-label="Button group with nested dropdown"
 							class="btn-group float-md-right "">
-							<a href="<c:url value = "/phongban/${trangThai}&1"/>" class="btn btn-info"><span
+							<a href="<c:url value = "/phongban/${command.trangThai}&1"/>" class="btn btn-info"><span
 								class="fa fa-plus"></span>Back</a>
 						</div>
 

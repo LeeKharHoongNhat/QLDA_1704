@@ -1,0 +1,21 @@
+package com.ffse1704.service;
+
+import java.util.List;
+
+import com.ffse1704.model.ThongTinDuAn;
+
+public interface ThongTinDuAnService {
+	boolean addNew(ThongTinDuAn da);
+
+	boolean update(ThongTinDuAn da);
+
+	boolean delete(ThongTinDuAn maDuAn);
+
+	public ThongTinDuAn getDuAnIdDuAn(String maDuAn);
+
+	public List<ThongTinDuAn> listDuAn(String maTrangThai, int iDisplayStart, int iDisplayLength);
+
+	public int getRecordsTotal(String maTrangThai);
+
+	public int getRecordsByIdDuAn(String maDuAn);
+}

@@ -13,7 +13,7 @@
 					<div class="content-header-right ">
 						<div role="group" aria-label="Button group with nested dropdown"
 							class="btn-group float-md-right " id="add-new">
-							<a href="<c:url value = "${trangThai}&1"/>" class="btn btn-info"><span
+							<a href="<c:url value = "TTPB1&1"/>" class="btn btn-info"><span
 								class="fa fa-plus"></span>Back</a>
 						</div>
 

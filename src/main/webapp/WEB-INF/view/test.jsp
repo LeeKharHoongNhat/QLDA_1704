@@ -9,80 +9,26 @@
 			<div class="col-lg-12 stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Danh Sách Nhân Viên</h4>
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-
-								<c:if test="${indexPage > 1}">
-									<li class="page-item"><a href="/nhanvien/1"
-										class="page-link">First</a></li>
-								</c:if>
-
-
-								<c:if test="${indexPage > 1}">
-									<li class="page-item"><a href="/nhanvien/${indexPage-1}"
-										class="page-link">${indexPage-1}</a></li>
-								</c:if>
-
-
-								<li class="page-item"><a href="/nhanvien/${indexPage}"
-									class="page-link">${indexPage}</a></li>
-
-
-								<c:if test="${indexPage < allPage}">
-									<li class="page-item"><a href="/nhanvien/${indexPage+1}"
-										class="page-link">${indexPage+1}</a></li>
-								</c:if>
-
-								<c:if test="${indexPage < allPage}">
-									<li class="page-item"><a href="/nhanvien/${allPage}"
-										class="page-link">Last</a></li>
-								</c:if>
-
-							</ul>
-						</nav>
-						<div class="content-header-right ">
-							<div role="group" aria-label="Button group with nested dropdown"
-								class="btn-group float-md-right " id="add-new">
-								<a href="<c:url value = "addnhanvien"/>" class="btn btn-info"><span
-									class="fa fa-plus"></span> Add new</a>
-							</div>
-
-						</div>
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>Mã nhân viên</th>
-									<th>Tên nhân viên</th>
-									<th>Ảnh</th>
-									<th>Phòng Ban</th>
-									<th>Chức danh</th>
-									<th>Loại hợp đồng</th>
-									<th>Trạng thái</th>
-									<th>action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="emp" items="${list}">
-									<tr>
-										<td>${emp.maNhanVien}</td>
-										<td>${emp.hoTenNhanVien}</td>
-										<td>${emp.hinhAnh}</td>
-										<td>${emp.maPhongBan}</td>
-										<td>${emp.maChucDanh}</td>
-										<td>${emp.maLoaiHopDong}</td>
-										<td>${emp.maTrangThai}</td>
-										<td><a href="/nhanvien/editnhanvien/${emp.maNhanVien}"
-											class="btn btn-primary">edit</a> <a
-											href="/nhanvien/deletenhanvien/${emp.maNhanVien}"
-											class="btn btn-danger">delete</a></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
+						<div id="timesheet"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 
+		<script type="text/javascript">
+			new Timesheet('timesheet', 2002, 2018, [
+					[ '2002', '09/2004', 'A freaking awesome time', 'lorem' ],
+					[ '06/2002', '12/2003', 'Some great memories', 'ipsum' ],
+					[ '2003', 'Had very bad luck' ],
+					[ '10/2003', '2006', 'At least had fun', 'dolor' ],
+					[ '02/2005', '05/2006', 'Enjoyed those times as well',
+							'ipsum' ],
+					[ '07/2005', '09/2005', 'Bad luck again', 'default' ],
+					[ '10/2005', '2008', 'For a long time nothing happened',
+							'dolor' ],
+					[ '01/2008', '05/2009', 'LOST Season #4', 'lorem' ],
+					[ '01/2009', '05/2009', 'LOST Season #4', 'lorem' ],
+					[ '02/2010', '05/2010', 'LOST Season #5', 'lorem' ],
+					[ '09/2008', '06/2010', 'FRINGE #1 & #2', 'ipsum' ] ]);
+		</script>
 		<jsp:include page="/WEB-INF/view/templates/footer.jsp" />

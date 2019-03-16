@@ -60,6 +60,7 @@
 						<thead>
 							<tr>
 								<th>Mã Nhân Viên</th>
+								<th>Tên Nhân Viên</th>
 								<th>Phòng Ban</th>
 								<th>Chức Danh</th>
 								<th>Loại Hợp Đồng</th>
@@ -71,6 +72,7 @@
 							<c:forEach var="emp" items="${list}">
 								<tr>
 									<td>${emp.maNhanVien}</td>
+									<td>${emp.hoTenNhanVien}</td>
 									<td>${emp.phongBan.tenPhongBan}</td>
 									<td>${emp.ttChucDanh.tenTieuThuc}</td>
 									<td>${emp.ttLoaiHD.tenTieuThuc}</td>

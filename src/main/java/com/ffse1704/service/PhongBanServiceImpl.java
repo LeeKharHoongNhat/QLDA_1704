@@ -74,14 +74,14 @@ public class PhongBanServiceImpl implements PhongBanService {
 
 	@Override
 	@Transactional
-	public List<PhongBan> listPhongBan(int iDisPlayStart, int iDinPlayLength) {
-		return this.phongBanDao.listPhongBan(iDisPlayStart, iDinPlayLength);
+	public List<PhongBan> listPhongBan(String maTrangThai,int iDisPlayStart, int iDinPlayLength) {
+		return this.phongBanDao.listPhongBan(maTrangThai,iDisPlayStart, iDinPlayLength);
 	}
 
 	@Override
 	@Transactional
-	public int getRecordsTotal() {
-		return this.phongBanDao.getRecordsTotal();
+	public int getRecordsTotal(String maTrangThai) {
+		return this.phongBanDao.getRecordsTotal(maTrangThai);
 	}
 
 	@Override

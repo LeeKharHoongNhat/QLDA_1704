@@ -78,7 +78,7 @@ public class NhanCongController {
 	@RequestMapping(value = { "/create" }, method = RequestMethod.POST)
 	public String creat(@ModelAttribute("nhancong") @Valid NhanCong nhancong, BindingResult result,
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
-		NhanVien listNhanVien=nhanVienService.
+		//NhanVien listNhanVien=nhanVienService.
 		if (result.hasErrors()) {
 			return "NhanCong/add_form";
 		} else {
