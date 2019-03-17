@@ -14,6 +14,8 @@ public interface ThongTinDuAnService {
 	public ThongTinDuAn getDuAnIdDuAn(String maDuAn);
 
 	public List<ThongTinDuAn> listDuAn(String maTrangThai, int iDisplayStart, int iDisplayLength);
+	
+	public ThongTinDuAn viewOneDuAn(String maDuAn);
 
 	public int getRecordsTotal(String maTrangThai);
 

@@ -46,4 +46,17 @@ public class ThongTinDuAnDaoImpl extends ResponsitoryDaoImpl<ThongTinDuAn, Strin
 		return rowCount;
 	}
 
+	@Override
+	public ThongTinDuAn viewOneDuAn(String maDuAn) {
+		List<ThongTinDuAn> duAnList = createQuery("from ThongTinDuAn where maDuAn ='"+maDuAn+"'").list();
+		duAnList.forEach(da ->{
+			da.setPhongBan(phongBanDao.findById(da.getMaPhongBan()));
+			da.setNhanVienPm(nhanVienDao.findById(da.getMaNhanVienPM()));
+			da.setTrangThai(tieuThucDao.findById(da.getMaTrangThai()));
+			da.setKhachHang(khachHangDao.findById(da.getMaKhachHang()));
+		});
+		ThongTinDuAn duAn = duAnList.get(0);
+		return duAn;
+	}
+
 }

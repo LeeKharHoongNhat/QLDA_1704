@@ -50,7 +50,7 @@
 							<div role="group" aria-label="Button group with nested dropdown"
 								class="btn-group float-md-right " id="add-new"
 								style="margin-bottom: 10px; float: left !important">
-								<a href="<c:url value = "/phongban/TTPB1&1"/>" class="btn btn-gradient-light btn-rounded btn-fw"><span
+								<a href="<c:url value = "/phongban/TTPB1&1"/>" class="btn btn-gradient-dark btn-rounded btn-fw"><span
 									class="fa fa-plus" style="margin :5px;"></span> Hoạt động</a>
 									<a href="<c:url value = "/phongban/TTPB2&1"/>" class="btn btn-gradient-dark btn-rounded btn-fw"><span
 									class="fa fa-plus" style="margin :5px;"></span> nghỉ</a>

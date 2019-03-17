@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ffse1704.model.PhongBan;
 import com.ffse1704.model.ThongTinDuAn;
 import com.ffse1704.service.ThongTinDuAnService;
 
@@ -31,6 +32,15 @@ public class ThongTinDuAnController {
 		model.addAttribute("indexPage", page);
 		model.addAttribute("allPage", total);
 		return "thongtinduan/list";
+	}
+	
+	@RequestMapping(value = "/view/{idDuAn}")
+	public String viewEditPhongBan(@PathVariable String idDuAn, Model model) {
+		//List<TieuThuc> listTieuThuc = tieuThucService.getListTieuThucByMaCha("TTPB");
+		ThongTinDuAn duAn = thongTinDuAnService.viewOneDuAn(idDuAn);
+		model.addAttribute("command", duAn);
+		//model.addAttribute("list", listTieuThuc);
+		return "thongtinduan/view";
 	}
 
 }

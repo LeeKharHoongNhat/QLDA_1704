@@ -89,4 +89,10 @@ public class ThongTinDuAnServiceImpl implements ThongTinDuAnService {
 		return this.thongTinDuAnDao.getRecordsByIdDuAn(maDuAn);
 	}
 
+	@Override
+	@Transactional
+	public ThongTinDuAn viewOneDuAn(String maDuAn) {
+		return this.thongTinDuAnDao.viewOneDuAn(maDuAn);
+	}
+
 }

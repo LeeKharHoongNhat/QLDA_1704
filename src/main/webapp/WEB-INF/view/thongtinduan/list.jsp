@@ -87,10 +87,12 @@
 										<td>${emp.phongBan.tenPhongBan}</td>
 										<td>${emp.nhanVienPm.hoTenNhanVien}</td>
 										<td>${emp.trangThai.tenTieuThuc}</td>
-										<td><a href="/duan/editduan/${emp.maDuAn}"
+										<td>
+										<a href="/duan/view/${emp.maDuAn}"
+											class="btn btn-warning">Chi Tiết</a>
+										<a href="/duan/editduan/${emp.maDuAn}"
 											class="btn btn-primary">edit</a>
-											<a href="/congviecduan/${emp.maDuAn}&0&1"
-											class="btn btn-primary">CVDA</a></td>
+											</td>
 									</tr>
 								</c:forEach>
 								<!-- The Modal -->

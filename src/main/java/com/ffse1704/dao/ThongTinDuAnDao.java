@@ -7,6 +7,8 @@ import com.ffse1704.model.ThongTinDuAn;
 public interface ThongTinDuAnDao extends RepositoryDao<ThongTinDuAn, String> {
 	public List<ThongTinDuAn> listDuAn(String maTrangThai, int iDisplayStart, int iDisplayLength);
 
+	public ThongTinDuAn viewOneDuAn(String maDuAn);
+
 	public int getRecordsTotal(String maTrangThai);
 
 	public int getRecordsByIdDuAn(String maDuAn);
