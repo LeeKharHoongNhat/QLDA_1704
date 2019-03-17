@@ -106,11 +106,13 @@ public class TieuThucServiceImpl implements TieuThucService {
 	 * this.tieuThucDao.getRecordsByIdTieuThuc(id); }
 	 */
 	@Override
+	@Transactional
 	public List<TieuThuc> getListTieuThucByMaCha(String maCha) {
 		return this.tieuThucDao.getListTieuThucByMaCha(maCha);
 	}
 
 	@Override
+	@Transactional
 	public List<TieuThuc> getListTieuThucByMaChaNull() {
 		return this.tieuThucDao.getListTieuThucByMaChaNull();
 	}

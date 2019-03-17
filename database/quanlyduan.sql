@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2019 at 01:58 PM
+-- Generation Time: Mar 17, 2019 at 01:56 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -100,11 +100,19 @@ INSERT INTO `danh_muc_tieu_thuc` (`ma_tieu_thuc`, `ten_tieu_thuc`, `ma_cha`) VAL
 ('LHD1', 'Hợp đồng lao động không xác định thời hạn', 'LHD'),
 ('LHD2', 'Hợp đồng lao động có thời hạn', 'LHD'),
 ('LHD3', 'Hợp đồng lao động thời vụ', 'LHD'),
+('TTDA', 'Trạng thái dự án', ''),
+('TTDA1', 'Đang triển khai', 'TTDA'),
+('TTDA2', 'Test', 'TTDA'),
+('TTDA3', 'Chờ bàn giao', 'TTDA'),
+('TTDA4', 'Đã bàn giao', 'TTDA'),
 ('TTNV', 'Trạng thái nhân viên', ''),
 ('TTNV1', 'Đang làm việc', 'TTNV'),
 ('TTNV2', 'Đi công tác', 'TTNV'),
 ('TTNV3', 'Nghỉ phép', 'TTNV'),
-('TTNV4', 'Nghỉ', 'TTNV');
+('TTNV4', 'Nghỉ', 'TTNV'),
+('TTPB', 'Trạng thái phòng ban', ''),
+('TTPB1', 'Hoạt động', 'TTPB'),
+('TTPB2', 'Nghỉ', 'TTPB');
 
 -- --------------------------------------------------------
 
@@ -189,6 +197,31 @@ INSERT INTO `nhan_vien_du_an` (`id`, `ma_du_an`, `ma_nhan_vien`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nhat_ky_cong_viec`
+--
+
+CREATE TABLE IF NOT EXISTS `nhat_ky_cong_viec` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noi_dung` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thoi_gian_dang_tai` datetime NOT NULL,
+  `IsActive` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `nhat_ky_cong_viec`
+--
+
+INSERT INTO `nhat_ky_cong_viec` (`id`, `ma_du_an`, `ma_nhan_vien`, `noi_dung`, `thoi_gian_dang_tai`, `IsActive`) VALUES
+(1, 'DA001', 'NV001', 'ADSA', '2019-03-13 00:00:00', 1),
+(2, 'DA001', 'NV002', 'cccc', '2019-03-26 00:00:00', 1),
+(3, 'DA001', 'NV002', 'aaaaa', '2019-03-13 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `phong_ban`
 --
 
@@ -204,13 +237,13 @@ CREATE TABLE IF NOT EXISTS `phong_ban` (
 --
 
 INSERT INTO `phong_ban` (`ma_phong_ban`, `ten_phong_ban`, `trang_thai`) VALUES
-('PDA1', 'Phòng Dự Án số 1', 'TT01'),
-('PDA2', 'Phòng Dự Án số 2', 'TT01'),
-('PDA3', 'Phòng Dự Án số 3', 'TT01'),
-('PGD', 'Phòng Giám Đốc', 'TT01'),
-('PKT', 'Phòng Kế Toán', 'TT01'),
-('PNS', 'Phòng Nhân Sự', 'TT01'),
-('PT001', 'Test01', 'TT02');
+('PDA1', 'Phòng Dự Án số 1', 'TTPB1'),
+('PDA2', 'Phòng Dự Án số 2', 'TTPB1'),
+('PDA3', 'Phòng Dự Án số 3', 'TTPB1'),
+('PGD', 'Phòng Giám Đốc', 'TTPB1'),
+('PKT', 'Phòng Kế Toán', 'TTPB1'),
+('PNS', 'Phòng Nhân Sự', 'TTPB1'),
+('PT001', 'Test01', 'TTPB2');
 
 -- --------------------------------------------------------
 
@@ -225,19 +258,21 @@ CREATE TABLE IF NOT EXISTS `thiet_bi` (
   `thoi_gian_bat_dau_thue_muon` datetime NOT NULL,
   `thoi_gian_ket_thuc_thue_muon` datetime NOT NULL,
   `ghi_chu` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `don_gia` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `chi_phi` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `IsActive` tinyint(1) NOT NULL,
+  `don_gia` double NOT NULL,
+  `chi_phi` double NOT NULL,
+  `IsActive` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `thiet_bi`
 --
 
 INSERT INTO `thiet_bi` (`id`, `ma_cong_viec`, `ten_thiet_bi`, `thoi_gian_bat_dau_thue_muon`, `thoi_gian_ket_thuc_thue_muon`, `ghi_chu`, `don_gia`, `chi_phi`, `IsActive`) VALUES
-(1, 'CV1', 'A', '2019-03-06 00:00:00', '2019-03-22 00:00:00', 'TESTTTTTTTTTT', '1000', '1000', 0),
-(2, 'CV1', 'B', '2019-03-26 00:00:00', '2019-03-27 00:00:00', 'ABCD', '2000', '2000', 0);
+(1, 'CV1', 'A', '2019-03-06 00:00:00', '2019-03-22 00:00:00', 'TESTTTTTTTTTT', 1000, 1000, 0),
+(2, 'CV1', 'B', '2019-03-26 00:00:00', '2019-03-27 00:00:00', 'TESTTTTT', 2000, 2000, 1),
+(3, 'CV1', 'C', '2019-03-27 00:00:00', '2019-03-14 00:00:00', 'TESTTTTTTTTT', 2000, 2000, 1),
+(4, 'CV1', 'D', '2019-03-22 00:00:00', '2019-03-23 00:00:00', 'TESTTTTTTTTT', 2000, 2000, 1);
 
 -- --------------------------------------------------------
 
@@ -256,15 +291,18 @@ CREATE TABLE IF NOT EXISTS `thong_tin_du_an` (
   `ngay_ban_giao` date NOT NULL,
   `gia_tri_hop_dong` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `da_thanh_toan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ma_trang_thai` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
+  `trang_thai` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `thong_tin_du_an`
 --
 
-INSERT INTO `thong_tin_du_an` (`ma_du_an`, `ten_du_an`, `ma_khach_hang`, `ma_phong_ban`, `ma_nhan_vien_pm`, `ngay_bat_dau`, `ngay_ket_thuc`, `ngay_ban_giao`, `gia_tri_hop_dong`, `da_thanh_toan`, `ma_trang_thai`) VALUES
-('DA001', 'Quản lý hệ thống công ty phần mềm VCL', 'KH001', 'PDA1', 'NV001', '2019-03-01', '2019-03-31', '2019-04-10', '1 000 000 USD', '250 000 USD', 'TTDA1');
+INSERT INTO `thong_tin_du_an` (`ma_du_an`, `ten_du_an`, `ma_khach_hang`, `ma_phong_ban`, `ma_nhan_vien_pm`, `ngay_bat_dau`, `ngay_ket_thuc`, `ngay_ban_giao`, `gia_tri_hop_dong`, `da_thanh_toan`, `trang_thai`) VALUES
+('DA001', 'Quản lý hệ thống công ty phần mềm VCL', 'KH001', 'PDA1', 'NV001', '2019-03-01', '2019-03-31', '2019-04-10', '1 000 000 USD', '250 000 USD', 'TTDA1'),
+('DA002', 'Fasttrack SE', 'KH001', 'PDA2', 'NV001', '2019-03-01', '2019-03-15', '2019-03-30', '10', '1', 'TTDA2'),
+('DA003', 'ABC Combat', 'KH001', 'PDA3', 'NV001', '2019-03-07', '2019-03-14', '2019-03-30', '100', '10', 'TTDA3'),
+('DA004', 'Pubg Mobile', 'KH001', 'PDA1', 'NV001', '2019-03-01', '2019-03-27', '2019-03-31', '1000', '100', 'TTDA4');
 
 -- --------------------------------------------------------
 

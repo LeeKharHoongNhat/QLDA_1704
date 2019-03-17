@@ -78,10 +78,10 @@ public class PhongBanController {
 	
 	@RequestMapping(value = "/editphongban/{idPhongBan}")
 	public String viewEditPhongBan(@PathVariable String idPhongBan, Model model) {
-		//List<TieuThuc> listTieuThuc = tieuThucService.getListTieuThucByMaCha("TTPB");
+		List<TieuThuc> listTieuThuc = tieuThucService.getListTieuThucByMaCha("TTPB");
 		PhongBan phongBan = phongBanService.getPhongBanbyIdPhongBan(idPhongBan);
 		model.addAttribute("command", phongBan);
-		//model.addAttribute("list", listTieuThuc);
+		model.addAttribute("list", listTieuThuc);
 		return "phongban/edit";
 	}
 	
