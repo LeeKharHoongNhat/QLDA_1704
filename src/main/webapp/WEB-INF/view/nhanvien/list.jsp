@@ -77,7 +77,10 @@
 									<td>${emp.ttChucDanh.tenTieuThuc}</td>
 									<td>${emp.ttLoaiHD.tenTieuThuc}</td>
 									<td>${emp.ttTrangThai.tenTieuThuc}</td>
-									<td><a href="/nhanvien/editnhanvien/${emp.maNhanVien}"
+									<td>
+									<a href="/nhanvien/viewNhanVien/${emp.maNhanVien}"
+										class="btn btn-primary">View</a>
+									<a href="/nhanvien/editnhanvien/${emp.maNhanVien}"
 										class="btn btn-primary">edit</a> <a
 										onclick="deletenhanvien('${emp.maNhanVien}')"
 										class="btn btn-danger" style="color: white;!improtant">delete</a></td>

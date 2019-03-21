@@ -32,5 +32,9 @@ public class NhanVienController {
 		model.addAttribute("allPage", total);
 		return "nhanvien/list";
 	}
-
+	@RequestMapping("/viewNhanVien/{maNhanVien}")
+	public String viewOne(@PathVariable String maNhanVien, Model model) {
+		model.addAttribute("viewOne", nhanVienService.getNhanVienbyIdNhanVien(maNhanVien));
+		return "nhanvien/view";
+	}
 }

@@ -68,7 +68,7 @@ public class ThongTinDuAn implements Serializable {
 	@Column(name = "da_thanh_toan", nullable = false)
 	private String daThanhToan;
 
-	@Column(name = "trang_thai", nullable = false)
+	@Column(name = "ma_trang_thai", nullable = false)
 	private String maTrangThai;
 
 	@OneToMany(mappedBy = "thongTinDuAn", fetch = FetchType.LAZY)
