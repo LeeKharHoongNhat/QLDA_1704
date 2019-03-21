@@ -66,8 +66,8 @@ public class NhanVienServicelmpl implements NhanVienService {
 
 	@Override
 	@Transactional
-	public NhanVien getNhanVienbyIdNhanVien(String maNhanVien) {
-		return this.nhanVienDao.findById(maNhanVien);
+	public NhanVien getOneNhanVien(String maNhanVien) {
+		return this.nhanVienDao.getOneNhanVien(maNhanVien);
 	}
 
 	@Override

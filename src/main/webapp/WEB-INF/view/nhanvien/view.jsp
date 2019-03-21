@@ -66,21 +66,21 @@ height: 50px; width: 50px
                       </div>
                     </div>
                      <div class="form-group row">
-                      <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mã Phòng Ban :</label>
+                      <label for="exampleInputMobile" class="col-sm-3 col-form-label"> Phòng Ban :</label>
                       <div class="col-sm-9">
-                        <p> ${viewOne.maPhongBan} </p>
+                        <p> ${viewOne.phongBan.tenPhongBan} </p>
                       </div>
                     </div>
                      <div class="form-group row">
-                      <label for="exampleInputMobile" class="col-sm-3 col-form-label">Mã Chức Danh :</label>
+                      <label for="exampleInputMobile" class="col-sm-3 col-form-label"> Chức Danh :</label>
                       <div class="col-sm-9">
-                        <p> ${viewOne.maChucDanh} </p>
+                        <p> ${viewOne.ttChucDanh.tenTieuThuc} </p>
                       </div>
                     </div>
                      <div class="form-group row">
                       <label for="exampleInputMobile" class="col-sm-3 col-form-label">Loại Hợp Đồng :</label>
                       <div class="col-sm-9">
-                       <p> ${viewOne.maLoaiHopDong} </p>
+                       <p> ${viewOne.ttLoaiHD.tenTieuThuc} </p>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -98,7 +98,7 @@ height: 50px; width: 50px
                     <div class="form-group row">
                       <label for="exampleInputMobile" class="col-sm-3 col-form-label">Trạng Thái :</label>
                       <div class="col-sm-9">
-                        <p> ${viewOne.maTrangThai} </p>
+                        <p> ${viewOne.ttTrangThai.tenTieuThuc} </p>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -108,14 +108,9 @@ height: 50px; width: 50px
                       </div>
                     </div>
             
-                    <div class="form-check form-check-flat form-check-primary">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input">
-                        Remember me
-                      </label>
-                    </div>
                    
-                    <a href="<c:url value="/nhanvien/1"> </c:url> " class="btn btn-light" >Hủy</a>
+                   
+                    <a href="<c:url value="/nhanvien/1"> </c:url> " class="btn btn-primary"" >Back</a>
                   </form>
                 </div>
               </div>

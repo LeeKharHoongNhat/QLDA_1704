@@ -42,5 +42,17 @@ public class NhanVienDaolmpl extends ResponsitoryDaoImpl<NhanVien, String> imple
 		return rowCount;
 	}
 
+	@Override
+	public NhanVien getOneNhanVien(String maNhanVien) {
+		List<NhanVien> nhanVienList = createQuery("from NhanVien where maNhanVien='"+maNhanVien+"'").list();
+		nhanVienList.forEach(nv -> {
+			nv.setTtChucDanh(tieuThucDao.findById(nv.getMaChucDanh()));
+			nv.setTtLoaiHD(tieuThucDao.findById(nv.getMaLoaiHopDong()));
+			nv.setTtTrangThai(tieuThucDao.findById(nv.getMaTrangThai()));
+		});
+		NhanVien nhanVien = nhanVienList.get(0);
+		return nhanVien;
+	}
+
 
 }

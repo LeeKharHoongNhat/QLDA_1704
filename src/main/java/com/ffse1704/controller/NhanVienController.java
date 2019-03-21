@@ -34,7 +34,12 @@ public class NhanVienController {
 	}
 	@RequestMapping("/viewNhanVien/{maNhanVien}")
 	public String viewOne(@PathVariable String maNhanVien, Model model) {
-		model.addAttribute("viewOne", nhanVienService.getNhanVienbyIdNhanVien(maNhanVien));
+		model.addAttribute("viewOne", nhanVienService.getOneNhanVien(maNhanVien));
 		return "nhanvien/view";
+	}
+	@RequestMapping("/editNhanVien/{maNhanVien}")
+	public String editOne(@PathVariable String maNhanVien, Model model) {
+		model.addAttribute("editOne", nhanVienService.getOneNhanVien(maNhanVien));
+		return "nhanvien/edit";
 	}
 }

@@ -12,7 +12,7 @@ public interface NhanVienService {
 
 	boolean delete(NhanVien maNhanVien);
 
-	public NhanVien getNhanVienbyIdNhanVien(String maNhanVien);
+	public NhanVien getOneNhanVien(String maNhanVien);
 
 	public List<NhanVien> listNhanVien(int iDisplayStart, int iDisplayLength);
 

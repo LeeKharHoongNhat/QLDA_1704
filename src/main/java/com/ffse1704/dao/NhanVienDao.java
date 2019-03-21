@@ -11,4 +11,6 @@ public interface NhanVienDao  extends RepositoryDao<NhanVien, String>{
 	public int getRecordsTotal();
 
 	public int getRecordsByIdNhanVien(String maNhanVien);
+	
+	public NhanVien getOneNhanVien(String maNhanVien);
 }
