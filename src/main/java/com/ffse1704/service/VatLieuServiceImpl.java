@@ -13,7 +13,6 @@ import com.ffse1704.model.VatLieu;
 @Service
 public class VatLieuServiceImpl implements VatLieuService {
 
-	@SuppressWarnings("unused")
 	@Autowired
 	private VatLieuDao vatLieuDao;
 

@@ -10,7 +10,6 @@ import com.ffse1704.model.NhanCong;
 @Repository
 public class NhanCongDaoImpl extends ResponsitoryDaoImpl<NhanCong, String> implements NhanCongDao {
 
-	@SuppressWarnings("unchecked")
 
 	@Override
 	public List<NhanCong> view(int iDisplayStart, int iDisplayLength, String order) {
@@ -22,7 +21,6 @@ public class NhanCongDaoImpl extends ResponsitoryDaoImpl<NhanCong, String> imple
 		return query.list();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public int getRecordsTotal() {
 

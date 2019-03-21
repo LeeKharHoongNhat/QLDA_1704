@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ffse1704.model.NhanCong;
-import com.ffse1704.model.NhanVien;
 import com.ffse1704.model.valid.NhanCongAddValidator;
 import com.ffse1704.service.NhanCongService;
 import com.ffse1704.service.NhanVienService;

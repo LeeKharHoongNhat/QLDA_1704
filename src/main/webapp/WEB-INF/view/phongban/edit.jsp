@@ -34,13 +34,12 @@
 						<div class="form-group">
 							<label for="exampleInputEmail3">Trạng Thái</label>
 							<form:select path="trangThai"
-								class="custom-select block round" id="maTieuThuc" onchange="selectThanhPho()">
+								class="custom-select block round" id="maTieuThuc" >
 								<c:forEach items="${listTrangThai}" var="ltt">
 									<form:option value="${ltt.maTieuThuc}" label="${ltt.tenTieuThuc}" />
 								</c:forEach>
 							</form:select> 
 						</div>
-						
 						<button type="submit" class="btn btn-gradient-primary mr-2">Edit</button>
 						<button class="btn btn-light" type="reset">Cancel</button>
 					</form:form>

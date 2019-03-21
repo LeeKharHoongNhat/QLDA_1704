@@ -81,7 +81,7 @@ public class PhongBanController {
 		List<TieuThuc> listTieuThuc = tieuThucService.getListTieuThucByMaCha("TTPB");
 		PhongBan phongBan = phongBanService.getPhongBanbyIdPhongBan(idPhongBan);
 		model.addAttribute("command", phongBan);
-		model.addAttribute("list", listTieuThuc);
+		model.addAttribute("listTrangThai", listTieuThuc);
 		return "phongban/edit";
 	}
 	

@@ -2,22 +2,27 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/WEB-INF/view/templates/header.jsp" />
+
 <div class="main-panel">
 	<div class="content-wrapper">
 		<div class="page-header">
 			<div class="col-lg-12 stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Danh Sách hạng mục công việc :<strong style="color: red;"> ${tenDuAn.duAn.tenDuAn }</strong></h4>
-						<nav aria-label="Page navigation example"></nav>
+						<h4 class="card-title">
+							Thông Tin Dự Án: <strong style="color: red;">${view.duAn.tenDuAn}</strong>
+						</h4>
 						<div class="content-header-right ">
 							<div role="group" aria-label="Button group with nested dropdown"
 								class="btn-group float-md-right " id="add-new">
-								<a href="<c:url value = "add/${maDuAn }"/>" class="btn btn-info"><span
-									class="fa fa-plus"></span> Add New</a>
+								<a
+									href="<c:url value = "/congviecduan/list?maDuAn=${view.maDuAn}&page=1"/>"
+									class="btn btn-info"><span class="fa fa-plus"></span>Back</a>
 							</div>
 
 						</div>
+
+
 						<table class="table table-bordered">
 							<thead>
 								<tr>
@@ -31,29 +36,27 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="emp" items="${list}">
-									<tr>
-										<td>${emp.maCongViec}</td>
-										<td>${emp.noiDung}</td>
-										<td>${emp.nhanVien.hoTenNhanVien}</td>
-										<td>${emp.thoiGianMo}</td>
-										<td>${emp.thoiGianDong}</td>
-										<td>${emp.maTrangThai}</td>
-										<td><a href="/congviecduan/edit/${emp.id}"
-											class="btn btn-primary">edit</a> <a
-											href="/congviecduan?id=${emp.id}">Check</a>
-											<a
-											href="/thietbi/${emp.maCongViec}"
-											class="btn btn-danger">Thiết Bị</a></td>
-									</tr>
-								</c:forEach>
+
+								<tr>
+									<td>${view.maCongViec}</td>
+									<td>${view.noiDung}</td>
+									<td>${view.nhanVien.hoTenNhanVien}</td>
+									<td>${view.thoiGianMo}</td>
+									<td>${view.thoiGianDong}</td>
+									<td>${view.maTrangThai}</td>
+									<td><a href="/congviecduan/edit/${view.id}"
+										class="btn btn-primary">edit</a> <a
+										href="/congviecduan/${view.id}">LogWork</a></td>
+								</tr>
+
+
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-		</div>
 
+		</div>
 
 
 		<jsp:include page="/WEB-INF/view/templates/footer.jsp" />

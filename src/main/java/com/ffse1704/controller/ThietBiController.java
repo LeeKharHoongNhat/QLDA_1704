@@ -2,7 +2,6 @@ package com.ffse1704.controller;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -14,33 +14,27 @@ import com.ffse1704.model.CongViecDuAn;
  *
  */
 @Repository
-public class CongViecDuAnDaoImpl implements CongViecDuAnDao {
+public class CongViecDuAnDaoImpl extends ResponsitoryDaoImpl<CongViecDuAn, String>implements CongViecDuAnDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 
+	@Autowired
+	private ThongTinDuAnDao thongTinDuAnDao;
+	
+	@Autowired
+	private NhanVienDao nhanVienDao;
 
 	@Override
-	public List<CongViecDuAn> listCongViecDuAnByMaCha(String maDuAn, String maCha, int iDisplayStart,
+	public List<CongViecDuAn> listCongViecDuAnByMaCha(String maDuAn, int iDisplayStart,
 			int iDisplayLength) {
-		Session session = this.sessionFactory.getCurrentSession();
-		@SuppressWarnings("unchecked")
-		List<CongViecDuAn> listcvda = session
-				.createQuery(
-						"from CongViecDuAn tt where tt.maDuAn  = '" + maDuAn + "' and tt.maCha ='" + maCha + "'")
+		List<CongViecDuAn> listcvda = createQuery(
+						"from CongViecDuAn tt where tt.maDuAn  = '" + maDuAn + "'")
 				.setFirstResult(iDisplayStart).setMaxResults(iDisplayLength).list();
+		listcvda.forEach(cvda ->{
+			cvda.setDuAn(thongTinDuAnDao.findById(cvda.getMaDuAn()));
+			cvda.setNhanVien(nhanVienDao.findById(cvda.getMaNhanVien()));
+		});
 		return listcvda;
-	}
-
-	@Override
-	public void addNew(CongViecDuAn cvda) {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.persist(cvda);
-	}
-
-	@Override
-	public void update(CongViecDuAn cvda) {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.update(cvda);
 	}
 
 	@Override
@@ -53,20 +47,15 @@ public class CongViecDuAnDaoImpl implements CongViecDuAnDao {
 	}
 
 	@Override
-	public CongViecDuAn getCongViecDuAnByIdCongViecDuAn(String maDuAn, String maCongViec, String maCha) {
-		Session session = sessionFactory.getCurrentSession();
-		@SuppressWarnings("unchecked")
-		List<CongViecDuAn> listcvda = session.createQuery("from CongViecDuAn tt where tt.maDuAn  = '" + maDuAn
-				+ "' and tt.maCongViec ='" + maCongViec + "' and tt.maCha = '" + maCha + "'").list();
+	public CongViecDuAn getCongViecDuAnById(int id) {
+		List<CongViecDuAn> listcvda = createQuery("from CongViecDuAn tt where tt.id  = '" + id+"'").list();
 		CongViecDuAn cvda = listcvda.get(0);
 		return cvda;
 	}
 
 	@Override
-	public int getRecordsTotalByMaCha(String maDuAn, String maCha) {
-		Session session = sessionFactory.getCurrentSession();
-		int rowCount = session
-				.createQuery("from CongViecDuAn tt where tt.maDuAn = '" + maDuAn + "' and tt.maCha ='" + maCha + "'")
+	public int getRecordsTotalByMaCha(String maDuAn) {
+		int rowCount =createQuery("from CongViecDuAn tt where tt.maDuAn = '" + maDuAn + "'")
 				.list().size();
 		return rowCount;
 	}

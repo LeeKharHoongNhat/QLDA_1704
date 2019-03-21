@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.ffse1704.common.Utils;
 import com.ffse1704.model.ThietBi;
 
 @Component

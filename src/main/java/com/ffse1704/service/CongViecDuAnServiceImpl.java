@@ -22,15 +22,15 @@ public class CongViecDuAnServiceImpl implements CongViecDuAnService {
 
 	@Override
 	@Transactional
-	public List<CongViecDuAn> listCongViecDuAnByMaCha(String maDuAn, String maCha, int iDisplayStart,
+	public List<CongViecDuAn> listCongViecDuAnByMaCha(String maDuAn, int iDisplayStart,
 			int iDisplayLength) {
-		return this.congViecDuAnDao.listCongViecDuAnByMaCha(maDuAn, maCha, iDisplayStart, iDisplayLength);
+		return this.congViecDuAnDao.listCongViecDuAnByMaCha(maDuAn,  iDisplayStart, iDisplayLength);
 	}
 
 	@Override
 	@Transactional
 	public void addNew(CongViecDuAn cvda) {
-		this.congViecDuAnDao.addNew(cvda);
+		this.congViecDuAnDao.save(cvda);
 	}
 
 	@Override
@@ -47,14 +47,14 @@ public class CongViecDuAnServiceImpl implements CongViecDuAnService {
 
 	@Override
 	@Transactional
-	public CongViecDuAn getCongViecDuAnByIdCongViecDuAn(String maDuAn, String maCongViec, String maCha) {
-		return this.congViecDuAnDao.getCongViecDuAnByIdCongViecDuAn(maDuAn, maCongViec, maCha);
+	public CongViecDuAn getCongViecDuAnById(int id) {
+		return this.congViecDuAnDao.getCongViecDuAnById(id);
 	}
 
 	@Override
 	@Transactional
-	public int getRecordsTotalByMaCha(String maDuAn, String maCha) {
-		return this.congViecDuAnDao.getRecordsTotalByMaCha(maDuAn, maCha);
+	public int getRecordsTotalByMaCha(String maDuAn) {
+		return this.congViecDuAnDao.getRecordsTotalByMaCha(maDuAn);
 	}
 
 }

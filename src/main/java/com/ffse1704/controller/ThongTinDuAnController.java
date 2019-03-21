@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ffse1704.model.PhongBan;
 import com.ffse1704.model.ThongTinDuAn;
 import com.ffse1704.service.ThongTinDuAnService;
 

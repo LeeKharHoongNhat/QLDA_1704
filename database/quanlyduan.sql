@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2019 at 01:56 PM
+-- Generation Time: Mar 21, 2019 at 02:08 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -33,23 +33,19 @@ CREATE TABLE IF NOT EXISTS `cong_viec_du_an` (
   `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ma_cong_viec` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `noi_dung` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ma_cha` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ngay_bat_dau_du_kien` date NOT NULL,
-  `ngay_ket_thuc_du_kien` date NOT NULL,
-  `ngay_bat_dau_thuc_te` date NOT NULL,
-  `ngay_ket_thuc_thuc_te` date NOT NULL,
+  `thoi_gian_mo` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `thoi_gian_dong` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `ma_trang_thai` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `cong_viec_du_an`
 --
 
-INSERT INTO `cong_viec_du_an` (`id`, `ma_du_an`, `ma_cong_viec`, `noi_dung`, `ma_cha`, `ma_nhan_vien`, `ngay_bat_dau_du_kien`, `ngay_ket_thuc_du_kien`, `ngay_bat_dau_thuc_te`, `ngay_ket_thuc_thuc_te`, `ma_trang_thai`) VALUES
-(1, 'DA001', 'CV1', 'Xây dựng database', '0', 'NV001', '2019-03-01', '2019-03-10', '2019-03-01', '2019-03-10', 'TTCV1'),
-(2, 'DA001', 'CV1A', 'Lên database khách hàng', 'CV1', 'NV001', '2019-03-01', '2019-03-01', '2019-03-01', '2019-03-01', 'TTCV1');
+INSERT INTO `cong_viec_du_an` (`id`, `ma_du_an`, `ma_cong_viec`, `noi_dung`, `ma_nhan_vien`, `thoi_gian_mo`, `thoi_gian_dong`, `ma_trang_thai`) VALUES
+(1, 'DA001', 'CV1', 'Xây dựng database', 'NV001', '2019-02-28 19:00:00', '2019-03-01 05:00:00', 'Open');
 
 -- --------------------------------------------------------
 
@@ -248,6 +244,30 @@ INSERT INTO `phong_ban` (`ma_phong_ban`, `ten_phong_ban`, `trang_thai`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `task_logwork`
+--
+
+CREATE TABLE IF NOT EXISTS `task_logwork` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_cong_viec` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noi_dung` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thoi_gian` int(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `task_logwork`
+--
+
+INSERT INTO `task_logwork` (`id`, `ma_du_an`, `ma_cong_viec`, `noi_dung`, `ma_nhan_vien`, `thoi_gian`) VALUES
+(1, 'DA001', 'CV1', 'Xây dựng database khách hàng', 'NV001', 2),
+(2, 'DA001', 'CV1', 'xây dựng database nhân viên', 'NV001', 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `thiet_bi`
 --
 
@@ -291,14 +311,14 @@ CREATE TABLE IF NOT EXISTS `thong_tin_du_an` (
   `ngay_ban_giao` date NOT NULL,
   `gia_tri_hop_dong` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `da_thanh_toan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `trang_thai` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ma_trang_thai` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `thong_tin_du_an`
 --
 
-INSERT INTO `thong_tin_du_an` (`ma_du_an`, `ten_du_an`, `ma_khach_hang`, `ma_phong_ban`, `ma_nhan_vien_pm`, `ngay_bat_dau`, `ngay_ket_thuc`, `ngay_ban_giao`, `gia_tri_hop_dong`, `da_thanh_toan`, `trang_thai`) VALUES
+INSERT INTO `thong_tin_du_an` (`ma_du_an`, `ten_du_an`, `ma_khach_hang`, `ma_phong_ban`, `ma_nhan_vien_pm`, `ngay_bat_dau`, `ngay_ket_thuc`, `ngay_ban_giao`, `gia_tri_hop_dong`, `da_thanh_toan`, `ma_trang_thai`) VALUES
 ('DA001', 'Quản lý hệ thống công ty phần mềm VCL', 'KH001', 'PDA1', 'NV001', '2019-03-01', '2019-03-31', '2019-04-10', '1 000 000 USD', '250 000 USD', 'TTDA1'),
 ('DA002', 'Fasttrack SE', 'KH001', 'PDA2', 'NV001', '2019-03-01', '2019-03-15', '2019-03-30', '10', '1', 'TTDA2'),
 ('DA003', 'ABC Combat', 'KH001', 'PDA3', 'NV001', '2019-03-07', '2019-03-14', '2019-03-30', '100', '10', 'TTDA3'),
@@ -311,20 +331,23 @@ INSERT INTO `thong_tin_du_an` (`ma_du_an`, `ten_du_an`, `ma_khach_hang`, `ma_pho
 --
 
 CREATE TABLE IF NOT EXISTS `tien_do_du_an` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ma_cong_viec` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `noi_dung` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `danh_gia_nhan_vien` int(3) NOT NULL,
-  `danh_gia_pm` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `danh_gia_pm` int(3) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `tien_do_du_an`
 --
 
-INSERT INTO `tien_do_du_an` (`ma_cong_viec`, `ma_nhan_vien`, `noi_dung`, `danh_gia_nhan_vien`, `danh_gia_pm`) VALUES
-('CV1', 'NV001', 'Xây dựng toàn bộ database dự án. tiến độ đúng hạn', 10, 5),
-('CV1A', 'NV001', 'xây dựng database khách hàng hoàn thành', 100, 100);
+INSERT INTO `tien_do_du_an` (`id`, `ma_du_an`, `ma_cong_viec`, `ma_nhan_vien`, `noi_dung`, `danh_gia_nhan_vien`, `danh_gia_pm`) VALUES
+(1, 'DA001', 'CV1', 'NV001', 'Xây dựng toàn bộ database dự án. tiến độ đúng hạn', 10, 5),
+(2, 'DA001', 'CV1A', 'NV001', 'xây dựng database khách hàng hoàn thành', 100, 100);
 
 -- --------------------------------------------------------
 

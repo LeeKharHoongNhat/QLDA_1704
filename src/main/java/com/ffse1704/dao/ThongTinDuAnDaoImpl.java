@@ -2,12 +2,9 @@ package com.ffse1704.dao;
 
 import java.util.List;
 
-import org.hibernate.criterion.Criterion;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.ffse1704.model.PhongBan;
 import com.ffse1704.model.ThongTinDuAn;
 @Repository
 public class ThongTinDuAnDaoImpl extends ResponsitoryDaoImpl<ThongTinDuAn, String> implements ThongTinDuAnDao {

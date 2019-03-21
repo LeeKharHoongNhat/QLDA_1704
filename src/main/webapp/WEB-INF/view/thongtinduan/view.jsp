@@ -51,7 +51,7 @@
 									<td>${command.trangThai.tenTieuThuc}</td>
 									<td><a href="/duan/editduan/${command.maDuAn}"
 										class="btn btn-primary">edit</a> <a
-										href="/congviecduan/${command.maDuAn}&0&1"
+										href="/congviecduan/list?maDuAn=${command.maDuAn}&page=1"
 										class="btn btn-warning">Nhiệm Vụ</a></td>
 								</tr>
 
