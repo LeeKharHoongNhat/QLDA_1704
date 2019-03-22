@@ -1,6 +1,7 @@
 package com.ffse1704.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,35 +27,32 @@ public class NhatKyCongViec implements Serializable {
 	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(name = "ma_du_an")
-	@NotNull(message ="không được để trống!")
+	@NotNull(message = "không được để trống!")
 	private String maDuAn;
 
 	@Column(name = "ma_nhan_vien")
-	@NotNull(message ="không được để trống!")
+	@NotNull(message = "không được để trống!")
 	private String maNhanVien;
 
-
 	@Column(name = "noi_dung")
-	@NotNull(message ="không được để trống!")
+	@NotNull(message = "không được để trống!")
 	private String noiDung;
 
 	@Column(name = "thoi_gian_dang_tai")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@NotNull(message ="Vui Lòng Chọn Ngày!")
-	private String thoiGianDangTai;
-	
+	private Timestamp thoiGianDangTai;
+
 	@Column(name = "IsActive")
 	private int isActive = 1;
-	
+
 	@ManyToOne
-    @JoinColumn(name = "ma_nhan_vien", referencedColumnName = "ma_nhan_vien", nullable = false, insertable = false, updatable = false)
-    private NhanVien nhanVien;
-	
+	@JoinColumn(name = "ma_nhan_vien", referencedColumnName = "ma_nhan_vien", nullable = false, insertable = false, updatable = false)
+	private NhanVien nhanVien;
+
 	@ManyToOne
-    @JoinColumn(name = "ma_du_an", referencedColumnName = "ma_du_an", nullable = false, insertable = false, updatable = false)
-    private ThongTinDuAn thongTinDuAn;
+	@JoinColumn(name = "ma_du_an", referencedColumnName = "ma_du_an", nullable = false, insertable = false, updatable = false)
+	private ThongTinDuAn thongTinDuAn;
 
 	public Integer getId() {
 		return id;
@@ -88,11 +86,11 @@ public class NhatKyCongViec implements Serializable {
 		this.noiDung = noiDung;
 	}
 
-	public String getThoiGianDangTai() {
+	public Timestamp getThoiGianDangTai() {
 		return thoiGianDangTai;
 	}
 
-	public void setThoiGianDangTai(String thoiGianDangTai) {
+	public void setThoiGianDangTai(Timestamp thoiGianDangTai) {
 		this.thoiGianDangTai = thoiGianDangTai;
 	}
 
@@ -119,8 +117,5 @@ public class NhatKyCongViec implements Serializable {
 	public void setThongTinDuAn(ThongTinDuAn thongTinDuAn) {
 		this.thongTinDuAn = thongTinDuAn;
 	}
-
-
-
 
 }

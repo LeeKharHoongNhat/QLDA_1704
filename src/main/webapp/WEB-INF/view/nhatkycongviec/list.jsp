@@ -85,6 +85,17 @@ table {
 .table-striped tbody tr:nth-of-type(odd) {
 	background-color: #fff;
 }
+
+.listbox {
+	float: right;
+	width: 200px;
+	margin-bottom: 14px;
+}
+.textarea{
+border-radius: 30px;
+}
+//
+
 </style>
 <div class="main-panel">
 	<div class="content-wrapper">
@@ -95,37 +106,34 @@ table {
 						<h4 class="card-title">Nhật Ký Công Việc</h4>
 						<nav aria-label="Page navigation example"></nav>
 						<div class="content-header-right "></div>
+						<div class="form-group">
+							<select class="btn btn-info dropdown-toggle listbox"
+								id="maDuAnselect">
+								<c:forEach items="${listDuAn}" var="x">
+									<option value="${x.maDuAn}">${x.tenDuAn}</option>
+								</c:forEach>
+							</select>
+							<!-- validate error mess -->
+						</div>
 						<div class="table-responsive table--no-card m-b-30">
-							<table
-								class="table-bordered table table-borderless table-striped table-earning">
-								<thead>
-									<tr>
-										<th>Tên Nhân Viên</th>
-										<th>Nội Dung</th>
-										<th>Thời Gian Đăng Tải</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="emp" items="${view}">
-										<tr>
-											<td>${emp.nhanVien.hoTenNhanVien}</td>
-											<td>${emp.noiDung}</td>
-											<td>${emp.thoiGianDangTai}</td>
-										</tr>
-									</c:forEach>
-								</tbody>
-							</table>
+
+							<div id="content-table"></div>
+							<script type="text/javascript"> 
+							var mda ="${MDA!=null ? MDA : ''}";
+							
+							
+							
+							
+							</script>
 							<form:form class="forms-sample" method="post"
-								action="/nhatkicongviec/save">
+								action="/add">
 								<div class="form-group">
-									<label >Nội Dung</label>
-									<input type="hidden" name="maNv" value="${maNv}" >
-									<input type="hidden" name="maDuAn" >
-									<textarea class="form-control" name="noiDung" rows="4"></textarea>
+									<label>Nội Dung</label> <input id="maDuAnHiden"type="hidden" name="maDuAn">
+									<textarea class="form-control textarea" name="noiDung" rows="4"></textarea>
 								</div>
-								<button type="submit" class="btn btn-gradient-primary mr-2">Thêm</button>
+								<button type="submit" class="btn btn-outline-success round btn-min-width mr-1 mb-1">Thêm</button>
 								<a href="<c:url value="/nhatkycongviec"> </c:url> "
-									class="btn btn-light">Hủy</a>
+									class="btn btn-outline-danger round btn-min-width mr-1 mb-1">Hủy</a>
 							</form:form>
 						</div>
 					</div>
@@ -134,5 +142,5 @@ table {
 		</div>
 	</div>
 </div>
-
+<script src="<c:url value="/resources/js/nhatkycongviec-script.js"/>"></script>
 <jsp:include page="/WEB-INF/view/templates/footer.jsp" />

@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ffse1704.dao.NhatKyCongViecDao;
 import com.ffse1704.model.NhatKyCongViec;
+import com.ffse1704.model.ThongTinDuAn;
 
 @Service
 public class NhatKyCongViecServiceImpl implements NhatKyCongViecService {
@@ -16,7 +17,20 @@ public class NhatKyCongViecServiceImpl implements NhatKyCongViecService {
 
 	@Override
 	@Transactional
-	public List<NhatKyCongViec> list() {
-		return nhatKyCongViecDao.findAll();
+	public List<NhatKyCongViec> listNhatKyCongViec(String maDuAn) {
+		return nhatKyCongViecDao.listNhatKyCongViec(maDuAn);
+	}
+
+	@Override
+	@Transactional
+	public List<ThongTinDuAn> listDuAn(String maNv) {
+		return nhatKyCongViecDao.listDuAn(maNv);
+	}
+
+	@Override
+	@Transactional
+	public void add(NhatKyCongViec nkcv) {
+		this.nhatKyCongViecDao.save(nkcv);
+
 	}
 }
