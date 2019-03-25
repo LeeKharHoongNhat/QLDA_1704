@@ -100,6 +100,26 @@ table {
 	overflow: scroll;
 	max-height: 300px;
 }
+
+//
+.style-10::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
+}
+
+.style-10::-webkit-scrollbar {
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.style-10::-webkit-scrollbar-thumb {
+	background-color: #AAA;
+	border-radius: 10px;
+	background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%,
+		transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%,
+		rgba(0, 0, 0, .2) 75%, transparent 75%, transparent)
+}
 //
 </style>
 <div class="main-panel">
@@ -121,7 +141,7 @@ table {
 							<!-- validate error mess -->
 						</div>
 						<div class="table-responsive table--no-card m-b-30">
-							<div id="content-table" class="scroll">
+							<div id="content-table" class="scroll style-10">
 								<script type="text/javascript">
 									var mda = "${MDA!=null ? MDA : ''}";
 								</script>
