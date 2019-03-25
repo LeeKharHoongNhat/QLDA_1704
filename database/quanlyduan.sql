@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2019 at 02:04 PM
+-- Generation Time: Mar 25, 2019 at 03:03 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -228,19 +228,31 @@ CREATE TABLE IF NOT EXISTS `nhat_ky_cong_viec` (
   `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `noi_dung` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thoi_gian_dang_tai` datetime NOT NULL,
+  `thoi_gian_dang_tai` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `IsActive` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `nhat_ky_cong_viec`
 --
 
 INSERT INTO `nhat_ky_cong_viec` (`id`, `ma_du_an`, `ma_nhan_vien`, `noi_dung`, `thoi_gian_dang_tai`, `IsActive`) VALUES
-(1, 'DA001', 'NV001', 'ADSA', '2019-03-13 00:00:00', 1),
-(2, 'DA001', 'NV002', 'cccc', '2019-03-26 00:00:00', 1),
-(3, 'DA001', 'NV002', 'aaaaa', '2019-03-13 00:00:00', 1);
+(1, 'DA001', 'NV001', 'ADSA', '2019-03-12 17:00:00', 1),
+(2, 'DA001', 'NV002', 'cccc', '2019-03-25 17:00:00', 1),
+(3, 'DA001', 'NV003', 'aaaaa', '2019-03-12 17:00:00', 1),
+(12, 'DA002', 'NV001', 'asd', '2019-03-21 13:32:38', 1),
+(13, 'DA002', 'NV001', 'ffff', '2019-03-21 13:33:47', 1),
+(14, 'DA002', 'NV001', 'sada', '2019-03-21 13:53:01', 1),
+(15, 'DA003', 'NV001', 'asda', '2019-03-21 14:01:15', 1),
+(16, 'DA002', 'NV001', 'asdas', '2019-03-21 14:09:45', 1),
+(17, 'DA001', 'NV001', 'eeee', '2019-03-21 14:09:55', 1),
+(18, 'DA003', 'NV001', 'dddd', '2019-03-21 14:10:02', 1),
+(19, 'DA003', 'NV001', 'sadasd', '2019-03-21 14:11:36', 1),
+(20, 'DA003', 'NV001', 'ffff', '2019-03-21 14:11:43', 1),
+(21, 'DA001', 'NV001', 'HEllo', '2019-03-22 02:45:30', 1),
+(22, 'DA001', 'NV001', 'ABCD', '2019-03-22 03:00:28', 1),
+(23, 'DA001', 'NV001', 'xxx', '2019-03-25 13:13:51', 1);
 
 -- --------------------------------------------------------
 
@@ -300,7 +312,7 @@ INSERT INTO `task_logwork` (`id`, `ma_du_an`, `ma_cong_viec`, `noi_dung`, `ma_nh
 
 CREATE TABLE IF NOT EXISTS `thiet_bi` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ma_cong_viec` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ten_thiet_bi` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `thoi_gian_bat_dau_thue_muon` datetime NOT NULL,
   `thoi_gian_ket_thuc_thue_muon` datetime NOT NULL,
@@ -315,11 +327,11 @@ CREATE TABLE IF NOT EXISTS `thiet_bi` (
 -- Dumping data for table `thiet_bi`
 --
 
-INSERT INTO `thiet_bi` (`id`, `ma_cong_viec`, `ten_thiet_bi`, `thoi_gian_bat_dau_thue_muon`, `thoi_gian_ket_thuc_thue_muon`, `ghi_chu`, `don_gia`, `chi_phi`, `IsActive`) VALUES
-(1, 'CV1', 'A', '2019-03-06 00:00:00', '2019-03-22 00:00:00', 'TESTTTTTTTTTT', 1000, 1000, 0),
-(2, 'CV1', 'B', '2019-03-26 00:00:00', '2019-03-27 00:00:00', 'TESTTTTT', 2000, 2000, 1),
-(3, 'CV1', 'C', '2019-03-27 00:00:00', '2019-03-14 00:00:00', 'TESTTTTTTTTT', 2000, 2000, 1),
-(4, 'CV1', 'D', '2019-03-22 00:00:00', '2019-03-23 00:00:00', 'TESTTTTTTTTT', 2000, 2000, 1);
+INSERT INTO `thiet_bi` (`id`, `ma_du_an`, `ten_thiet_bi`, `thoi_gian_bat_dau_thue_muon`, `thoi_gian_ket_thuc_thue_muon`, `ghi_chu`, `don_gia`, `chi_phi`, `IsActive`) VALUES
+(1, 'DA001', 'A', '2019-03-06 00:00:00', '2019-03-22 00:00:00', 'TESTTTTTTTTTT', 1000, 1000, 0),
+(2, 'DA001', 'B', '2019-03-26 00:00:00', '2019-03-27 00:00:00', 'TESTTTTT', 2000, 2000, 1),
+(3, 'DA001', 'C', '2019-03-27 00:00:00', '2019-03-14 00:00:00', 'TESTTTTTTTTT', 2000, 2000, 1),
+(4, 'DA001', 'D', '2019-03-22 00:00:00', '2019-03-23 00:00:00', 'TESTTTTTTTTT', 2000, 2000, 1);
 
 -- --------------------------------------------------------
 

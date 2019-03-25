@@ -46,7 +46,7 @@
 									<td>${view.maTrangThai}</td>
 									<td><a href="/congviecduan/edit/${view.id}"
 										class="btn btn-primary">edit</a> <a
-										href="/congviecduan/${view.id}">LogWork</a></td>
+										href="/congviecduan/${view.id}" class="btn btn-primary">LogWork</a></td>
 								</tr>
 
 
