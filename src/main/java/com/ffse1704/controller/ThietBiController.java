@@ -35,18 +35,18 @@ public class ThietBiController {
 		binder.addValidators(thietBiVaid);
 	}
 
-	@RequestMapping("/{maCV}")
-	public String list(@PathVariable String maCV, Model model) {
-		model.addAttribute("viewOne", this.thietBiService.viewOne(maCV));
-		model.addAttribute("maCV", maCV);
+	@RequestMapping("/{maDA}")
+	public String list(@PathVariable String maDA, Model model) {
+		model.addAttribute("viewOne", this.thietBiService.viewOne(maDA));
+		model.addAttribute("maDA", maDA);
 		return "thietbi/list";
 
 	}
 
-	@RequestMapping(value = "/add/{maCV}", method = RequestMethod.GET)
-	public String showFormAdd(Model model, @PathVariable String maCV) {
+	@RequestMapping(value = "/add/{maDA}", method = RequestMethod.GET)
+	public String showFormAdd(Model model, @PathVariable String maDA) {
 		ThietBi tb = new ThietBi();
-		tb.setMaCongViec(maCV);
+		tb.setMaDuAn(maDA);
 		model.addAttribute("command", tb);
 		return "thietbi/add";
 	}
@@ -66,7 +66,7 @@ public class ThietBiController {
 			return "thietbi/add";
 		}
 		thietBiService.addThietBi(tb);
-		return "redirect:/thietbi/" + tb.getMaCongViec();
+		return "redirect:/thietbi/" + tb.getMaDuAn();
 	}
 
 	@RequestMapping("/update")
@@ -75,14 +75,14 @@ public class ThietBiController {
 			return "thietbi/update";
 		}
 		thietBiService.updateThietBi(tb);
-		return "redirect:/thietbi/" + tb.getMaCongViec();
+		return "redirect:/thietbi/" + tb.getMaDuAn();
 	}
 
 	@RequestMapping(value="/remove", method = RequestMethod.POST)
 	public String removeThietBi(@RequestParam("id") Integer id) {
 		ThietBi tb = thietBiService.getThietBiById(id);
 		thietBiService.removeThietBi(tb);
-		return "redirect:/thietbi/" + tb.getMaCongViec();
+		return "redirect:/thietbi/" + tb.getMaDuAn();
 	}
 
 }

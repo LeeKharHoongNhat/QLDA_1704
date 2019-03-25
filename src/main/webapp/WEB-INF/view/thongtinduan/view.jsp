@@ -15,7 +15,7 @@
 						<div class="content-header-right ">
 							<div role="group" aria-label="Button group with nested dropdown"
 								class="btn-group float-md-right " id="add-new">
-								<a href="/thietbi/${emp.maCongViec}" class="btn btn-danger">Thiết
+								<a href="/thietbi/${command.maDuAn}" class="btn btn-danger">Thiết
 									Bị</a> <a
 									href="<c:url value = "/duan/${command.trangThai.maTieuThuc}&1"/>"
 									class="btn btn-info"><span class="fa fa-plus"></span>Back</a>

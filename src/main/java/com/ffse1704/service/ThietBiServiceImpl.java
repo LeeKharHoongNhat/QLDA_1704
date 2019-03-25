@@ -22,9 +22,9 @@ public class ThietBiServiceImpl implements ThietBiService {
 
 	@Override
 	@Transactional
-	public List<ThietBi> viewOne(String maCv) {
+	public List<ThietBi> viewOne(String maDA) {
 		// TODO Auto-generated method stub
-		return this.thietBiDao.viewOne(maCv);
+		return this.thietBiDao.viewOne(maDA);
 	}
 	@Override
 	@Transactional

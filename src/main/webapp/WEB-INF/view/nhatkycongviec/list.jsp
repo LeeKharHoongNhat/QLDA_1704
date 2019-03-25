@@ -102,24 +102,30 @@ table {
 }
 
 //
-.style-10::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+.style-7::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 	background-color: #F5F5F5;
 	border-radius: 10px;
 }
 
-.style-10::-webkit-scrollbar {
+.style-7::-webkit-scrollbar
+{
 	width: 10px;
 	background-color: #F5F5F5;
 }
 
-.style-10::-webkit-scrollbar-thumb {
-	background-color: #AAA;
+.style-7::-webkit-scrollbar-thumb
+{
 	border-radius: 10px;
-	background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, .2) 25%,
-		transparent 25%, transparent 50%, rgba(0, 0, 0, .2) 50%,
-		rgba(0, 0, 0, .2) 75%, transparent 75%, transparent)
+	background-image: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, rgb(122,153,217)),
+									   color-stop(0.72, rgb(73,125,189)),
+									   color-stop(0.86, rgb(28,58,148)));
 }
+
 //
 </style>
 <div class="main-panel">
@@ -141,7 +147,7 @@ table {
 							<!-- validate error mess -->
 						</div>
 						<div class="table-responsive table--no-card m-b-30">
-							<div id="content-table" class="scroll style-10">
+							<div id="content-table" class="scroll style-7">
 								<script type="text/javascript">
 									var mda = "${MDA!=null ? MDA : ''}";
 								</script>

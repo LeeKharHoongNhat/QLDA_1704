@@ -6,7 +6,7 @@ import com.ffse1704.model.ThietBi;
 
 public interface ThietBiService {
 
-	public List<ThietBi> viewOne(String maCv);
+	public List<ThietBi> viewOne(String maDA);
 
 	public void addThietBi(ThietBi tb);
 

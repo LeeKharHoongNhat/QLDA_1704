@@ -22,12 +22,12 @@ public class ThietBi implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 
-	@Column(name = "ma_cong_viec")
-	private String maCongViec;
+	@Column(name = "ma_du_an")
+	private String maDuAn;
 
 	@Column(name = "ten_thiet_bi")
 	@NotEmpty(message = "không được để trống!")
@@ -50,11 +50,11 @@ public class ThietBi implements Serializable {
 	private String ghiChu;
 
 	@Column(name = "don_gia")
-	@NotNull(message ="không được để trống!")
+	@NotNull(message = "không được để trống!")
 	private Double donGia;
 
 	@Column(name = "chi_phi")
-	@NotNull(message ="không được để trống!")
+	@NotNull(message = "không được để trống!")
 	private Double chiPhi;
 
 	@Column(name = "IsActive")
@@ -68,12 +68,12 @@ public class ThietBi implements Serializable {
 		this.id = id;
 	}
 
-	public String getMaCongViec() {
-		return maCongViec;
+	public String getMaDuAn() {
+		return maDuAn;
 	}
 
-	public void setMaCongViec(String maCongViec) {
-		this.maCongViec = maCongViec;
+	public void setMaDuAn(String maDuAn) {
+		this.maDuAn = maDuAn;
 	}
 
 	public String getTenThietBi() {

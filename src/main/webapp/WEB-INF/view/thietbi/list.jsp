@@ -96,7 +96,7 @@ table {
 						<div class="content-header-right ">
 							<div role="group" aria-label="Button group with nested dropdown"
 								class="btn-group float-md-right " id="add-new">
-								<a href="<c:url value = "add/${maCV }"/>" class="btn btn-info button-add"><span
+								<a href="<c:url value = "add/${maDA }"/>" class="btn btn-info button-add"><span
 									class="fa fa-plus"></span> Add New</a>
 							</div>
 
@@ -105,7 +105,7 @@ table {
 							<table class="table-bordered table table-borderless table-striped table-earning">
 								<thead>
 									<tr>
-										<th>Mã Công Việc</th>
+										<th>Mã Dự Án</th>
 										<th>Tên Thiết Bị</th>
 										<th>Thời Gian Bắt Đầu Thuê Mượn</th>
 										<th>Thời Gian Kết Thúc Thuê Mượn</th>
@@ -118,7 +118,7 @@ table {
 								<tbody>
 									<c:forEach var="emp" items="${viewOne}">
 										<tr>
-											<td>${emp.maCongViec}</td>
+											<td>${emp.maDuAn}</td>
 											<td>${emp.tenThietBi}</td>
 											<s:eval expression="T(com.ffse1704.common.Utils).formatDate(emp.thoiGianBatDauThueMuon)" var="startDay" />
 											<td>${startDay}</td>

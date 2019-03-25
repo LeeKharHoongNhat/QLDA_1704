@@ -20,10 +20,10 @@
 						action="/thietbi/update">
 						<form:hidden path="id" />
 						<div class="form-group">
-							<label for="exampleInputName1">Mã Công Việc</label>
-							<form:input path="maCongViec" type="text"
+							<label for="exampleInputName1">Mã Dự Án</label>
+							<form:input path="maDuAn" type="text"
 								class="form-control round" readonly="true" />
-							<form:errors path="maCongViec" cssStyle="color: red" />
+							<form:errors path="maDuAn" cssStyle="color: red" />
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail3">Tên Thiết Bị</label>
@@ -58,7 +58,7 @@
 							<form:errors path="chiPhi" cssStyle="color: red" />
 						</div>
 						<button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-						<button class="btn btn-light" type="reset">Cancel</button>
+					<a href="<c:url value="/thietbi/${command.maDuAn}"> </c:url> " class="btn btn-light" >Hủy</a>
 					</form:form>
 				</div>
 			</div>

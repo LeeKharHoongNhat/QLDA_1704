@@ -11,10 +11,10 @@ import com.ffse1704.model.ThietBi;
 public class ThietBiDaoImpl extends ResponsitoryDaoImpl<ThietBi, Integer> implements ThietBiDao {
 
 	@Override
-	public List<ThietBi> viewOne(String maCV) {
+	public List<ThietBi> viewOne(String maDA) {
 		@SuppressWarnings("rawtypes")
-		Query query = createQuery("from ThietBi where ma_cong_viec = :ma_cong_viec and isActive = :active");
-		query.setParameter("ma_cong_viec", maCV);
+		Query query = createQuery("from ThietBi where ma_du_an = :ma_du_an and isActive = :active");
+		query.setParameter("ma_du_an", maDA);
 		query.setParameter("active", 1);
 		@SuppressWarnings("unchecked")
 		List<ThietBi> viewOne = query.list();
