@@ -51,17 +51,13 @@
 								class="btn-group float-md-right " id="add-new"
 								style="margin-bottom: 10px; float: left !important">
 								<a href="<c:url value = "/duan/TTDA1&1"/>"
-									class="btn btn-gradient-dark btn-rounded btn-fw"><span
-									class="fa fa-plus" style="margin: 5px;"></span> Đang Chạy</a> <a
+									class="btn btn-gradient-dark btn-rounded btn-fw"> Đang Chạy</a> <a
 									href="<c:url value = "/duan/TTDA2&1"/>"
-									class="btn btn-gradient-dark btn-rounded btn-fw"><span
-									class="fa fa-plus" style="margin: 5px;"></span> Test</a> <a
+									class="btn btn-gradient-dark btn-rounded btn-fw"> Test</a> <a
 									href="<c:url value = "/duan/TTDA3&1"/>"
-									class="btn btn-gradient-dark btn-rounded btn-fw"><span
-									class="fa fa-plus" style="margin: 5px;"></span> Chờ Bàn Giao</a> <a
+									class="btn btn-gradient-dark btn-rounded btn-fw"> Chờ Bàn Giao</a> <a
 									href="<c:url value = "/duan/TTDA4&1"/>"
-									class="btn btn-gradient-dark btn-rounded btn-fw"><span
-									class="fa fa-plus" style="margin: 5px;"></span>Đã Bàn Giao </a>
+									class="btn btn-gradient-dark btn-rounded btn-fw">Đã Bàn Giao </a>
 								<%-- <h4 style="margin-top: 20px;" class="text-success">${msg != null ? msg : ''}
 									delete success!</h4> --%>
 							</div>

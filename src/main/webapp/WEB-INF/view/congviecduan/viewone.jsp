@@ -10,7 +10,7 @@
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title">
-							Thông Tin Dự Án: <strong style="color: red;">${view.duAn.tenDuAn}</strong>
+							XXX <strong style="color:red;">${timeAll}</strong>
 						</h4>
 						<div class="content-header-right ">
 							<div role="group" aria-label="Button group with nested dropdown"

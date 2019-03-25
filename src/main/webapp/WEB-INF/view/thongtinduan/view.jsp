@@ -9,17 +9,21 @@
 			<div class="col-lg-12 stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title" >Thông Tin Dự Án: <strong style="color:red;">${command.tenDuAn}</strong></h4>
+						<h4 class="card-title">
+							Thông Tin Dự Án: <strong style="color: red;">${command.tenDuAn}</strong>
+						</h4>
 						<div class="content-header-right ">
 							<div role="group" aria-label="Button group with nested dropdown"
 								class="btn-group float-md-right " id="add-new">
-								<a href="<c:url value = "/duan/${command.trangThai.maTieuThuc}&1"/>" class="btn btn-info"><span
-									class="fa fa-plus"></span>Back</a>
+								<a href="/thietbi/${emp.maCongViec}" class="btn btn-danger">Thiết
+									Bị</a> <a
+									href="<c:url value = "/duan/${command.trangThai.maTieuThuc}&1"/>"
+									class="btn btn-info"><span class="fa fa-plus"></span>Back</a>
 							</div>
 
 						</div>
 
-		
+
 						<table class="table table-bordered">
 							<thead>
 								<tr>
@@ -61,7 +65,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 
 

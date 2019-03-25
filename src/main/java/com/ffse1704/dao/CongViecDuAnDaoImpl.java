@@ -49,6 +49,10 @@ public class CongViecDuAnDaoImpl extends ResponsitoryDaoImpl<CongViecDuAn, Strin
 	@Override
 	public CongViecDuAn getCongViecDuAnById(int id) {
 		List<CongViecDuAn> listcvda = createQuery("from CongViecDuAn tt where tt.id  = '" + id+"'").list();
+		listcvda.forEach(cvda ->{
+			cvda.setDuAn(thongTinDuAnDao.findById(cvda.getMaDuAn()));
+			cvda.setNhanVien(nhanVienDao.findById(cvda.getMaNhanVien()));
+		});
 		CongViecDuAn cvda = listcvda.get(0);
 		return cvda;
 	}

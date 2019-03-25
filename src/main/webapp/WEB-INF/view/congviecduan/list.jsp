@@ -8,7 +8,12 @@
 			<div class="col-lg-12 stretch-card">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title">Danh Sách hạng mục công việc :<strong style="color: red;"> ${tenDuAn.duAn.tenDuAn }</strong></h4>
+						<h4 class="card-title">
+							Danh Sách hạng mục công việc :<a
+								href="<c:url value = "/duan/view/${tenDuAn.duAn.maDuAn }"/>"><strong
+								style="color: red;">${tenDuAn.duAn.tenDuAn }</strong></a>
+
+						</h4>
 						<nav aria-label="Page navigation example"></nav>
 						<div class="content-header-right ">
 							<div role="group" aria-label="Button group with nested dropdown"
@@ -26,6 +31,7 @@
 									<th>Nhân viên</th>
 									<th>Thời gian mở</th>
 									<th>Thời gian đóng</th>
+									<th>Tiến độ(%)</th>
 									<th>Trạng thái</th>
 									<th>Action</th>
 								</tr>
@@ -38,13 +44,12 @@
 										<td>${emp.nhanVien.hoTenNhanVien}</td>
 										<td>${emp.thoiGianMo}</td>
 										<td>${emp.thoiGianDong}</td>
+										<td>10</td>
 										<td>${emp.maTrangThai}</td>
 										<td><a href="/congviecduan/edit/${emp.id}"
 											class="btn btn-primary">edit</a> <a
-											href="/congviecduan?id=${emp.id}">Check</a>
-											<a
-											href="/thietbi/${emp.maCongViec}"
-											class="btn btn-danger">Thiết Bị</a></td>
+											href="/congviecduan?id=${emp.id}" class="btn btn-primary">Check</a>
+											</td>
 									</tr>
 								</c:forEach>
 							</tbody>
