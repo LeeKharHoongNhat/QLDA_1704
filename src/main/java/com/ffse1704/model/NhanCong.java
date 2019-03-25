@@ -28,6 +28,18 @@ public class NhanCong implements Serializable {
 	@NotEmpty(message = "không được để trống!")
 	public String maNhanVien;
 
+	@Column(name = "ma_du_an", nullable = false, length = 255)
+	@NotEmpty(message = "không được để trống!")
+	public String maDuAn;
+
+	public String getMaDuAn() {
+		return maDuAn;
+	}
+
+	public void setMaDuAn(String maDuAn) {
+		this.maDuAn = maDuAn;
+	}
+
 	public int getIsDelete() {
 		return isDelete;
 	}
