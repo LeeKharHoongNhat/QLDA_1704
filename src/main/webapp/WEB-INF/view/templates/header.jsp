@@ -14,6 +14,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Home</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <!-- plugins:css -->
 <link rel="stylesheet"
 	href="<c:url value="/resources/vendors/iconfonts/mdi/css/materialdesignicons.min.css"/>">
@@ -22,21 +25,9 @@
 <!-- endinject -->
 <!-- inject:css -->
 <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
-
 <!-- endinject -->
 <link rel="shortcut icon"
 	href="<c:url value="/resources/images/favicon.png"/>" />
-<!-- Timesheet -->
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/timesheet.css"/>">
-<script type="text/javascript"
-	src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2643/timesheet.js"></script>
-<script type="text/javascript"
-	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
-	type="text/javascript"></script>
-<!-- end Timesheet -->
 
 <!-- <style type="text/css">
 td:nth-child(odd) {
@@ -247,14 +238,10 @@ td:nth-child(even) {
 							<i class="mdi mdi-home menu-icon"></i>
 					</a></li>
 					<!-- end home -->
-					<!-- start du an  -->
-					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/duan/TTDA1&1"/>"> <span class="menu-title">Dự Án</span> <i class="mdi mdi-contacts menu-icon"></i>
-					</a></li>
-					<!-- end du an -->
+
 
 					<!-- start phong ban  -->
-					<%-- <li class="nav-item"><a class="nav-link"
+					<li class="nav-item"><a class="nav-link"
 						data-toggle="collapse" href=" #ui-basic"> <span
 							class="menu-title">Phòng ban</span> <i class="menu-arrow"></i> <i
 							class="mdi mdi-crosshairs-gps menu-icon"></i>
@@ -262,16 +249,11 @@ td:nth-child(even) {
 						<div class="collapse" id="ui-basic">
 							<ul class="nav flex-column sub-menu">
 								<li class="nav-item"><a class="nav-link"
-									href="<c:url value="/phongban/TT01&1"/>">Phòng giám đốc</a></li>
+									href="<c:url value="/phongban/1"/>">Phòng giám đốc</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="pages/ui-features/typography.html">Phòng dự án</a></li>
 							</ul>
-						</div></li> --%>
-					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/phongban/TTPB1&1"/>"> <span
-							class="menu-title">Phòng Ban</span> <i
-							class="mdi mdi-contacts menu-icon"></i>
-					</a></li>
+						</div></li>
 					<!-- end phong ban  -->
 
 					<!-- start nhan vien  -->
@@ -308,12 +290,5 @@ td:nth-child(even) {
 							class="mdi mdi-contacts menu-icon"></i>
 					</a></li>
 					<!-- end nhat ky cong viec  -->
-
-					<!-- start Test  -->
-					<li class="nav-item"><a class="nav-link"
-						href="<c:url value="/test"/>"> <span class="menu-title">Test
-								code</span> <i class="mdi mdi-contacts menu-icon"></i>
-					</a></li>
-					<!-- end Test  -->
 				</ul>
 			</nav>

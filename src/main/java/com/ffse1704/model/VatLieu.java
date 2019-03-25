@@ -34,6 +34,21 @@ public class VatLieu implements Serializable {
 	@NotEmpty(message = "không được để trống!")
 	public String chiPhi;
 
+	@Column(name = "ghi_chu", nullable = false)
+	@NotEmpty(message = "không được để trống!")
+	public String ghiChu;
+	
+	@Column(name = "is_delete")
+	private int isDelete;
+
+	public int getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(int isDelete) {
+		this.isDelete = isDelete;
+	}
+
 	public String getMaCongViec() {
 		return maCongViec;
 	}
@@ -73,20 +88,5 @@ public class VatLieu implements Serializable {
 	public void setGhiChu(String ghiChu) {
 		this.ghiChu = ghiChu;
 	}
-
-	public int getIsDelete() {
-		return isDelete;
-	}
-
-	public void setIsDelete(int isDelete) {
-		this.isDelete = isDelete;
-	}
-
-	@Column(name = "ghi_chu", nullable = false)
-	@NotEmpty(message = "không được để trống!")
-	public String ghiChu;
-
-	@Column(name = "is_delete")
-	private int isDelete;
 
 }

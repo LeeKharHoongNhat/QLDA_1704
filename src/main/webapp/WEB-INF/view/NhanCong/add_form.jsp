@@ -12,9 +12,7 @@
 					<h4 class="card-title">Thêm Nhân Công</h4>
 					<div class="content-header-right ">
 						<div role="group" aria-label="Button group with nested dropdown"
-							class="btn-group float-md-right " id="add-new">
-					s
-						</div>
+							class="btn-group float-md-right " id="add-new"></div>
 
 					</div>
 					<form:form class="forms-sample" method="post" action="create"
@@ -26,9 +24,14 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputName1">Mã Nhân Viên</label>
-							<form:input path="maNhanVien" class="form-control" />
 							<form:errors path="maNhanVien" cssStyle="color: red" />
+							<form:select path="maNhanVien" cssClass="form-control" mutiple="true">
+								<c:forEach items="${choice}" var="nv">
+									<option value="${nv.maNhanVien}">${nv.maNhanVien}</option>
+								</c:forEach>
+							</form:select>
 						</div>
+					
 						<div class="form-group">
 							<label for="exampleInputName1">Nội Dung</label>
 							<form:input path="noiDung" class="form-control" />
@@ -44,7 +47,7 @@
 						<div class="form-group">
 							<label for="exampleInputEmail3">Thời Gian Kết Thúc</label>
 							<form:input type="date" path="thoiGianKetThuc"
-								class="form-control" />
+								class="form-control"/>
 							<form:errors path="thoiGianKetThuc" cssStyle="color: red" />
 						</div>
 						<div class="form-group">

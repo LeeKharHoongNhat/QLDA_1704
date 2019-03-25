@@ -21,20 +21,26 @@ public class NhanCong implements Serializable {
 
 	@Id
 	@Column(name = "ma_cong_viec", unique = true, nullable = false, length = 30)
-	@NotEmpty(message="không được để trống!")
+	@NotEmpty(message = "không được để trống!")
 	private String maCongViec;
 
 	@Column(name = "ma_nhan_vien", nullable = false, length = 255)
-	@NotEmpty(message="không được để trống!")
+	@NotEmpty(message = "không được để trống!")
 	public String maNhanVien;
-	
-	@Column(name = "ma_du_an", nullable = false, length = 255)
-	@NotEmpty(message="không được để trống!")
-	public String maDuAn;
-	
-	
+
+	public int getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(int isDelete) {
+		this.isDelete = isDelete;
+	}
+
+	@Column(name = "is_delete")
+	private int isDelete;
+
 	public NhanCong() {
-		
+
 	}
 
 	public String getMaCongViec() {
@@ -77,34 +83,24 @@ public class NhanCong implements Serializable {
 		this.thoiGianKetThuc = thoiGianKetThuc;
 	}
 
-	
-
-	public String getChiPhi() {
+	public Long getChiPhi() {
 		return chiPhi;
 	}
 
-	public void setChiPhi(String chiPhi) {
+	public void setChiPhi(Long chiPhi) {
 		this.chiPhi = chiPhi;
 	}
 
-	public String getMaDuAn() {
-		return maDuAn;
-	}
-
-	public void setMaDuAn(String maDuAn) {
-		this.maDuAn = maDuAn;
-	}
-
 	@Column(name = "noi_dung", nullable = false, length = 255)
-	@NotEmpty(message="không được để trống!")
+	@NotEmpty(message = "không được để trống!")
 	public String noiDung;
-	
+
 	@Column(name = "thoi_gian_bat_dau")
 	@NotNull(message = "Vui Lòng Chọn Ngày")
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date thoiGianBatDau;
-	
+
 	@Column(name = "thoi_gian_ket_thuc")
 	@NotNull(message = "Vui Lòng Chọn Ngày")
 	@Temporal(TemporalType.DATE)
@@ -112,9 +108,7 @@ public class NhanCong implements Serializable {
 	private Date thoiGianKetThuc;
 
 	@Column(name = "chi_phi", nullable = false, length = 255)
-	@NotEmpty(message="không được để trống!")
-	public String chiPhi;
-	
-
+	@NotNull(message = "không được để trống!")
+	public Long chiPhi;
 
 }

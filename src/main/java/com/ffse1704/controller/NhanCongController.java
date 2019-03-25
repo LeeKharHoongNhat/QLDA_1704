@@ -23,15 +23,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.ffse1704.model.NhanCong;
 import com.ffse1704.model.valid.NhanCongAddValidator;
 import com.ffse1704.service.NhanCongService;
-import com.ffse1704.service.NhanVienService;
 
 @Controller
 @RequestMapping("/nhancong")
 public class NhanCongController {
 	@Autowired
 	private NhanCongService nhanCongService;
-	@Autowired
-	private NhanVienService nhanVienService;
 
 	public void setNhanCongService(NhanCongService nhanCongService) {
 		this.nhanCongService = nhanCongService;
@@ -70,6 +67,7 @@ public class NhanCongController {
 
 	@RequestMapping(value = { "/add_form" })
 	public String redirect(Model model) {
+		model.addAttribute("choice", nhanCongService.ListChoiceNV());
 		model.addAttribute("nhancong", new NhanCong());
 		return "NhanCong/add_form";
 	}
@@ -77,7 +75,7 @@ public class NhanCongController {
 	@RequestMapping(value = { "/create" }, method = RequestMethod.POST)
 	public String creat(@ModelAttribute("nhancong") @Valid NhanCong nhancong, BindingResult result,
 			RedirectAttributes redirectAttributes, HttpSession session, Model model) {
-		//NhanVien listNhanVien=nhanVienService.
+		model.addAttribute("choice", nhanCongService.ListChoiceNV());
 		if (result.hasErrors()) {
 			return "NhanCong/add_form";
 		} else {
@@ -126,15 +124,13 @@ public class NhanCongController {
 
 		}
 	}
-	@RequestMapping(value="/delete", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String delete(@RequestParam("maCongViec") String maCongViec, Model model)
 			throws IllegalStateException, IOException {
-		NhanCong nc = nhanCongService.getId(maCongViec);
-			nhanCongService.delete(nc);
-	
+		nhanCongService.delete(maCongViec);
 		return "redirect:/nhancong/list?page=1&order=desc";
 
-	
 	}
 
 }

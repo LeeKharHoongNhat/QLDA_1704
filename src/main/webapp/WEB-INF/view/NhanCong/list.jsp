@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <jsp:include page="/WEB-INF/view/templates/header.jsp" />
 <style>
 table {
@@ -157,9 +158,22 @@ table {
 											<td>${emp.maCongViec}</td>
 											<td>${emp.maNhanVien}</td>
 											<td>${emp.noiDung}</td>
-											<td>${emp.thoiGianBatDau}</td>
-											<td>${emp.thoiGianKetThuc}</td>
-											<td>${emp.chiPhi}</td>
+											<s:eval
+												expression="T(com.ffse1704.common.Utils).formatDate(emp.thoiGianBatDau)"
+												var="thoiGianBatDau" />
+											
+											<td>${thoiGianBatDau}</td>
+											<s:eval
+												expression="T(com.ffse1704.common.Utils).formatDate(emp.thoiGianKetThuc)"
+												var="thoiGianKetThuc" />
+											
+											<td>${thoiGianKetThuc}</td>
+											<s:eval
+												expression="T(com.ffse1704.common.Utils).formatMoney(emp.chiPhi)"
+												var="chiPhi" />
+
+											<td>${chiPhi}</td>
+
 
 											<td><a href="/nhancong/edit/${emp.maCongViec}"
 												class="btn btn-primary button-edit">edit</a> <a
@@ -206,8 +220,7 @@ table {
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+	
 <script type="text/javascript">
 	deleteNhanCong = function(maCongViec, maCongViec) {
 		console.log('id deleted: ' + maCongViec);
