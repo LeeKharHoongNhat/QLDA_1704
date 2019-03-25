@@ -50,7 +50,6 @@
 .content {
 	float: right;
 }
-
 }
 </style>
 
