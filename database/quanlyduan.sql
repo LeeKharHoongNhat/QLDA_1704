@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2019 at 02:08 PM
+-- Generation Time: Mar 25, 2019 at 02:04 PM
 -- Server version: 5.6.11
 -- PHP Version: 5.5.3
 
@@ -135,6 +135,33 @@ INSERT INTO `khach_hang` (`ma_khach_hang`, `ten_khach_hang`, `dia_chi`, `so_dien
 ('KH001', 'Lê Khả Duy', 'Mỹ Đình, Hà Nội', 397804698, 'lekhaduaT31@gmail.com', '', 2147483647, ''),
 ('KH002', 'Cty Fomosa ', 'Nha Trang, Khánh Hòa', 975661206, 'Fomosavn@gmail.com', '12345678', 2147483647, 'Đại diện: Nguyễn Minh Khoa'),
 ('KH003', 'Lê Khả Hồng Nhật', 'Thanh Hóa', 978987678, 'lekhahongnhatzp1998@gmail.com', '343433444', 123423422, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nhan_cong`
+--
+
+CREATE TABLE IF NOT EXISTS `nhan_cong` (
+  `ma_du_an` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_cong_viec` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ma_nhan_vien` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `noi_dung` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thoi_gian_bat_dau` date NOT NULL,
+  `thoi_gian_ket_thuc` date NOT NULL,
+  `chi_phi` bigint(50) NOT NULL,
+  `is_delete` tinyint(4) NOT NULL,
+  PRIMARY KEY (`ma_cong_viec`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `nhan_cong`
+--
+
+INSERT INTO `nhan_cong` (`ma_du_an`, `ma_cong_viec`, `ma_nhan_vien`, `noi_dung`, `thoi_gian_bat_dau`, `thoi_gian_ket_thuc`, `chi_phi`, `is_delete`) VALUES
+('DA001', 'CV01', 'NV001', 'hmm', '2019-03-05', '2019-03-14', 20000, 0),
+('DA001', 'CV02', 'NV002', 'HHHH', '2019-03-13', '2019-03-29', 6000, 1),
+('DA001', 'CV03', 'NV001', 'HHHH', '2019-03-13', '2019-03-30', 1000000000000, 0);
 
 -- --------------------------------------------------------
 
@@ -356,6 +383,7 @@ INSERT INTO `tien_do_du_an` (`id`, `ma_du_an`, `ma_cong_viec`, `ma_nhan_vien`, `
 --
 
 CREATE TABLE IF NOT EXISTS `vat_lieu` (
+  `ma_du_an` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `ma_cong_viec` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `so_luong` int(5) NOT NULL,
   `don_gia` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -369,12 +397,12 @@ CREATE TABLE IF NOT EXISTS `vat_lieu` (
 -- Dumping data for table `vat_lieu`
 --
 
-INSERT INTO `vat_lieu` (`ma_cong_viec`, `so_luong`, `don_gia`, `chi_phi`, `ghi_chu`, `is_delete`) VALUES
-('CV01', 10, '2555', '255000', '1 tuần', 1),
-('CV02', 2, '200', '2000', 'JJJ', 0),
-('CV03', 2, '2000', '20000', 'TEXT', 0),
-('CV04', 2, '2000', '6000', 'ee', 0),
-('CV05', 2, '2000', '4000', 'HHMM', 0);
+INSERT INTO `vat_lieu` (`ma_du_an`, `ma_cong_viec`, `so_luong`, `don_gia`, `chi_phi`, `ghi_chu`, `is_delete`) VALUES
+('DA001', 'CV01', 10, '2555', '255000', '1 tuần', 1),
+('DA001', 'CV02', 2, '200', '2000', 'JJJ', 0),
+('DA001', 'CV03', 2, '2000', '20000', 'TEXT', 0),
+('DA001', 'CV04', 2, '2000', '6000', 'ee', 0),
+('DA001', 'CV05', 2, '2000', '4000', 'HHMM', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
