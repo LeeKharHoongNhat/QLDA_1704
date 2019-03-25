@@ -91,11 +91,16 @@ table {
 	width: 200px;
 	margin-bottom: 14px;
 }
-.textarea{
-border-radius: 30px;
+
+.textarea {
+	border-radius: 30px;
+}
+
+.scroll {
+	overflow: scroll;
+	max-height: 300px;
 }
 //
-
 </style>
 <div class="main-panel">
 	<div class="content-wrapper">
@@ -116,22 +121,19 @@ border-radius: 30px;
 							<!-- validate error mess -->
 						</div>
 						<div class="table-responsive table--no-card m-b-30">
-
-							<div id="content-table"></div>
-							<script type="text/javascript"> 
-							var mda ="${MDA!=null ? MDA : ''}";
-							
-							
-							
-							
-							</script>
-							<form:form class="forms-sample" method="post"
-								action="/add">
+							<div id="content-table" class="scroll">
+								<script type="text/javascript">
+									var mda = "${MDA!=null ? MDA : ''}";
+								</script>
+							</div>
+							<form:form class="forms-sample" method="post" action="/add">
 								<div class="form-group">
-									<label>Nội Dung</label> <input id="maDuAnHiden"type="hidden" name="maDuAn">
+									<label>Nội Dung</label> <input id="maDuAnHiden" type="hidden"
+										name="maDuAn">
 									<textarea class="form-control textarea" name="noiDung" rows="4"></textarea>
 								</div>
-								<button type="submit" class="btn btn-outline-success round btn-min-width mr-1 mb-1">Thêm</button>
+								<button type="submit"
+									class="btn btn-outline-success round btn-min-width mr-1 mb-1">Thêm</button>
 								<a href="<c:url value="/nhatkycongviec"> </c:url> "
 									class="btn btn-outline-danger round btn-min-width mr-1 mb-1">Hủy</a>
 							</form:form>

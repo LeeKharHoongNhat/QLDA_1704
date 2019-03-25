@@ -1,23 +1,14 @@
 package com.ffse1704.controller;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ffse1704.model.NhatKyCongViec;
-import com.ffse1704.model.ThietBi;
-import com.ffse1704.model.ThongTinDuAn;
 import com.ffse1704.service.NhatKyCongViecService;
 import com.ffse1704.service.ThongTinDuAnService;
-
-import net.bytebuddy.agent.builder.AgentBuilder.CircularityLock.Global;
 
 @Controller
 public class NhatKyCongViecController {
