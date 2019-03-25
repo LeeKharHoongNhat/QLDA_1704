@@ -22,50 +22,64 @@ public class VatLieuServiceImpl implements VatLieuService {
 
 	@Override
 	@Transactional
-	public void addNew(VatLieu vl) {
-		vatLieuDao.addNew(vl);
-
-	}
-
-	@Override
-	@Transactional
-	public void update(VatLieu vl) {
-		vatLieuDao.update(vl);
-
-	}
-
-	@Override
-	@Transactional
-	public VatLieu getId(String maVatLieu) {
+	public List<VatLieu> view(int iDisplayStart, int iDisplayLength, String order) {
 		// TODO Auto-generated method stub
-		return vatLieuDao.getId(maVatLieu);
-
-	}
-
-	@Override
-	@Transactional
-	public List<VatLieu> listVL(int iDisplayStart, int iDisplayLength) {
-		// TODO Auto-generated method stub
-		return vatLieuDao.listVL(iDisplayStart, iDisplayLength);
+		return vatLieuDao.view(iDisplayStart, iDisplayLength, order);
 	}
 
 	@Override
 	@Transactional
 	public int getRecordsTotal() {
+		// TODO Auto-generated method stub
 		return vatLieuDao.getRecordsTotal();
 	}
 
 	@Override
 	@Transactional
-	public int getRecordsByIdVatLieu(String maVatLieu) {
+	public boolean addNew(VatLieu vl) {
 		// TODO Auto-generated method stub
-		return vatLieuDao.getRecordsByIdVatLieu(maVatLieu);
+		String id = vatLieuDao.save(vl);
+		if (id != null) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
 	@Transactional
-	public void delete(String vl) {
-		vatLieuDao.delete(vl);
+	public boolean update(VatLieu vl) {
+		boolean result = false;
+		try {
+			vatLieuDao.update(vl);
+			result = true;
+		} catch (Exception e) {
+			result = false;
+		}
+		return result;
+	}
+
+	@Override
+	@Transactional
+	public VatLieu getId(String maCongViec) {
+		// TODO Auto-generated method stub
+		return vatLieuDao.findById(maCongViec);
+	}
+
+	@Override
+	@Transactional
+	public VatLieu checkExists(String mcv) {
+		return vatLieuDao.findById(mcv);
+
+	}
+
+	@Override
+	@Transactional
+	public VatLieu delete(String maCongViec) {
+
+		VatLieu vl = vatLieuDao.findById(maCongViec);
+		vl.setIsDelete(1);
+
+		return vl;
 	}
 
 }
