@@ -15,28 +15,33 @@
 							<ul class="pagination">
 
 								<c:if test="${indexPage > 1}">
-									<li class="page-item"><a href="/logwork/1"
+									<li class="page-item"><a
+										href="/logwork/list?maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}&page=1"
 										class="page-link">First</a></li>
 								</c:if>
 
 
 								<c:if test="${indexPage > 1}">
-									<li class="page-item"><a href="//logwork/1/${indexPage-1}"
+									<li class="page-item"><a
+										href="/logwork/list?maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}&page=${indexPage-1}"
 										class="page-link">${indexPage-1}</a></li>
 								</c:if>
 
 
-								<li class="page-item"><a href="//logwork/1/${indexPage}"
+								<li class="page-item"><a
+									href="/logwork/list?maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}&page=${indexPage}"
 									class="page-link">${indexPage}</a></li>
 
 
 								<c:if test="${indexPage < allPage}">
-									<li class="page-item"><a href="//logwork/1/${indexPage+1}"
+									<li class="page-item"><a
+										href="/logwork/list?maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}&page=${indexPage+1}"
 										class="page-link">${indexPage+1}</a></li>
 								</c:if>
 
 								<c:if test="${indexPage < allPage}">
-									<li class="page-item"><a href="//logwork/1/${allPage}"
+									<li class="page-item"><a
+										href="/logwork/list?maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}&page=${allPage}"
 										class="page-link">Last</a></li>
 								</c:if>
 
@@ -45,8 +50,10 @@
 						<div role="group" aria-label="Button group with nested dropdown"
 							class="btn-group float-md-right " id="add-new"
 							style="margin-bottom: 10px;">
-							<a href="newlogwork?maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}" class="btn btn-info"><span
-								class="fa fa-plus"></span> LogWork</a>
+							<a
+								href="newlogwork?maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}"
+								class="btn btn-info"><span class="fa fa-plus"></span>
+								LogWork</a>
 						</div>
 						<%-- <div role="group" aria-label="Button group with nested dropdown"
 							class="btn-group float-md-right " id="add-new"
@@ -57,16 +64,16 @@
 
 					</div>
 					<div class="container">
-						<h4 class=" mdi mdi-alarm-check"> Tiến độ hiện tại</h4>
+						<h4 class=" mdi mdi-alarm-check">Tiến độ hiện tại</h4>
 						<br>
 						<h4 style="padding-left: 490px;">All time: ${timeAll}h</h4>
-						<div class="progress" >
+						<div class="progress">
 							<div class="progress-bar bg-gradient-info" role="progressbar"
 								style="width: ${persentTime}%" aria-valuenow="65"
 								aria-valuemin="0" aria-valuemax="100"></div>
 						</div>
 						<label><strong style="color: blue;">${timeLogWork}h
-								logged</strong> <strong style="color: red; margin-left: 910px;">${timeRemainning}h
+								logged</strong> <strong style="color: red; margin-left: 880px;">${timeRemainning}h
 								remaining </strong></label>
 					</div>
 
@@ -86,7 +93,8 @@
 									<td>${emp.nhanVien.hoTenNhanVien}</td>
 									<td>${emp.noiDung}</td>
 									<td>${emp.thoiGian}</td>
-									<td><a href="/logwork/editlogwork/${emp.id}"
+									<td><a
+										href="/logwork/editlogwork?id=${emp.id}&maDuAn=${checkOne.duAn.maDuAn }&maCongViec=${checkOne.congViec.maCongViec}&checkTime=${checkTime}"
 										class="btn btn-primary">edit</a> <a
 										onclick="deleteLogWork'${emp.id}')" class="btn btn-danger"
 										style="color: white;!improtant">delete</a></td>

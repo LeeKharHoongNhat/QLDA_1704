@@ -15,7 +15,7 @@
 					<h4 class="card-title">
 						Hạng Mục:<strong style="color: red;">${checkOne.congViec.noiDung}</strong>
 					</h4>
-					<h4 class="card-title">Add LogWork</h4>
+					<h4 class="card-title">Edit LogWork</h4>
 					<div class="container">
 						<h4 style="padding-left: 490px;">All time: ${timeAll}h</h4>
 						<div class="progress">
@@ -28,8 +28,9 @@
 								remaining </strong></label>
 					</div>
 					<input type="hidden" value="${timeRemainning}" id="timeRemainning" />
+					<input type="hidden" value="${checkOne.thoiGian}" id="timeTaskLog" />
 					<br>
-					<form:form class="forms-sample" method="post" action="savelogwork">
+					<form:form class="forms-sample" method="post" action="submiteditlogwork">
 					
 					<input type="hidden" value="${checkOne.maDuAn}" id="maDuAn" name="maDuAn" />
 					<input type="hidden" value="${checkOne.maCongViec}" id="maCongViec" name="maCongViec" />
@@ -59,7 +60,8 @@
 				$("#thoiGian").change(function() {
 					console.log(this.value);
 					var timeRmnning = $("#timeRemainning").val();
-					if(parseInt(timeRmnning)<parseInt(this.value)){
+					var timeTask = $("#timeTaskLog").val();
+					if((parseInt(timeRmnning)+parseInt(timeTask)) <parseInt(this.value)){
 						$("#msgCheckTime").text("Số thời gian Logwork phải nhỏ hơn thời gian Remainning!").show();
 						$("#msgThoiGian").hide();
 					}else{

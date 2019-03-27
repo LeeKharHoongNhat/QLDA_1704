@@ -1,6 +1,7 @@
 package com.ffse1704.controller;
 
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -54,13 +55,18 @@ public class LogWorkController {
 		for (int i = 0; i < listAll.size(); i++) {
 			timeLogWork += listAll.get(i).getThoiGian();
 		}
-		double a =  timeLogWork / timeAll;
-		timeRemainning =  (timeAll - timeLogWork);
+		double a = timeLogWork / timeAll;
+		timeRemainning = (timeAll - timeLogWork);
+
+		DecimalFormat df = new DecimalFormat("0.0");
+		String str = df.format(timeRemainning);
+		double result = Double.valueOf(str);
+
 		persentLogWork = (int) (a * 100);
 		model.addAttribute("timeAll", timeAll);
 		model.addAttribute("persentTime", persentLogWork);
 		model.addAttribute("timeLogWork", timeLogWork);
-		model.addAttribute("timeRemainning", timeRemainning);
+		model.addAttribute("timeRemainning", result);
 		/* end xử lý time logwork */
 		model.addAttribute("checkOne", list.get(0));
 		model.addAttribute("checkTime", checkTime);
@@ -83,27 +89,83 @@ public class LogWorkController {
 		for (int i = 0; i < listAll.size(); i++) {
 			timeLogWork += listAll.get(i).getThoiGian();
 		}
-		double a =  timeLogWork /  timeAll;
+		double a = timeLogWork / timeAll;
 		timeRemainning = (timeAll - timeLogWork);
+		DecimalFormat df = new DecimalFormat("0.0");
+		String str = df.format(timeRemainning);
+		double result = Double.valueOf(str);
 		persentLogWork = (int) (a * 100);
 		model.addAttribute("timeAll", timeAll);
 		model.addAttribute("checkTime", checkTime);
 		model.addAttribute("checkOne", listAll.get(0));
 		model.addAttribute("persentTime", persentLogWork);
 		model.addAttribute("timeLogWork", timeLogWork);
-		model.addAttribute("timeRemainning", timeRemainning);
+		model.addAttribute("timeRemainning", result);
 		return new ModelAndView("logwork/add", "command", new LogWork());
 	}
 
-	@RequestMapping(value ="/savelogwork", method = RequestMethod.POST)
+	@RequestMapping(value = "/savelogwork", method = RequestMethod.POST)
 	public String submitAdd(@ModelAttribute("command") @Valid LogWork logWork, BindingResult result,
 			HttpSession session, Model model) {
 		if (result.hasErrors()) {
+			double timeLogWork = 0;
+			double timeRemainning = 0;
+			double persentLogWork = 0;
+			List<LogWork> listAll = logWorkService.listLogWork(logWork.getMaDuAn(), logWork.getMaCongViec());
+			CongViecDuAn congViecDuAn = congViecDuAnService.getCongViecDuAnById(logWork.getCheckTime());
+			long diff = congViecDuAn.getThoiGianDong().getTime() - congViecDuAn.getThoiGianMo().getTime();
+			long timeAll = diff / (60 * 60 * 1000) % 24;
+			for (int i = 0; i < listAll.size(); i++) {
+				timeLogWork += listAll.get(i).getThoiGian();
+			}
+			double a = timeLogWork / timeAll;
+			timeRemainning = (timeAll - timeLogWork);
+			DecimalFormat df = new DecimalFormat("0.0");
+			String str = df.format(timeRemainning);
+			double end = Double.valueOf(str);
+			persentLogWork = (int) (a * 100);
+			model.addAttribute("timeAll", timeAll);
+			model.addAttribute("checkTime", logWork.getCheckTime());
+			model.addAttribute("checkOne", listAll.get(0));
+			model.addAttribute("persentTime", persentLogWork);
+			model.addAttribute("timeLogWork", timeLogWork);
+			model.addAttribute("timeRemainning", end);
 			return "logwork/add";
 		} else {
 			logWorkService.addNew(logWork);
 		}
-		return "redirect:/logwork/list?maDuAn=" + logWork.getMaDuAn() + "&maCongViec=" + logWork.getMaCongViec() + "&checkTime="
-				+ logWork.getCheckTime() + "&page=1";
+		return "redirect:/logwork/list?maDuAn=" + logWork.getMaDuAn() + "&maCongViec=" + logWork.getMaCongViec()
+				+ "&checkTime=" + logWork.getCheckTime() + "&page=1";
+	}
+
+	@RequestMapping("/editlogwork")
+	public String viewEdit(@RequestParam("id") Integer id,@RequestParam("maDuAn") String maDuAn, @RequestParam("maCongViec") String maCongViec,
+			@RequestParam("checkTime") Integer checkTime, Model model) {
+		double timeLogWork = 0;
+		double timeRemainning = 0;
+		double persentLogWork = 0;
+		List<LogWork> listAll = logWorkService.listLogWork(maDuAn, maCongViec);
+		LogWork getOneLogWork = logWorkService.getOneLogWork(id);
+		CongViecDuAn congViecDuAn = congViecDuAnService.getCongViecDuAnById(checkTime);
+		long diff = congViecDuAn.getThoiGianDong().getTime() - congViecDuAn.getThoiGianMo().getTime();
+		long timeAll = diff / (60 * 60 * 1000) % 24;
+		for (int i = 0; i < listAll.size(); i++) {
+			timeLogWork += listAll.get(i).getThoiGian();
+		}
+		double a = timeLogWork / timeAll;
+		timeRemainning = (timeAll - timeLogWork);
+		DecimalFormat df = new DecimalFormat("0.0");
+		String str = df.format(timeRemainning);
+		double result = Double.valueOf(str);
+		persentLogWork = (int) (a * 100);
+		model.addAttribute("timeAll", timeAll);
+		model.addAttribute("checkTime", checkTime);
+		model.addAttribute("checkOne", listAll.get(0));
+		model.addAttribute("persentTime", persentLogWork);
+		model.addAttribute("timeLogWork", timeLogWork);
+		model.addAttribute("timeRemainning", result);
+		model.addAttribute("command", getOneLogWork);
+		
+		return "logwork/edit";
 	}
 }
