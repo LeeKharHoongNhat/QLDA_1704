@@ -6,7 +6,9 @@ import com.ffse1704.model.LogWork;
 
 public interface LogWorkDao extends RepositoryDao<LogWork, Integer> {
 
-	public List<LogWork> listLogWork(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength);
+	public List<LogWork> listLogWorkPage(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength);
+	
+	public List<LogWork> listLogWork(String maDuAn, String maCongViec);
 
 	public int getRecordsTotal(String maDuAn, String maCongViec);
 

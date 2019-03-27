@@ -25,7 +25,7 @@ public class LogWorkDaoImpl extends ResponsitoryDaoImpl<LogWork, Integer> implem
 	private NhanVienDao nhanVienDao;
 
 	@Override
-	public List<LogWork> listLogWork(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength) {
+	public List<LogWork> listLogWorkPage(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength) {
 		List<LogWork> listLogWork = createQuery(
 				"from LogWork where maDuAn ='" + maDuAn + "'and maCongViec ='" + maCongViec + "'")
 						.setFirstResult(iDisplayStart).setMaxResults(iDisplayLength).list();
@@ -52,5 +52,17 @@ public class LogWorkDaoImpl extends ResponsitoryDaoImpl<LogWork, Integer> implem
 		LogWork logWork = listLogWork.get(0);
 		return logWork;
 
+	}
+
+	@Override
+	public List<LogWork> listLogWork(String maDuAn, String maCongViec) {
+		List<LogWork> listLogWork = createQuery(
+				"from LogWork where maDuAn ='" + maDuAn + "'and maCongViec ='" + maCongViec + "'").list();
+		listLogWork.forEach(logWork -> {
+			logWork.setDuAn(thongTinDuAnDao.findById(logWork.getMaDuAn()));
+			logWork.setCongViec(congViecDuAnDao.findById(logWork.getMaCongViec()));
+			logWork.setNhanVien(nhanVienDao.findById(logWork.getMaNhanVien()));
+		});
+		return listLogWork;
 	}
 }

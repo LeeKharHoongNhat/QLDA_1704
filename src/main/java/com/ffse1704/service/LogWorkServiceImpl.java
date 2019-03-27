@@ -58,14 +58,20 @@ public class LogWorkServiceImpl implements LogWorkService {
 
 	@Override
 	@Transactional
-	public List<LogWork> listLogWork(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength) {
-		return this.logWorkDao.listLogWork(maDuAn, maCongViec, iDisplayStart, iDisplayLength);
+	public List<LogWork> listLogWorkPage(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength) {
+		return this.logWorkDao.listLogWorkPage(maDuAn, maCongViec, iDisplayStart, iDisplayLength);
 	}
 
 	@Override
 	@Transactional
 	public int getRecordsTotal(String maDuAn, String maCongViec) {
 		return this.logWorkDao.getRecordsTotal(maDuAn, maCongViec);
+	}
+
+	@Override
+	@Transactional
+	public List<LogWork> listLogWork(String maDuAn, String maCongViec) {
+		return this.logWorkDao.listLogWork(maDuAn, maCongViec);
 	}
 
 }

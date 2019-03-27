@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "task_logwork")
@@ -35,8 +36,11 @@ public class LogWork {
 	private String maNhanVien;
 
 	@Column(name = "thoi_gian")
-	@NotEmpty(message = "không được để trống!")
-	private Integer thoiGian;
+	@NotNull(message = "không được để trống!")
+	private Double thoiGian;
+
+	@Transient
+	private Integer checkTime;
 
 	@Transient
 	private ThongTinDuAn duAn;
@@ -46,6 +50,14 @@ public class LogWork {
 
 	@Transient
 	private NhanVien nhanVien;
+
+	public Integer getCheckTime() {
+		return checkTime;
+	}
+
+	public void setCheckTime(Integer checkTime) {
+		this.checkTime = checkTime;
+	}
 
 	public Integer getId() {
 		return id;
@@ -87,11 +99,12 @@ public class LogWork {
 		this.maNhanVien = maNhanVien;
 	}
 
-	public Integer getThoiGian() {
+	
+	public Double getThoiGian() {
 		return thoiGian;
 	}
 
-	public void setThoiGian(Integer thoiGian) {
+	public void setThoiGian(Double thoiGian) {
 		this.thoiGian = thoiGian;
 	}
 

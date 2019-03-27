@@ -12,7 +12,9 @@ public interface LogWorkService {
 
 	public LogWork getOneLogWork(int id);
 
-	public List<LogWork> listLogWork(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength);
+	public List<LogWork> listLogWorkPage(String maDuAn, String maCongViec, int iDisplayStart, int iDisplayLength);
+	
+	public List<LogWork> listLogWork(String maDuAn, String maCongViec);
 
 	public int getRecordsTotal(String maDuAn, String maCongViec);
 }

@@ -10,7 +10,7 @@
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title">
-							XXX <strong style="color:red;">${timeAll}</strong>
+							XXX
 						</h4>
 						<div class="content-header-right ">
 							<div role="group" aria-label="Button group with nested dropdown"
@@ -46,7 +46,7 @@
 									<td>${view.maTrangThai}</td>
 									<td><a href="/congviecduan/edit/${view.id}"
 										class="btn btn-primary">edit</a> <a
-										href="/congviecduan/${view.id}" class="btn btn-primary">LogWork</a></td>
+										href="/logwork/list?maDuAn=${view.maDuAn}&maCongViec=${view.maCongViec}&checkTime=${view.id}&page=1" class="btn btn-primary">LogWork</a></td>
 								</tr>
 
 
