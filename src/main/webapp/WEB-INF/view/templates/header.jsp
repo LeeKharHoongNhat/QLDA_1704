@@ -26,6 +26,7 @@
 <!-- endinject -->
 <!-- inject:css -->
 <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
+<link rel="stylesheet" href="<c:url value="/resources/css/fullcalendar.css"/>">
 <!-- endinject -->
 <link rel="shortcut icon"
 	href="<c:url value="/resources/images/favicon.png"/>" />
@@ -35,23 +36,56 @@
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/timesheet.css"/>">
 <script type="text/javascript"
-	src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2643/timesheet.js"></script>
-<script type="text/javascript"
+	src="<c:url value="/resources/js/timesheet.js"/>"></script>
+<!-- <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script
+ --><script
 	src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
 	type="text/javascript"></script>
 <!-- end Timesheet -->
 
 <!-- <style type="text/css">
-td:nth-child(odd) {
-	color: #777;
+input {
+	border: 1px solid #fff;
+	margin: 0;
+	font-size: 20px;
 }
 
-td:nth-child(even) {
-	color: black;
-} -->
-</style>
+input:focus, input:active, input:hover {
+	outline: 1px solid #eee;
+	background-color: #eee;
+}
+
+select {
+	border: 1px solid #fff;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	border: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+table {
+	border: 1px solid #999;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table td {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #999;
+}
+
+table th {
+	background-color: #aaa;
+	min-width: 20px;
+	border: 1px solid #999;
+}
+}
+</style> -->
 
 </head>
 <body>
