@@ -31,15 +31,7 @@ public class NhatKyCongViecDaoImpl extends ResponsitoryDaoImpl<NhatKyCongViec, I
 	@Override
 	public List<NhatKyCongViec> listNhatKyCongViec(String maDuAn) {
 		StringBuilder hql= new StringBuilder();
-		hql.append("SELECT nkcv FROM NhatKyCongViec nkcv ");
-//		hql.append("INNER JOIN NhanCong nc ");
-//		hql.append("ON ttda.maDuAn = nc.maDuAn ");
-//		hql.append("INNER JOIN NhanVien nv ");
-//		hql.append("ON nv.maNhanVien = nc.maNhanVien ");
-//		
-//		hql.append("INNER JOIN NhatKyCongViec nkcv ");
-//		hql.append("ON nkcv.maNhanVien = nv.maNhanVien ");
-//		
+		hql.append("SELECT nkcv FROM NhatKyCongViec nkcv ");	
 		hql.append("WHERE nkcv.maDuAn = :maDuAn");
 		
 		Query query = createQuery(hql.toString());

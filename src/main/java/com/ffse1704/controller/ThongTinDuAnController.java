@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ffse1704.model.ThongTinDuAn;
+import com.ffse1704.service.KhachHangService;
 import com.ffse1704.service.ThongTinDuAnService;
 
 @Controller
@@ -18,7 +19,9 @@ public class ThongTinDuAnController {
 
 	@Autowired
 	private ThongTinDuAnService thongTinDuAnService;
-	
+	@Autowired
+	private KhachHangService khachHangService;
+
 	@RequestMapping("/{trangThai}&{page}")
 	public String list(@PathVariable String trangThai, @PathVariable int page, Model model) throws SQLException {
 		int allItem = thongTinDuAnService.getRecordsTotal(trangThai);
@@ -32,14 +35,15 @@ public class ThongTinDuAnController {
 		model.addAttribute("allPage", total);
 		return "thongtinduan/list";
 	}
-	
+
 	@RequestMapping(value = "/view/{idDuAn}")
 	public String viewEditPhongBan(@PathVariable String idDuAn, Model model) {
-		//List<TieuThuc> listTieuThuc = tieuThucService.getListTieuThucByMaCha("TTPB");
+		// List<TieuThuc> listTieuThuc = tieuThucService.getListTieuThucByMaCha("TTPB");
 		ThongTinDuAn duAn = thongTinDuAnService.viewOneDuAn(idDuAn);
 		model.addAttribute("command", duAn);
-		//model.addAttribute("list", listTieuThuc);
+		// model.addAttribute("list", listTieuThuc);
 		return "thongtinduan/view";
 	}
+
 
 }
